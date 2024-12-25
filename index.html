@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu Plano Netflix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header img {
+            width: 200px;
+            margin-bottom: 20px;
+            border: 5px solid #e50914; /* Borda vermelha ao redor da logo */
+            border-radius: 50%; /* Bordas arredondadas */
+            padding: 10px; /* Espaço entre a logo e a borda */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Sombra suave */
+        }
+        .header h1 {
+            color: #e50914;
+            margin-top: 20px;
+        }
+        .plan {
+            background: #1f1f1f;
+            border: 2px solid #e50914;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .plan:hover {
+            transform: scale(1.05);
+        }
+        .plan img {
+            width: 100%;
+            max-width: 350px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .plan h2 {
+            color: #e50914;
+            font-size: 24px;
+        }
+        .plan p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .plan .price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .plan button {
+            background: #e50914;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .plan button:hover {
+            background: #f40612;
+        }
+        /* Estilo para o rodapé */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho com logo -->
+        <div class="header">
+            <img src="logo.png" alt="Logo Netflix">
+            <h1>Escolha seu Plano Netflix</h1>
+        </div>
+        
+        <!-- Planos -->
+        <div class="plan">
+            <img src="movel.png" alt="Plano Móvel">
+            <h2>Plano Móvel</h2>
+            <p>300MT/Mês</p>
+            <p>Para Android e Tablet</p>
+            <p>Qualidade razoável de 480p</p>
+            <button onclick="window.location.href='checkout.html?plano=movel&preco=300';">Comprar</button>
+        </div>
+        
+        <div class="plan">
+            <img src="basico.png" alt="Plano Básico">
+            <h2>Plano Básico</h2>
+            <p>400MT/Mês</p>
+            <p>TV, Computador, Celular e Tablet</p>
+            <p>Qualidade HD 720p</p>
+            <button onclick="window.location.href='checkout.html?plano=basico&preco=400';">Comprar</button>
+        </div>
+        
+        <div class="plan">
+            <img src="standard.png" alt="Plano Standard">
+            <h2>Plano Standard</h2>
+            <p>700MT/Mês</p>
+            <p>TV, Computador, Celular e Tablet</p>
+            <p>Qualidade Full HD 1080p</p>
+            <button onclick="window.location.href='checkout.html?plano=standard&preco=700';">Comprar</button>
+        </div>
+        
+        <div class="plan">
+            <img src="premium.png" alt="Pacote Premium">
+            <h2>Pacote Premium</h2>
+            <p>800MT/Mês</p>
+            <p>TV, Computador, Celular e Tablet</p>
+            <p>Qualidade 4K ULTRA HD + HDR</p>
+            <button onclick="window.location.href='checkout.html?plano=premium&preco=800';">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        <p>&copy; 2024 Assinatura Netflix. Todos os direitos reservados.</p>
+        <p>Suporte: <a href="tel:+258876625174">258876625174</a></p>
+        <p>Email de Suporte: <a href="mailto:jonaspedroqt@gmail.com">jonaspedroqt@gmail.com</a></p>
+    </div>
+</body>
+</html>

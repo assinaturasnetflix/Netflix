@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1f1f1f;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: #e50914;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #e50914;
+        }
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #e50914;
+            border-radius: 5px;
+            background: #1f1f1f;
+            color: #fff;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #e50914;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #f40612;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+        .footer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Finalizar Compra</h1>
+        <form id="checkoutForm" action="#" onsubmit="redirecionarWhatsApp(event)">
+            <p>Selecionou o <strong id="planoSelecionado">Plano</strong> (<strong id="precoSelecionado">0MT/Mês</strong>).</p>
+            <label for="periodo">Escolha o período:</label>
+            <select id="periodo" required>
+                <option value="1 mês">1 Mês</option>
+                <option value="2 meses">2 Meses</option>
+                <option value="3 meses">3 Meses</option>
+            </select>
+            <label for="whatsapp">Seu número de WhatsApp:</label>
+            <input type="text" id="whatsapp" placeholder="Digite seu WhatsApp com código do país" required>
+            <label for="pagamento">Forma de pagamento:</label>
+            <select id="pagamento" required>
+                <option value="M-Pesa">M-Pesa</option>
+                <option value="E-Mola">E-Mola</option>
+                <option value="Izi">Izi</option>
+            </select>
+            <button type="submit">Pagar Agora</button>
+        </form>
+        <div class="footer">
+            <p>Após o pagamento, você receberá os detalhes da assinatura no WhatsApp informado.</p>
+        </div>
+    </div>
+
+    <script>
+        // Pega os parâmetros da URL para preencher os dados do plano
+        const urlParams = new URLSearchParams(window.location.search);
+        const plano = urlParams.get("plano") || "Plano Desconhecido";
+        const preco = urlParams.get("preco") || "0MT/Mês";
+        
+        // Preenche os campos com os valores
+        document.getElementById("planoSelecionado").textContent = plano;
+        document.getElementById("precoSelecionado").textContent = preco;
+
+        // Função para redirecionar para o WhatsApp
+        function redirecionarWhatsApp(event) {
+            event.preventDefault();
+            const periodo = document.getElementById("periodo").value;
+            const whatsapp = document.getElementById("whatsapp").value;
+            const pagamento = document.getElementById("pagamento").value;
+
+            // Formata a mensagem
+            const mensagem = `Olá, selecionei o plano ${plano} (${preco}), por ${periodo}. Forma de pagamento: ${pagamento}. Meu WhatsApp para receber a assinatura: ${whatsapp}.`;
+
+            // Redireciona para o WhatsApp
+            const whatsappLink = `https://wa.me/258867245980?text=${encodeURIComponent(mensagem)}`;
+            window.location.href = whatsappLink;
+        }
+    </script>
+</body>
+</html>
