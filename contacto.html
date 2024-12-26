@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <style>
+        /* Resetando os estilos padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141414; /* Cor de fundo preta */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container do formulário */
+        .contact-form-container {
+            background-color: #e50914; /* Vermelho Netflix */
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Título */
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Grupos de formulário */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Rótulos */
+        label {
+            display: block;
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        /* Campos de entrada */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        /* Efeito de foco nos campos */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            border-color: #e50914;
+            background-color: #444;
+        }
+
+        /* Estilo da área de texto */
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Botão de envio */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #fff;
+            color: #e50914; /* Cor vermelha Netflix */
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Efeito de hover no botão */
+        button:hover {
+            background-color: #e50914;
+            color: #fff;
+        }
+
+        /* Responsividade: ajustando o tamanho do formulário em telas pequenas */
+        @media (max-width: 768px) {
+            .contact-form-container {
+                padding: 20px;
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Estilo do link do WhatsApp e telefone */
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            color: #e50914;
+        }
+
+        /* Botão de ligar */
+        .call-button {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .call-button:hover {
+            background-color: #e50914;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-form-container">
+        <h1>Contacto</h1>
+        <form action="https://formspree.io/f/mvggkzqr" method="POST">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <!-- Contato por telefone -->
+        <div class="contact-info">
+            <p>Contato por telefone: <strong><a href="tel:+258876625174">876625174</a></strong></p>
+            <button class="call-button" onclick="window.location.href='tel:+258876625174'">Ligar</button>
+
+            <!-- Contato via WhatsApp -->
+            <p>Ou entre em contacto pelo WhatsApp: <strong><a href="https://wa.me/258867245980" target="_blank">867245980</a></strong></p>
+        </div>
+    </div>
+</body>
+</html>

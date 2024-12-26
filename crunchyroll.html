@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crunchyroll - Escolha seu Plano</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FF6F00; /* Cor de fundo laranja */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header img {
+            width: 250px;
+            margin-bottom: 20px;
+            border: 5px solid orange; /* Borda laranja adicionada */
+            border-radius: 10px; /* Bordas arredondadas */
+        }
+        .header h1 {
+            color: #000;
+            margin-top: 20px;
+        }
+        .plan {
+            background: #000;
+            border: 2px solid #FF6F00;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .plan:hover {
+            transform: scale(1.05);
+        }
+        .plan img {
+            width: 100%;
+            max-width: 350px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .plan h2 {
+            color: #FF6F00;
+            font-size: 24px;
+        }
+        .plan p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .plan .price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .plan button {
+            background: #FF6F00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .plan button:hover {
+            background: #FF4500;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #FF6F00;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="crunchyroll-logo.png" alt="Logo Crunchyroll"> <!-- Logo do Crunchyroll com borda laranja -->
+            <h1>Escolha seu Plano Crunchyroll</h1>
+        </div>
+
+        <!-- Plano Mega Fã -->
+        <div class="plan">
+            <img src="crunchyroll-mega-fa.png" alt="Plano Mega Fã Crunchyroll">
+            <h2>Plano Fã</h2>
+            <p class="price">700MT/Mês</p>
+            <p>Acesso completo ao conteúdo sem anúncios e em HD</p>
+            <button onclick="window.location.href='checkout.html?plano=mega_fa&preco=700';">Comprar</button>
+        </div>
+
+        <!-- Plano Mega Fã Plus -->
+        <div class="plan">
+            <img src="crunchyroll-mega-fa-plus.png" alt="Plano Mega Fã Plus Crunchyroll">
+            <h2>Plano Mega Fã</h2>
+            <p class="price">900MT/Mês</p>
+            <p>Conteúdo sem anúncios, HD, e acesso antecipado a lançamentos</p>
+            <button onclick="window.location.href='checkout.html?plano=mega_fa_plus&preco=900';">Comprar</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024-2025 Stream & Assinaturas. Todos os direitos reservados.</p>
+            <p>Suporte: <a href="tel:+258876625174">258876625174</a></p>
+            <p>Email de Suporte: <a href="mailto:acaciofariav@streamassinaturas.shop">acaciofariav@streamassinaturas.shop</a></p>
+        </div>
+    </div>
+</body>
+</html>

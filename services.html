@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outros Serviços</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #141414, #006400); /* Fundo com transição de cores preto para verde escuro */
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        h1 {
+            color: #ff6f00;
+            margin-bottom: 40px;
+        }
+        .service {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background: #1a1a1a;
+            transition: 0.3s ease;
+        }
+        .service:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .prime {
+            background: #00A8E8; /* Azul real do Prime Video */
+        }
+        .spotify {
+            background: #1DB954; /* Verde real do Spotify */
+            color: #000;
+        }
+        .crunchyroll {
+            background: #FF6A00; /* Laranja real do Crunchyroll */
+        }
+        button img {
+            width: 30px;
+            margin-right: 10px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Escolha Outro Serviço</h1>
+        <div class="service">
+            <button class="prime" onclick="window.location.href='PRIMEVIDEO.html';">
+                <img src="primevideo-logo.png" alt="Prime Video">Prime Video
+            </button>
+        </div>
+        <div class="service">
+            <button class="spotify" onclick="window.location.href='spotify.html';">
+                <img src="spotify-logo.png" alt="Spotify">Spotify
+            </button>
+        </div>
+        <div class="service">
+            <button class="crunchyroll" onclick="window.location.href='crunchyroll.html';">
+                <img src="crunchyroll-logo.png" alt="Crunchyroll">Crunchyroll
+            </button>
+        </div>
+    </div>
+</body>
+</html>
