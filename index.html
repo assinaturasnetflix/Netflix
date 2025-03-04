@@ -1,326 +1,328 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix - Escolha seu Plano</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #141414;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
+<!DOCTYPE html>  
+<html lang="pt">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Netflix - Escolha seu Plano</title>  
+    <meta name="description" content="Escolha o seu plano Netflix em Moçambique. Planos de qualidade com preços acessíveis para assistir filmes, séries e documentários.">  
+    <meta name="keywords" content="Netflix Moçambique, planos Netflix Moçambique, Netflix preços, Netflix planos, streaming Moçambique, planos acessíveis Netflix, séries, filmes, qualidade Netflix Moçambique">  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #141414;  
+            color: #fff;  
+            margin: 0;  
+            padding: 0;  
+        }  
+        .container {  
+            max-width: 1200px;  
+            margin: auto;  
+            padding: 20px;  
+        }  
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
+        .header {  
+            text-align: center;  
+            margin-bottom: 40px;  
+            position: relative;  
+        }  
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
+        .header img {  
+            width: 200px;  
+            margin-bottom: 20px;  
+            border: 5px solid #e50914;  
+            border-radius: 50%;  
+            padding: 10px;  
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);  
+        }  
 
-        .header img {
-            width: 200px;
-            margin-bottom: 20px;
-            border: 5px solid #e50914;
-            border-radius: 50%;
-            padding: 10px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-        }
+        .header h1 {  
+            color: #e50914;  
+            margin-top: 20px;  
+        }  
 
-        .header h1 {
-            color: #e50914;
-            margin-top: 20px;
-        }
+        /* Menu Hamburguer */  
+        .menu-btn {  
+            position: fixed;  
+            top: 20px;  
+            left: 20px;  
+            background-color: transparent;  
+            color: #fff;  
+            font-size: 30px;  
+            border: none;  
+            cursor: pointer;  
+            z-index: 1001; /* Garante que o botão esteja acima de outros elementos */  
+        }  
 
-        /* Menu Hamburguer */
-        .menu-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: transparent;
-            color: #fff;
-            font-size: 30px;
-            border: none;
-            cursor: pointer;
-            z-index: 1001; /* Garante que o botão esteja acima de outros elementos */
-        }
+        .menu-btn:hover {  
+            background-color: #f40612;  
+        }  
 
-        .menu-btn:hover {
-            background-color: #f40612;
-        }
+        .sidenav {  
+            height: 100%;  
+            width: 0;  
+            position: fixed;  
+            top: 0;  
+            left: 0;  
+            background-color: #111;  
+            overflow-x: hidden;  
+            transition: 0.3s;  
+            padding-top: 60px;  
+            z-index: 1000;  
+        }  
 
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.3s;
-            padding-top: 60px;
-            z-index: 1000;
-        }
+        .sidenav a {  
+            padding: 8px 16px;  
+            text-decoration: none;  
+            font-size: 22px;  
+            color: #818181;  
+            display: block;  
+            transition: 0.3s;  
+        }  
 
-        .sidenav a {
-            padding: 8px 16px;
-            text-decoration: none;
-            font-size: 22px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
+        .sidenav a:hover {  
+            color: #f1f1f1;  
+        }  
 
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }
+        .sidenav .closebtn {  
+            position: absolute;  
+            top: 0;  
+            right: 25px;  
+            font-size: 36px;  
+            color: #818181;  
+            cursor: pointer; /* Garantir que o cursor seja um ponteiro */  
+        }  
 
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            color: #818181;
-            cursor: pointer; /* Garantir que o cursor seja um ponteiro */
-        }
+        .plan {  
+            background: #1f1f1f;  
+            border: 2px solid #e50914;  
+            border-radius: 10px;  
+            margin-bottom: 30px;  
+            padding: 20px;  
+            text-align: center;  
+            transition: transform 0.3s ease;  
+        }  
 
-        .plan {
-            background: #1f1f1f;
-            border: 2px solid #e50914;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
+        .plan:hover {  
+            transform: scale(1.05);  
+        }  
 
-        .plan:hover {
-            transform: scale(1.05);
-        }
+        .plan img {  
+            width: 100%;  
+            max-width: 350px;  
+            margin: 15px 0;  
+            border-radius: 10px;  
+        }  
 
-        .plan img {
-            width: 100%;
-            max-width: 350px;
-            margin: 15px 0;
-            border-radius: 10px;
-        }
+        .plan h2 {  
+            color: #e50914;  
+            font-size: 24px;  
+        }  
 
-        .plan h2 {
-            color: #e50914;
-            font-size: 24px;
-        }
+        .plan p {  
+            margin: 10px 0;  
+            font-size: 16px;  
+        }  
 
-        .plan p {
-            margin: 10px 0;
-            font-size: 16px;
-        }
+        .plan .price {  
+            font-size: 20px;  
+            font-weight: bold;  
+        }  
 
-        .plan .price {
-            font-size: 20px;
-            font-weight: bold;
-        }
+        .plan button {  
+            background: #e50914;  
+            color: #fff;  
+            border: none;  
+            border-radius: 5px;  
+            padding: 10px 20px;  
+            font-size: 16px;  
+            cursor: pointer;  
+            transition: 0.3s ease;  
+        }  
 
-        .plan button {
-            background: #e50914;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
+        .plan button:hover {  
+            background: #f40612;  
+        }  
 
-        .plan button:hover {
-            background: #f40612;
-        }
+        /* Botão de outros serviços */  
+        .other-services {  
+            text-align: center;  
+            margin-top: 40px;  
+        }  
 
-        /* Botão de outros serviços */
-        .other-services {
-            text-align: center;
-            margin-top: 40px;
-        }
+        .other-services button {  
+            background: #e50914;  
+            color: #fff;  
+            font-size: 18px;  
+            border: 2px solid #fff;  
+            padding: 15px 30px;  
+            border-radius: 5px;  
+            cursor: pointer;  
+            transition: 0.3s ease;  
+        }  
 
-        .other-services button {
-            background: #e50914;
-            color: #fff;
-            font-size: 18px;
-            border: 2px solid #fff;
-            padding: 15px 30px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
+        .other-services button:hover {  
+            background: #f40612;  
+            opacity: 0.8;  
+        }  
 
-        .other-services button:hover {
-            background: #f40612;
-            opacity: 0.8;
-        }
+        .footer {  
+            text-align: center;  
+            margin-top: 40px;  
+            font-size: 14px;  
+        }  
 
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-        }
+        .footer a {  
+            color: #e50914;  
+            text-decoration: none;  
+        }  
 
-        .footer a {
-            color: #e50914;
-            text-decoration: none;
-        }
+        .footer a {  
+            font-size: 16px;  
+        }  
 
-        .footer a {
-            font-size: 16px;
-        }
+        /* Estilos do menu em acordeão */  
+        .accordion {  
+            background-color: #111;  
+            color: #818181;  
+            cursor: pointer;  
+            padding: 8px 16px;  
+            width: 100%;  
+            border: none;  
+            text-align: left;  
+            outline: none;  
+            font-size: 22px;  
+            transition: 0.3s;  
+        }  
 
-        /* Estilos do menu em acordeão */
-        .accordion {
-            background-color: #111;
-            color: #818181;
-            cursor: pointer;
-            padding: 8px 16px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 22px;
-            transition: 0.3s;
-        }
+        .accordion:hover {  
+            color: #f1f1f1;  
+        }  
 
-        .accordion:hover {
-            color: #f1f1f1;
-        }
+        .active, .accordion:focus {  
+            background-color: #444;  
+            color: #f1f1f1;  
+        }  
 
-        .active, .accordion:focus {
-            background-color: #444;
-            color: #f1f1f1;
-        }
+        .panel {  
+            padding: 0 18px;  
+            display: none;  
+            background-color: #333;  
+            overflow: hidden;  
+        }  
+    </style>  
 
-        .panel {
-            padding: 0 18px;
-            display: none;
-            background-color: #333;
-            overflow: hidden;
-        }
-    </style>
+    <!-- Script do Google Ads -->  
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9963111532120573"  
+    crossorigin="anonymous"></script>
 
-    <!-- Script do Google Ads -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9963111532120573"
-     crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="container">
-        <!-- Botão do Menu Hamburguer -->
-        <button class="menu-btn" onclick="toggleMenu()">&#9776;</button>
+</head>  
+<body>  
+    <div class="container">  
+        <!-- Botão do Menu Hamburguer -->  
+        <button class="menu-btn" onclick="toggleMenu()">&#9776;</button>  <!-- Menu Lateral -->  
+    <div id="mySidenav" class="sidenav">  
+        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>  
 
-        <!-- Menu Lateral -->
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+        <!-- Menu em Acordeão -->  
+        <button class="accordion" onclick="window.location.href='index.html'">Pacotes</button>  
+        <div class="panel">  
+            <a href="index.html">Página Principal</a>  
+        </div>  
 
-            <!-- Menu em Acordeão -->
-            <button class="accordion" onclick="window.location.href='index.html'">Pacotes</button>
-            <div class="panel">
-                <a href="index.html">Página Principal</a>
-            </div>
+        <button class="accordion" onclick="window.location.href='contacto.html'">Contactos</button>  
+        <div class="panel">  
+            <a href="contacto.html">Contactos</a>  
+        </div>  
 
-            <button class="accordion" onclick="window.location.href='contacto.html'">Contactos</button>
-            <div class="panel">
-                <a href="contacto.html">Contactos</a>
-            </div>
+        <button class="accordion" onclick="window.location.href='politicas.html'">Políticas de Privacidade</button>  
+        <div class="panel">  
+            <a href="politicas.html">Políticas de Privacidade</a>  
+        </div>  
 
-            <button class="accordion" onclick="window.location.href='politicas.html'">Políticas de Privacidade</button>
-            <div class="panel">
-                <a href="politicas.html">Políticas de Privacidade</a>
-            </div>
+        <button class="accordion" onclick="window.location.href='sobre_empresa.html'">Informações</button>  
+        <div class="panel">  
+            <a href="sobre_empresa.html">Sobre a Empresa</a>  
+        </div>  
 
-            <button class="accordion" onclick="window.location.href='sobre_empresa.html'">Informações</button>
-            <div class="panel">
-                <a href="sobre_empresa.html">Sobre a Empresa</a>
-            </div>
+        <button class="accordion" onclick="window.location.href='services.html'">Outros Serviços</button>  
+        <div class="panel">  
+            <a href="services.html">Ver Outros Serviços</a>  
+        </div>  
+    </div>  
 
-            <button class="accordion" onclick="window.location.href='services.html'">Outros Serviços</button>
-            <div class="panel">
-                <a href="services.html">Ver Outros Serviços</a>
-            </div>
-        </div>
+    <div class="header">  
+        <img src="logo.png" alt="Logo Netflix">  
+        <h1>Escolha seu Plano Netflix</h1>  
+    </div>  
 
-        <div class="header">
-            <img src="logo.png" alt="Logo Netflix">
-            <h1>Escolha seu Plano Netflix</h1>
-        </div>
+    <!-- Planos da Netflix -->  
+    <div class="plan">  
+        <img src="movel.png" alt="Plano Móvel">  
+        <h2>Plano Móvel</h2>  
+        <p>300MT/Mês</p>  
+        <p>Para Android e Tablet</p>  
+        <p>Qualidade razoável de 480p</p>  
+        <button onclick="window.location.href='checkout.html?plano=movel&preco=300';">Comprar</button>  
+    </div>  
+    <div class="plan">  
+        <img src="basico.png" alt="Plano Básico">  
+        <h2>Plano Básico</h2>  
+        <p>500MT/Mês</p>  
+        <p>Todos Dispositivos</p>  
+        <p>Boa Qualidade 1080p HD</p>  
+        <button onclick="window.location.href='checkout.html?plano=basico&preco=500';">Comprar</button>  
+    </div>  
+    <div class="plan">  
+        <img src="standard.png" alt="Plano Standard">  
+        <h2>Plano Standard</h2>  
+        <p>700MT/Mês</p>  
+        <p>Todos Dispositivos</p>  
+        <p>1080p (Full HD)</p>  
+        <button onclick="window.location.href='checkout.html?plano=padrao&preco=700';">Comprar</button>  
+    </div>  
+    <div class="plan">  
+        <img src="premium.png" alt="Plano Premium">  
+        <h2>Plano Premium</h2>  
+        <p>900MT/Mês</p>  
+        <p>Todos Dispositivos</p>  
+        <p>Qualidade: 4K (Ultra HD) + HDR (Áudio espacial (som imersivo) Incluído.</p>  
+        <button onclick="window.location.href='checkout.html?plano=premium&preco=900';">Comprar</button>  
+    </div>  
 
-        <!-- Planos da Netflix -->
-        <div class="plan">
-            <img src="movel.png" alt="Plano Móvel">
-            <h2>Plano Móvel</h2>
-            <p>300MT/Mês</p>
-            <p>Para Android e Tablet</p>
-            <p>Qualidade razoável de 480p</p>
-            <button onclick="window.location.href='checkout.html?plano=movel&preco=300';">Comprar</button>
-        </div>
-        <div class="plan">
-            <img src="basico.png" alt="Plano Básico">
-            <h2>Plano Básico</h2>
-            <p>500MT/Mês</p>
-            <p>Todos Dispositivos</p>
-            <p>Boa Qualidade 1080p HD</p>
-            <button onclick="window.location.href='checkout.html?plano=basico&preco=500';">Comprar</button>
-        </div>
-        <div class="plan">
-            <img src="standard.png" alt="Plano Standard">
-            <h2>Plano Standard</h2>
-            <p>700MT/Mês</p>
-            <p>Todos Dispositivos</p>
-            <p>1080p (Full HD)</p>
-            <button onclick="window.location.href='checkout.html?plano=padrao&preco=700';">Comprar</button>
-        </div>
-        <div class="plan">
-            <img src="premium.png" alt="Plano Premium">
-            <h2>Plano Premium</h2>
-            <p>900MT/Mês</p>
-            <p>Todos Dispositivos</p>
-            <p>Qualidade: 4K (Ultra HD) + HDR (Áudio espacial (som imersivo) Incluído.</p>
-            <button onclick="window.location.href='checkout.html?plano=premium&preco=900';">Comprar</button>
-        </div>
+    <!-- Botão de outros serviços -->  
+    <div class="other-services">  
+        <button onclick="window.location.href='services.html';">Ver Outros Serviços</button>  
+    </div>  
+</div>  
 
-        <!-- Botão de outros serviços -->
-        <div class="other-services">
-            <button onclick="window.location.href='services.html';">Ver Outros Serviços</button>
-        </div>
-    </div>
+<div class="footer">  
+    <p>&copy; 2024-2025 Stream & Assinaturas. Todos os direitos reservados.</p>  
+    <hr>  
+    <p style="font-size: 12px; text-align:left;">Entrar em contato com o suporte do site</p>  
+    <p>Suporte: <a href="contacto.html">Contactar Suporte</a></p>  
+</div>  
 
-    <div class="footer">
-        <p>&copy; 2024-2025 Stream & Assinaturas. Todos os direitos reservados.</p>
-        <hr>
-        <p style="font-size: 12px; text-align:left;">Entrar em contato com o suporte do site</p>
-        <p>Suporte: <a href="contacto.html">Contactar Suporte</a></p>
-    </div>
+<script>  
+    // Função para abrir/fechar o menu lateral  
+    function toggleMenu() {  
+        var sidenav = document.getElementById("mySidenav");  
+        if (sidenav.style.width === "250px") {  
+            sidenav.style.width = "0";  
+            document.body.style.overflow = "auto"; // Restaura o scroll ao fechar o menu  
+        } else {  
+            sidenav.style.width = "250px";  
+            document.body.style.overflow = "hidden"; // Impede o scroll da página ao abrir o menu  
+        }  
+    }  
 
-    <script>
-        // Função para abrir/fechar o menu lateral
-        function toggleMenu() {
-            var sidenav = document.getElementById("mySidenav");
-            if (sidenav.style.width === "250px") {
-                sidenav.style.width = "0";
-                document.body.style.overflow = "auto"; // Restaura o scroll ao fechar o menu
-            } else {
-                sidenav.style.width = "250px";
-                document.body.style.overflow = "hidden"; // Impede o scroll da página ao abrir o menu
-            }
-        }
+    // Função para fechar o menu ao clicar no "X"  
+    function closeMenu() {  
+        var sidenav = document.getElementById("mySidenav");  
+        sidenav.style.width = "0";  
+        document.body.style.overflow = "auto"; // Restaura o scroll da página  
+    }  
+</script>
 
-        // Função para fechar o menu ao clicar no "X"
-        function closeMenu() {
-            var sidenav = document.getElementById("mySidenav");
-            sidenav.style.width = "0";
-            document.body.style.overflow = "auto"; // Restaura o scroll da página
-        }
-    </script>
-</body>
+</body>  
 </html>
+
