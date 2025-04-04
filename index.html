@@ -1,328 +1,463 @@
-<!DOCTYPE html>  
-<html lang="pt">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Netflix - Escolha seu Plano</title>  
-    <meta name="description" content="Escolha o seu plano Netflix em Moçambique. Planos de qualidade com preços acessíveis para assistir filmes, séries e documentários.">  
-    <meta name="keywords" content="Netflix Moçambique, planos Netflix Moçambique, Netflix preços, Netflix planos, streaming Moçambique, planos acessíveis Netflix, séries, filmes, qualidade Netflix Moçambique">  
-    <style>  
-        body {  
-            font-family: Arial, sans-serif;  
-            background-color: #141414;  
-            color: #fff;  
-            margin: 0;  
-            padding: 0;  
-        }  
-        .container {  
-            max-width: 1200px;  
-            margin: auto;  
-            padding: 20px;  
-        }  
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviator - Jogue Agora</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --red: #e61e25;
+            --dark-red: #b3000c;
+            --black: #0f0f0f;
+            --gray: #222222;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid var(--red);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 28px;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+        
+        .navbar-brand span {
+            color: var(--red);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("/api/placeholder/1920/1080") center/cover no-repeat;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--red), transparent);
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(230, 30, 37, 0.7);
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-section {
+            padding: 80px 0;
+            background-color: var(--gray);
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(230, 30, 37, 0.3);
+            border: 2px solid var(--red);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .video-placeholder {
+            background-color: #000;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-placeholder img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--white);
+            font-size: 80px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .play-button:hover {
+            color: var(--red);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        /* Espaçamento para o botão abaixo do vídeo */
+        .video-container {
+            margin-bottom: 30px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-4 {
+            margin-top: 30px;
+        }
+        
+        .cta-button {
+            background-color: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(230, 30, 37, 0.5);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--dark-red);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            width: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 30, 37, 0.7);
+        }
+        
+        .cta-button i {
+            margin-left: 10px;
+        }
+        
+        .features {
+            padding: 60px 0;
+            background-color: var(--black);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--red);
+        }
+        
+        .feature-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: var(--gray);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(230, 30, 37, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--red);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-text {
+            color: #cccccc;
+        }
+        
+        .pulse-animation {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(230, 30, 37, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(230, 30, 37, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(230, 30, 37, 0);
+            }
+        }
+        
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 2px solid var(--red);
+        }
+        
+        .footer-text {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 767px) {
+            .hero {
+                height: 400px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .cta-button {
+                font-size: 1.25rem;
+                padding: 12px 30px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animações */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-plane"></i> 
+                AVIA<span>TOR</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#video">Vídeo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cta">Jogar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        .header {  
-            text-align: center;  
-            margin-bottom: 40px;  
-            position: relative;  
-        }  
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Jogue <span style="color: var(--red);">Aviator</span> Agora</h1>
+                <p>Prepare-se para uma experiência de jogo emocionante. Acompanhe o avião e retire seus ganhos antes que ele voe para longe!</p>
+                <a href="#video" class="btn cta-button pulse-animation">
+                    Descubra Como <i class="fas fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        .header img {  
-            width: 200px;  
-            margin-bottom: 20px;  
-            border: 5px solid #e50914;  
-            border-radius: 50%;  
-            padding: 10px;  
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);  
-        }  
+    <!-- Video Section with CTA button below -->
+    <section class="video-section" id="video">
+        <div class="container">
+            <h2 class="section-title">Veja Como Funciona</h2>
+            <div class="video-container">
+                <video id="aviator-video" width="100%" height="auto" controls poster="/api/placeholder/800/450">
+                    <source src="VIDEO.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos HTML5.
+                </video>
+            </div>
+            <div class="text-center mt-4" id="cta">
+                <a href="https://go.aff.betvivo.partners/AVIATORTURBO" class="btn cta-button pulse-animation">
+                    Jogar Agora <i class="fas fa-rocket"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        .header h1 {  
-            color: #e50914;  
-            margin-top: 20px;  
-        }  
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Por Que Jogar Aviator?</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-box fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="feature-title">Jogo Rápido</h3>
+                        <p class="feature-text">Rodadas rápidas e emocionantes que mantêm você sempre envolvido no jogo.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box fade-in" style="animation-delay: 0.2s;">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="feature-title">Grandes Prêmios</h3>
+                        <p class="feature-text">Possibilidade de multiplicar seus ganhos de forma exponencial em segundos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box fade-in" style="animation-delay: 0.4s;">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Jogue Onde Quiser</h3>
+                        <p class="feature-text">Disponível em dispositivos móveis, jogue a qualquer hora e em qualquer lugar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        /* Menu Hamburguer */  
-        .menu-btn {  
-            position: fixed;  
-            top: 20px;  
-            left: 20px;  
-            background-color: transparent;  
-            color: #fff;  
-            font-size: 30px;  
-            border: none;  
-            cursor: pointer;  
-            z-index: 1001; /* Garante que o botão esteja acima de outros elementos */  
-        }  
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2025 Aviator Game. Todos os direitos reservados. +18</p>
+        </div>
+    </footer>
 
-        .menu-btn:hover {  
-            background-color: #f40612;  
-        }  
-
-        .sidenav {  
-            height: 100%;  
-            width: 0;  
-            position: fixed;  
-            top: 0;  
-            left: 0;  
-            background-color: #111;  
-            overflow-x: hidden;  
-            transition: 0.3s;  
-            padding-top: 60px;  
-            z-index: 1000;  
-        }  
-
-        .sidenav a {  
-            padding: 8px 16px;  
-            text-decoration: none;  
-            font-size: 22px;  
-            color: #818181;  
-            display: block;  
-            transition: 0.3s;  
-        }  
-
-        .sidenav a:hover {  
-            color: #f1f1f1;  
-        }  
-
-        .sidenav .closebtn {  
-            position: absolute;  
-            top: 0;  
-            right: 25px;  
-            font-size: 36px;  
-            color: #818181;  
-            cursor: pointer; /* Garantir que o cursor seja um ponteiro */  
-        }  
-
-        .plan {  
-            background: #1f1f1f;  
-            border: 2px solid #e50914;  
-            border-radius: 10px;  
-            margin-bottom: 30px;  
-            padding: 20px;  
-            text-align: center;  
-            transition: transform 0.3s ease;  
-        }  
-
-        .plan:hover {  
-            transform: scale(1.05);  
-        }  
-
-        .plan img {  
-            width: 100%;  
-            max-width: 350px;  
-            margin: 15px 0;  
-            border-radius: 10px;  
-        }  
-
-        .plan h2 {  
-            color: #e50914;  
-            font-size: 24px;  
-        }  
-
-        .plan p {  
-            margin: 10px 0;  
-            font-size: 16px;  
-        }  
-
-        .plan .price {  
-            font-size: 20px;  
-            font-weight: bold;  
-        }  
-
-        .plan button {  
-            background: #e50914;  
-            color: #fff;  
-            border: none;  
-            border-radius: 5px;  
-            padding: 10px 20px;  
-            font-size: 16px;  
-            cursor: pointer;  
-            transition: 0.3s ease;  
-        }  
-
-        .plan button:hover {  
-            background: #f40612;  
-        }  
-
-        /* Botão de outros serviços */  
-        .other-services {  
-            text-align: center;  
-            margin-top: 40px;  
-        }  
-
-        .other-services button {  
-            background: #e50914;  
-            color: #fff;  
-            font-size: 18px;  
-            border: 2px solid #fff;  
-            padding: 15px 30px;  
-            border-radius: 5px;  
-            cursor: pointer;  
-            transition: 0.3s ease;  
-        }  
-
-        .other-services button:hover {  
-            background: #f40612;  
-            opacity: 0.8;  
-        }  
-
-        .footer {  
-            text-align: center;  
-            margin-top: 40px;  
-            font-size: 14px;  
-        }  
-
-        .footer a {  
-            color: #e50914;  
-            text-decoration: none;  
-        }  
-
-        .footer a {  
-            font-size: 16px;  
-        }  
-
-        /* Estilos do menu em acordeão */  
-        .accordion {  
-            background-color: #111;  
-            color: #818181;  
-            cursor: pointer;  
-            padding: 8px 16px;  
-            width: 100%;  
-            border: none;  
-            text-align: left;  
-            outline: none;  
-            font-size: 22px;  
-            transition: 0.3s;  
-        }  
-
-        .accordion:hover {  
-            color: #f1f1f1;  
-        }  
-
-        .active, .accordion:focus {  
-            background-color: #444;  
-            color: #f1f1f1;  
-        }  
-
-        .panel {  
-            padding: 0 18px;  
-            display: none;  
-            background-color: #333;  
-            overflow: hidden;  
-        }  
-    </style>  
-
-    <!-- Script do Google Ads -->  
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9963111532120573"  
-    crossorigin="anonymous"></script>
-
-</head>  
-<body>  
-    <div class="container">  
-        <!-- Botão do Menu Hamburguer -->  
-        <button class="menu-btn" onclick="toggleMenu()">&#9776;</button>  <!-- Menu Lateral -->  
-    <div id="mySidenav" class="sidenav">  
-        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>  
-
-        <!-- Menu em Acordeão -->  
-        <button class="accordion" onclick="window.location.href='index.html'">Pacotes</button>  
-        <div class="panel">  
-            <a href="index.html">Página Principal</a>  
-        </div>  
-
-        <button class="accordion" onclick="window.location.href='contacto.html'">Contactos</button>  
-        <div class="panel">  
-            <a href="contacto.html">Contactos</a>  
-        </div>  
-
-        <button class="accordion" onclick="window.location.href='politicas.html'">Políticas de Privacidade</button>  
-        <div class="panel">  
-            <a href="politicas.html">Políticas de Privacidade</a>  
-        </div>  
-
-        <button class="accordion" onclick="window.location.href='sobre_empresa.html'">Informações</button>  
-        <div class="panel">  
-            <a href="sobre_empresa.html">Sobre a Empresa</a>  
-        </div>  
-
-        <button class="accordion" onclick="window.location.href='services.html'">Outros Serviços</button>  
-        <div class="panel">  
-            <a href="services.html">Ver Outros Serviços</a>  
-        </div>  
-    </div>  
-
-    <div class="header">  
-        <img src="logo.png" alt="Logo Netflix">  
-        <h1>Escolha seu Plano Netflix</h1>  
-    </div>  
-
-    <!-- Planos da Netflix -->  
-    <div class="plan">  
-        <img src="movel.png" alt="Plano Móvel">  
-        <h2>Plano Móvel</h2>  
-        <p>300MT/Mês</p>  
-        <p>Para Android e Tablet</p>  
-        <p>Qualidade razoável de 480p</p>  
-        <button onclick="window.location.href='checkout.html?plano=movel&preco=300';">Comprar</button>  
-    </div>  
-    <div class="plan">  
-        <img src="basico.png" alt="Plano Básico">  
-        <h2>Plano Básico</h2>  
-        <p>500MT/Mês</p>  
-        <p>Todos Dispositivos</p>  
-        <p>Boa Qualidade 1080p HD</p>  
-        <button onclick="window.location.href='checkout.html?plano=basico&preco=500';">Comprar</button>  
-    </div>  
-    <div class="plan">  
-        <img src="standard.png" alt="Plano Standard">  
-        <h2>Plano Standard</h2>  
-        <p>700MT/Mês</p>  
-        <p>Todos Dispositivos</p>  
-        <p>1080p (Full HD)</p>  
-        <button onclick="window.location.href='checkout.html?plano=padrao&preco=700';">Comprar</button>  
-    </div>  
-    <div class="plan">  
-        <img src="premium.png" alt="Plano Premium">  
-        <h2>Plano Premium</h2>  
-        <p>900MT/Mês</p>  
-        <p>Todos Dispositivos</p>  
-        <p>Qualidade: 4K (Ultra HD) + HDR (Áudio espacial (som imersivo) Incluído.</p>  
-        <button onclick="window.location.href='checkout.html?plano=premium&preco=900';">Comprar</button>  
-    </div>  
-
-    <!-- Botão de outros serviços -->  
-    <div class="other-services">  
-        <button onclick="window.location.href='services.html';">Ver Outros Serviços</button>  
-    </div>  
-</div>  
-
-<div class="footer">  
-    <p>&copy; 2024-2025 Stream & Assinaturas. Todos os direitos reservados.</p>  
-    <hr>  
-    <p style="font-size: 12px; text-align:left;">Entrar em contato com o suporte do site</p>  
-    <p>Suporte: <a href="contacto.html">Contactar Suporte</a></p>  
-</div>  
-
-<script>  
-    // Função para abrir/fechar o menu lateral  
-    function toggleMenu() {  
-        var sidenav = document.getElementById("mySidenav");  
-        if (sidenav.style.width === "250px") {  
-            sidenav.style.width = "0";  
-            document.body.style.overflow = "auto"; // Restaura o scroll ao fechar o menu  
-        } else {  
-            sidenav.style.width = "250px";  
-            document.body.style.overflow = "hidden"; // Impede o scroll da página ao abrir o menu  
-        }  
-    }  
-
-    // Função para fechar o menu ao clicar no "X"  
-    function closeMenu() {  
-        var sidenav = document.getElementById("mySidenav");  
-        sidenav.style.width = "0";  
-        document.body.style.overflow = "auto"; // Restaura o scroll da página  
-    }  
-</script>
-
-</body>  
-</html>
-
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animações ao rolar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicialização do vídeo
+            const aviatorVideo = document.getElementById('aviator-video');
+            
+            // Reprodução automática quando visível (opcional)
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Opcional: descomente para reprodução automática quando visível
+                        // aviatorVideo.play();
+                    } else {
+                        aviatorVideo.pause();
+                    }
+                });
+            }, observerOptions);
+            
+            observer.observe(aviatorVideo);
+            
+            // Smooth scroll para links internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Animação de fade-in para elementos ao rolar
+            const fadeElements = document.querySelectorAll('.feature-box');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('fade-in');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Disparar uma vez para elementos já visíveis
+        });
+    </script>
+</body>
+    </html>
