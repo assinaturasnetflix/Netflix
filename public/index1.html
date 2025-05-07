@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC MINES HACK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="glow-text">AC MINES HACK</h1>
+            <p class="subtitle">Sistema Avançado de Previsão</p>
+        </header>
+
+        <div id="loginSection" class="section">
+            <button id="gerarSinalBtn" class="btn glow-btn">GERAR SINAL</button>
+            <div id="keyInputArea" class="hidden">
+                <input type="text" id="keyInput" placeholder="Digite sua chave de acesso">
+                <button id="validateKeyBtn" class="btn">VALIDAR</button>
+                <p class="no-key-msg">Não tem chave? <a href="https://streamassinaturas.shop/#precos" target="_blank">Compre aqui</a></p>
+            </div>
+            <p id="errorMessage" class="error hidden"></p>
+        </div>
+
+        <div id="userInfoSection" class="section hidden">
+            <div class="info-box">
+                <p>Chave: <span id="userKey" class="highlight"></span></p>
+                <p>Plano: <span id="userPlan" class="highlight"></span></p>
+                <p>Tempo Restante: <span id="timeRemaining" class="highlight countdown"></span></p>
+            </div>
+            <button id="refreshPredictionBtn" class="btn glow-btn">GERAR NOVA PREVISÃO</button>
+            <button id="logoutBtn" class="btn">SAIR</button>
+        </div>
+
+        <div id="boardSection" class="section">
+            <h2>Tabuleiro de Previsão</h2>
+            <div id="minesBoard" class="mines-board">
+                <!-- Tabuleiro 5x5 gerado via JavaScript -->
+            </div>
+            <p id="prediction" class="prediction hidden">
+                Casa recomendada: <span id="recommendedTile" class="highlight"></span>
+            </p>
+        </div>
+
+        <footer>
+            <p>AC MINES HACK © 2025 • Todos os direitos reservados</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
