@@ -3,1389 +3,718 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AC HACK MINES - Bot para Mines</title>
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw1AUhU9TpSIVQTuIOGSoThZERRy1CkWoEGqFVh1MXvoHTRqSFBdHwbXg4M9i1cHFWVcHV0EQ/AFxdXFSdJES70sKLWK88F6+c+55N/cCnGaVqWZwHFA1y8gkE2K+sCKGXhFEGH0Yw7DMWGYukc7n8R18fL2L8izvc3+OfqVoMcAnEs8yw7SJN4inN22d8z5xmJUllficeMygCxI/cl12+Y1zyWGBZ4aNXHqOOEwsljtY7mBWNlTiKeKIoqZUfMl1WeG8xVmt1FnrnvyFoaK+ssx1WsNIYRFLkCFCRR1lVGAhRqtGiok07cc9/EOOXySXTK4yGDkWUIUKyfGD/8Hv2ZrFyQk3KZwAel9s+2MUCO0Czbrtvh/bdrMEeJ+BK637XmvA7Cfpza4WPQKGtoGL664m7QGXO8DIkylFyZA8KU+F4vsBH+l7MvSZczfg1tqbvTGOkwfQpVYLbnY/TQ8YvgWT+XZ/rne2f/+e6fR+AKjgcq1pJ2rVAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABP0lEQVQ4jYWTMU7DQBBF/7OLII4jGogPEAWKSAZxBgq4AA01uQO5QeiBuAA0VBQU3IFW4cFKY8eWLRnxKbwrr9dOvGJ2Zv6bnZ1ZIrMlXYJABFzYRVTm1qBnZIZpJF/XCBIFb7YIZKVvJuHn/R5e9Fxe+Rl5LTnKngI/zy+/6kZTwMjGe+vvImsAaYMKnWMiXcTrdqWnr7coXh5EoW2tRCBrMgw1HjTSMZe5BWBTjFGOtZ7Nqu/wUQz4+ahGVfZgkKRWXp+M3gEpXq4WuMVA1bSKLpVbBJxHoJPkpnmH6BRyxQK5uHv1eMmL7rQTZMDL8NqTnGg0cLWW2nOLlXYicF1MSfgAR2MWIa6dXZxD1SFMvMBRUNECKdDKdC3YXfNnOaLx2YKNFNr4fxoXLaNMRZL+mPYUn9v0TQAfU4y/HHWdiGJtI58AAAAASUVORK5CYII=">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Bot Mines Pro - Ganhe em cada rodada</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #0066ff;
-            --primary-dark: #0055cc;
-            --secondary: #192841;
-            --dark: #111827;
-            --darker: #0a0f1a;
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
-            --success: #10b981;
-            --danger: #ef4444;
-            --warning: #f59e0b;
+            --primary: #0d6efd;
+            --primary-dark: #0b5ed7;
+            --light: #f8f9fa;
+            --dark: #212529;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
+        
         body {
-            background-color: var(--darker);
-            color: var(--text);
-            overflow-x: hidden;
-            position: relative;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
         }
-
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--darker);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-in-out;
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .preloader.fade-out {
-            opacity: 0;
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary);
         }
-
-        .preloader-content {
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #3a8efa 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .hero h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+        
+        .benefits-card {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .benefits-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefits-card .card-header {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .benefits-card .card-body {
+            padding: 20px;
+        }
+        
+        .benefits-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .pricing-section {
+            background-color: white;
+            padding: 80px 0;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .pricing-card {
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .pricing-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(13, 110, 253, 0.15);
+        }
+        
+        .pricing-header {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .pricing-header h3 {
+            margin: 0;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .pricing-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .pricing-duration {
+            font-size: 1rem;
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .pricing-features {
+            padding: 20px;
             text-align: center;
         }
-
-        .preloader-logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 20px;
-            animation: pulse 1.5s infinite;
+        
+        .pricing-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.7; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.7; }
+        
+        .pricing-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
         }
-
-        .preloader-spinner {
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-button {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .btn-payment {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+            width: 100%;
+        }
+        
+        .btn-payment:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+        }
+        
+        .payment-methods {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .payment-method {
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: 6px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+        
+        .payment-method.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            left: 25%;
+            bottom: 0;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        /* Modal Styles */
+        .payment-modal .modal-header {
+            background-color: var(--primary);
+            color: white;
+            border-bottom: none;
+        }
+        
+        .payment-modal .modal-footer {
+            border-top: none;
+        }
+        
+        /* Spinner Animation */
+        .spinner-container {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .spinner {
             width: 40px;
             height: 40px;
-            border: 4px solid rgba(0, 102, 255, 0.3);
+            border: 4px solid rgba(13, 110, 253, 0.1);
             border-radius: 50%;
-            border-top-color: var(--primary);
+            border-left-color: var(--primary);
             animation: spin 1s linear infinite;
-            margin: 0 auto;
+            display: inline-block;
         }
-
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        .container {
-            max-width: 100%;
-            padding: 0 15px;
-            margin: 0 auto;
-        }
-
-        .header {
-            padding: 20px 0;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            max-width: 180px;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .timer-section {
-            background-color: var(--dark);
-            padding: 25px 15px;
-            border-radius: 8px;
-            margin: 20px auto;
-            max-width: 480px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
-
-        .timer-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .timer-block {
-            text-align: center;
-            margin: 0 5px;
-            min-width: 60px;
-        }
-
-        .timer-number {
-            background-color: var(--secondary);
-            color: var(--primary);
-            font-size: 24px;
-            font-weight: 700;
-            padding: 10px 0;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .timer-label {
-            color: var(--text-muted);
-            font-size: 12px;
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
-
-        .timer-message {
-            text-align: center;
-            font-weight: 600;
-            font-size: 18px;
-            color: var(--warning);
-            animation: blink 1.5s ease-in-out infinite;
-            margin-top: 10px;
-        }
-
-        @keyframes blink {
-            0% { opacity: 0.7; }
-            50% { opacity: 1; }
-            100% { opacity: 0.7; }
-        }
-
-        .plans-section {
-            padding: 20px 0;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text);
-            text-transform: uppercase;
-        }
-
-        .plans-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .plan-card {
-            background-color: var(--dark);
-            border-radius: 8px;
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-        }
-
-        .plan-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-            border-color: var(--primary);
-        }
-
-        .plan-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-        }
-
-        .plan-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--text);
-        }
-
-        .plan-price {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .plan-urgency {
-            font-size: 12px;
-            color: var(--warning);
-            font-weight: 600;
-            border-radius: 4px;
-            padding: 2px 8px;
-            background-color: rgba(245, 158, 11, 0.15);
-            animation: pulse 1.5s infinite;
-        }
-
-        .plan-features {
-            margin-bottom: 15px;
-        }
-
-        .plan-feature {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .plan-feature i {
-            color: var(--success);
-            margin-right: 8px;
-            font-size: 16px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .plan-spots {
-            font-size: 14px;
-            color: var(--warning);
-            font-weight: 600;
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .plan-spots i {
-            margin-right: 5px;
-        }
-
-        .payment-info {
-            background-color: rgba(0, 102, 255, 0.1);
-            border-radius: 6px;
-            padding: 10px;
-            margin-top: 15px;
-            border: 1px solid rgba(0, 102, 255, 0.2);
-        }
-
-        .payment-info-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--text);
-        }
-
-        .payment-number {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 8px;
-            border-radius: 4px;
-            margin-top: 5px;
-        }
-
-        .payment-number span {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .copy-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 4px 10px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .copy-btn:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .form-section {
-            max-width: 480px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: var(--dark);
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .form-title {
-            text-align: center;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            background-color: var(--darker);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            color: var(--text);
-            font-size: 14px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.25);
-            outline: none;
-        }
-
-        .form-control::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-control.is-invalid {
-            border-color: var(--danger);
-        }
-
-        .invalid-feedback {
-            color: var(--danger);
-            font-size: 12px;
-            margin-top: 5px;
+        
+        .success-message {
             display: none;
-        }
-
-        .is-invalid ~ .invalid-feedback {
-            display: block;
-        }
-
-        .form-text {
-            color: var(--text-muted);
-            font-size: 12px;
-            margin-top: 5px;
-        }
-
-        .file-upload {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            background-color: var(--darker);
-            border: 2px dashed rgba(255, 255, 255, 0.2);
+            background-color: #d1e7dd;
+            color: #0f5132;
+            padding: 15px;
             border-radius: 8px;
-            cursor: pointer;
-            transition: border-color 0.3s;
-        }
-
-        .file-upload:hover {
-            border-color: var(--primary);
-        }
-
-        .file-upload i {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .file-upload-text {
-            font-size: 14px;
-            color: var(--text);
+            margin: 15px 0;
             text-align: center;
         }
-
-        .file-upload-subtext {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 5px;
-            text-align: center;
-        }
-
-        .file-upload input[type="file"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .file-preview {
-            margin-top: 10px;
+        
+        .error-message {
             display: none;
-            width: 100%;
-        }
-
-        .file-preview-content {
-            display: flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        .file-preview-icon {
-            font-size: 18px;
-            color: var(--primary);
-            margin-right: 10px;
-        }
-
-        .file-preview-info {
-            flex-grow: 1;
-            overflow: hidden;
-        }
-
-        .file-preview-name {
-            font-size: 14px;
-            color: var(--text);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .file-preview-size {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .file-preview-remove {
-            color: var(--danger);
-            background: none;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            width: 100%;
-            margin-top: 15px;
-            text-transform: uppercase;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-
-        .btn-loading {
-            position: relative;
-            color: transparent;
-        }
-
-        .btn-loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            margin-top: -10px;
-            margin-left: -10px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s linear infinite;
-        }
-
-        .footer {
-            background-color: var(--dark);
-            padding: 20px 0;
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-muted);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 40px;
-        }
-
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 28px;
-            z-index: 100;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .whatsapp-bubble {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background-color: white;
-            color: var(--dark);
-            padding: 10px 15px;
-            border-radius: 18px;
-            font-size: 14px;
-            max-width: 200px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .whatsapp-bubble.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .whatsapp-bubble::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            right: 20px;
-            border-width: 10px 10px 0;
-            border-style: solid;
-            border-color: white transparent transparent;
-        }
-
-        .toast-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .toast {
-            background-color: var(--dark);
-            color: var(--text);
-            padding: 15px 20px;
+            background-color: #f8d7da;
+            color: #842029;
+            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            min-width: 250px;
-            transform: translateX(120%);
-            transition: transform 0.3s ease;
-            border-left: 4px solid var(--primary);
-        }
-
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        .toast-icon {
-            margin-right: 10px;
-            font-size: 20px;
-        }
-
-        .toast-success .toast-icon {
-            color: var(--success);
-        }
-
-        .toast-error .toast-icon {
-            color: var(--danger);
-        }
-
-        .toast-content {
-            flex-grow: 1;
-        }
-
-        .toast-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 16px;
-        }
-
-        .toast-message {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        .toast-close {
-            color: var(--text-muted);
-            background: none;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .instructions-section {
-            max-width: 480px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: var(--dark);
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .instructions-title {
+            margin: 15px 0;
             text-align: center;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text);
         }
-
-        .instructions-step {
-            display: flex;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .instructions-step:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .step-number {
-            width: 28px;
-            height: 28px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            font-size: 14px;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .step-content {
-            flex-grow: 1;
-        }
-
-        .step-title {
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 5px;
-            color: var(--text);
-        }
-
-        .step-description {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        .animate-delay-1 {
-            animation-delay: 0.2s;
-            opacity: 0;
-        }
-
-        .animate-delay-2 {
-            animation-delay: 0.4s;
-            opacity: 0;
-        }
-
-        .animate-delay-3 {
-            animation-delay: 0.6s;
-            opacity: 0;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 480px) {
-            .timer-section {
-                padding: 15px 10px;
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 50px 0;
             }
-
-            .timer-block {
-                min-width: 50px;
+            
+            .hero h1 {
+                font-size: 2rem;
             }
-
-            .timer-number {
-                font-size: 20px;
-            }
-
-            .section-title {
-                font-size: 20px;
-            }
-
-            .plan-title {
-                font-size: 18px;
-            }
-
-            .plan-price {
-                font-size: 20px;
-            }
-
-            .form-section, .instructions-section {
-                padding: 15px;
+            
+            .pricing-section {
+                padding: 50px 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-content">
-            <div class="preloader-logo">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M60 10C32.4 10 10 32.4 10 60C10 87.6 32.4 110 60 110C87.6 110 110 87.6 110 60C110 32.4 87.6 10 60 10ZM60 100C37.9 100 20 82.1 20 60C20 37.9 37.9 20 60 20C82.1 20 100 37.9 100 60C100 82.1 82.1 100 60 100Z" fill="#0066FF"/>
-                    <path d="M60 30C43.4 30 30 43.4 30 60C30 76.6 43.4 90 60 90C76.6 90 90 76.6 90 60C90 43.4 76.6 30 60 30ZM60 80C49 80 40 71 40 60C40 49 49 40 60 40C71 40 80 49 80 60C80 71 71 80 60 80Z" fill="#0066FF"/>
-                    <path d="M60 50C54.5 50 50 54.5 50 60C50 65.5 54.5 70 60 70C65.5 70 70 65.5 70 60C70 54.5 65.5 50 60 50Z" fill="#0066FF"/>
-                </svg>
-            </div>
-            <div class="preloader-spinner"></div>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header class="header">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <div class="logo">
-                <svg width="180" height="50" viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 25H20M30 25H40M50 25H60M70 25H80" stroke="#0066FF" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M10 12.5L12.5 10L15 12.5L17.5 10L20 12.5" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M30 12.5L32.5 10L35 12.5L37.5 10L40 12.5" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M50 12.5L52.5 10L55 12.5L57.5 10L60 12.5" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M70 12.5L72.5 10L75 12.5L77.5 10L80 12.5" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M30 37.5L32.5 35L35 37.5L37.5 35L40 37.5" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M50 37.5L52.5 35L55 37.5L57.5 35L60 37.5" stroke="#0066FF" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M96.268 16.44H102.22L111.1 37H105.772L104.252 33.08H94.172L92.652 37H87.388L96.268 16.44ZM102.54 29.16L99.244 20.744L95.884 29.16H102.54ZM124.883 37.32C122.723 37.32 120.723 36.84 118.883 35.88C117.043 34.92 115.603 33.56 114.563 31.8C113.523 30.04 113.003 28 113.003 25.68C113.003 23.36 113.523 21.32 114.563 19.56C115.603 17.8 117.043 16.44 118.883 15.48C120.723 14.52 122.723 14.04 124.883 14.04C127.043 14.04 129.043 14.52 130.883 15.48C132.723 16.44 134.163 17.8 135.203 19.56C136.243 21.32 136.763 23.36 136.763 25.68C136.763 28 136.243 30.04 135.203 31.8C134.163 33.56 132.723 34.92 130.883 35.88C129.043 36.84 127.043 37.32 124.883 37.32ZM124.883 32.4C126.243 32.4 127.443 32.12 128.483 31.56C129.523 31 130.343 30.2 130.943 29.16C131.543 28.12 131.843 26.96 131.843 25.68C131.843 24.4 131.543 23.24 130.943 22.2C130.343 21.16 129.523 20.36 128.483 19.8C127.443 19.24 126.243 18.96 124.883 18.96C123.523 18.96 122.323 19.24 121.283 19.8C120.243 20.36 119.423 21.16 118.823 22.2C118.223 23.24 117.923 24.4 117.923 25.68C117.923 26.96 118.223 28.12 118.823 29.16C119.423 30.2 120.243 31 121.283 31.56C122.323 32.12 123.523 32.4 124.883 32.4ZM158.663 14.36V19H146.183V23.4H156.983V27.96H146.183V37H141.343V14.36H158.663ZM161.094 19.4V14.36H181.174V19.4H173.774V37H168.494V19.4H161.094Z" fill="#0066FF"/>
-                    <text x="93" y="45" font-family="Poppins" font-size="8" font-weight="700" fill="#0066FF">HACK MINES</text>
-                </svg>
+            <a class="navbar-brand" href="#">Bot Mines Pro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#beneficios">Benefícios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#precos">Planos</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Timer Section -->
-    <section class="timer-section animate-fade-in">
-        <div class="timer-container">
-            <div class="timer-block">
-                <div class="timer-number" id="timer-days">00</div>
-                <div class="timer-label">Dias</div>
-            </div>
-            <div class="timer-block">
-                <div class="timer-number" id="timer-hours">00</div>
-                <div class="timer-label">Horas</div>
-            </div>
-            <div class="timer-block">
-                <div class="timer-number" id="timer-minutes">00</div>
-                <div class="timer-label">Minutos</div>
-            </div>
-            <div class="timer-block">
-                <div class="timer-number" id="timer-seconds">00</div>
-                <div class="timer-label">Segundos</div>
-            </div>
-        </div>
-        <div class="timer-message">Oferta por tempo limitado!</div>
-    </section>
-
-    <!-- Plans Section -->
-    <section class="plans-section animate-fade-in animate-delay-1">
-        <h2 class="section-title">Escolha seu plano e comece agora</h2>
-        <div class="plans-container">
-            <!-- Plan 1 -->
-            <div class="plan-card">
-                <h3 class="plan-title">Plano Basic</h3>
-                <div class="plan-price">
-                    <span>500MT / 15 Dias</span>
-                    <span class="plan-urgency">Apenas Hoje!</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>Bot Mines Pro</h1>
+                    <p class="lead mb-4">Sistema inteligente que prevê os resultados do jogo Mines com precisão incomparável. Aumente seus ganhos com nossa tecnologia avançada.</p>
+                    <a href="#precos" class="btn btn-light btn-lg">Ver Planos</a>
                 </div>
-                <div class="plan-features">
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Bot completo para Mines</span>
-                    </div>
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Suporte 24/7</span>
-                    </div>
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Algoritmo inteligente</span>
-                    </div>
-                </div>
-                <div class="plan-spots">
-                    <i class="bi bi-exclamation-triangle-fill"></i>
-                    <span>Apenas 5 vagas restantes!</span>
-                </div>
-                <div class="payment-info">
-                    <div class="payment-info-title">Pagamento via Emola:</div>
-                    <div class="payment-number">
-                        <span>874993450</span>
-                        <button class="copy-btn" data-number="874993450">Copiar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plan 2 -->
-            <div class="plan-card">
-                <h3 class="plan-title">Plano Premium</h3>
-                <div class="plan-price">
-                    <span>800MT / 30 Dias</span>
-                    <span class="plan-urgency">Mais Popular!</span>
-                </div>
-                <div class="plan-features">
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Bot completo para Mines</span>
-                    </div>
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Suporte 24/7 prioritário</span>
-                    </div>
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Algoritmo avançado</span>
-                    </div>
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Atualizações gratuitas</span>
-                    </div>
-                </div>
-                <div class="plan-spots">
-                    <i class="bi bi-exclamation-triangle-fill"></i>
-                    <span>Apenas 3 vagas restantes!</span>
-                </div>
-                <div class="payment-info">
-                    <div class="payment-info-title">Pagamento via Emola:</div>
-                    <div class="payment-number">
-                        <span>874993450</span>
-                        <button class="copy-btn" data-number="874993450">Copiar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Plan 3 -->
-            <div class="plan-card">
-                <h3 class="plan-title">Plano VIP</h3>
-                <div class="plan-price">
-                    <span>1600MT / 3 Meses</span>
-                    <span class="plan-urgency">Melhor Valor!</span>
-                </div>
-                <div class="plan-features">
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Bot completo para Mines</span>
-                    </div>
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Suporte VIP 24/7</span>
-                    </div>
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Algoritmo premium exclusivo</span>
-                    </div>
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Atualizações prioritárias</span>
-                    </div>
-                    <div class="plan-feature">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>Acesso a estratégias exclusivas</span>
-                    </div>
-                </div>
-                <div class="plan-spots">
-                    <i class="bi bi-exclamation-triangle-fill"></i>
-                    <span>Última vaga disponível!</span>
-                </div>
-                <div class="payment-info">
-                    <div class="payment-info-title">Pagamento via Emola:</div>
-                    <div class="payment-number">
-                        <span>874993450</span>
-                        <button class="copy-btn" data-number="874993450">Copiar</button>
-                    </div>
+                <div class="col-lg-6 text-center d-none d-lg-block">
+                    <img src="/api/placeholder/500/300" alt="Bot Mines Pro" class="img-fluid rounded">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Instructions Section -->
-    <section class="instructions-section animate-fade-in animate-delay-2">
-        <h2 class="instructions-title">Como fazer seu pagamento</h2>
-        <div class="instructions-step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-                <div class="step-title">Escolha seu plano</div>
-                <div class="step-description">Selecione o plano que melhor atende às suas necessidades entre as opções acima.</div>
+    <!-- Benefits Section -->
+    <section class="py-5" id="beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Benefícios do Bot Mines Pro</h2>
             </div>
-        </div>
-        <div class="instructions-step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-                <div class="step-title">Realize o pagamento</div>
-                <div class="step-description">Copie o número e faça o pagamento via Emola para o número 874993450, com o valor do plano escolhido.</div>
-            </div>
-        </div>
-        <div class="instructions-step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-                <div class="step-title">Salve o comprovativo</div>
-                <div class="step-description">Após o pagamento, salve uma captura de tela do comprovativo para enviar no formulário abaixo.</div>
-            </div>
-        </div>
-        <div class="instructions-step">
-            <div class="step-number">4</div>
-            <div class="step-content">
-                <div class="step-title">Preencha o formulário</div>
-                <div class="step-description">Complete o formulário abaixo com seus dados e anexe o comprovativo de pagamento.</div>
-            </div>
-        </div>
-        <div class="instructions-step">
-            <div class="step-number">5</div>
-            <div class="step-content">
-                <div class="step-title">Receba seu acesso</div>
-                <div class="step-description">Após a confirmação do pagamento, você receberá o acesso ao AC HACK MINES em seu WhatsApp.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Form Section -->
-    <section class="form-section animate-fade-in animate-delay-3">
-        <h2 class="form-title">Preencha seus dados para receber o acesso</h2>
-        <form id="payment-form">
-            <div class="form-group">
-                <label for="name" class="form-label">Nome completo*</label>
-                <input type="text" class="form-control" id="name" placeholder="Digite seu nome completo" required>
-                <div class="invalid-feedback">Por favor, digite seu nome completo.</div>
-            </div>
-            <div class="form-group">
-                <label for="whatsapp" class="form-label">WhatsApp*</label>
-                <input type="tel" class="form-control" id="whatsapp" placeholder="Ex: 879123456" required>
-                <div class="invalid-feedback">Por favor, digite um número de WhatsApp válido.</div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="form-label">Email*</label>
-                <input type="email" class="form-control" id="email" placeholder="Digite seu email" required>
-                <div class="invalid-feedback">Por favor, digite um email válido.</div>
-            </div>
-            <div class="form-group">
-                <label for="message" class="form-label">Mensagem (opcional)</label>
-                <textarea class="form-control" id="message" rows="3" placeholder="Digite sua mensagem ou dúvida (opcional)"></textarea>
-            </div>
-            <div class="form-group">
-                <label class="form-label">Comprovativo de Pagamento*</label>
-                <div class="file-upload">
-                    <i class="bi bi-cloud-arrow-up"></i>
-                    <div class="file-upload-text">Clique para anexar o comprovativo</div>
-                    <div class="file-upload-subtext">Formatos aceitos: JPG, PNG ou PDF</div>
-                    <input type="file" id="receipt" accept=".jpg,.jpeg,.png,.pdf" required>
-                </div>
-                <div class="file-preview" id="file-preview">
-                    <div class="file-preview-content">
-                        <i class="bi bi-file-earmark-image file-preview-icon"></i>
-                        <div class="file-preview-info">
-                            <div class="file-preview-name"></div>
-                            <div class="file-preview-size"></div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card benefits-card h-100">
+                        <div class="card-header">
+                            Previsões Precisas
                         </div>
-                        <button type="button" class="file-preview-remove" id="remove-file">
-                            <i class="bi bi-trash"></i>
-                        </button>
+                        <div class="card-body text-center">
+                            <div class="benefits-icon">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                            <p>Nossa tecnologia avançada utiliza algoritmos de inteligência artificial para prever com precisão os próximos padrões do jogo Mines.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="invalid-feedback">Por favor, anexe o comprovativo de pagamento.</div>
+                
+                <div class="col-md-4">
+                    <div class="card benefits-card h-100">
+                        <div class="card-header">
+                            Ganho Automático
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="benefits-icon">
+                                <i class="bi bi-cash-coin"></i>
+                            </div>
+                            <p>Sistema automático que maximiza seus lucros, identificando as melhores oportunidades para aumentar seus ganhos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card benefits-card h-100">
+                        <div class="card-header">
+                            Sistema Inteligente
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="benefits-icon">
+                                <i class="bi bi-cpu"></i>
+                            </div>
+                            <p>Bot desenvolvido com tecnologia de ponta que aprende e se adapta aos padrões do jogo, melhorando continuamente seu desempenho.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn-primary" id="submit-button">Enviar e receber acesso</button>
-        </form>
+            
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card benefits-card h-100">
+                        <div class="card-header">
+                            Fácil de Usar
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="benefits-icon">
+                                <i class="bi bi-hand-thumbs-up"></i>
+                            </div>
+                            <p>Interface intuitiva que permite que qualquer pessoa, mesmo sem experiência técnica, comece a lucrar imediatamente.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card benefits-card h-100">
+                        <div class="card-header">
+                            Suporte Premium
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="benefits-icon">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                            <p>Atendimento exclusivo via WhatsApp para tirar todas as suas dúvidas e ajudar você a maximizar seus resultados.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card benefits-card h-100">
+                        <div class="card-header">
+                            Resultados Reais
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="benefits-icon">
+                                <i class="bi bi-trophy"></i>
+                            </div>
+                            <p>Comprovado por centenas de usuários que aumentaram significativamente seus ganhos usando nosso Bot Mines Pro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- WhatsApp Support Button -->
-    <div class="whatsapp-button" id="whatsapp-button">
-        <i class="bi bi-whatsapp"></i>
-    </div>
-    <div class="whatsapp-bubble" id="whatsapp-bubble">Precisa de ajuda? Fale conosco!</div>
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="precos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Escolha Seu Plano</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Plano Básico</h3>
+                            <div class="pricing-price">300 MT</div>
+                            <div class="pricing-duration">7 dias</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li>Acesso ao Bot Mines Pro</li>
+                                <li>Previsões com 85% de precisão</li>
+                                <li>Suporte via WhatsApp</li>
+                                <li>Atualizações gratuitas</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-button">
+                            <button class="btn btn-payment" data-bs-toggle="modal" data-bs-target="#paymentModal" data-plan="básico" data-price="300" data-days="7">
+                                Comprar Agora
+                            </button>
+                            <div class="payment-methods mt-2">
+                                <span class="payment-method" data-method="mpesa">M-Pesa</span>
+                                <span class="payment-method" data-method="emola">E-Mola</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Plano Premium</h3>
+                            <div class="pricing-price">700 MT</div>
+                            <div class="pricing-duration">15 dias</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li>Acesso ao Bot Mines Pro</li>
+                                <li>Previsões com 90% de precisão</li>
+                                <li>Suporte prioritário via WhatsApp</li>
+                                <li>Atualizações gratuitas</li>
+                                <li>Estratégias exclusivas</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-button">
+                            <button class="btn btn-payment" data-bs-toggle="modal" data-bs-target="#paymentModal" data-plan="premium" data-price="700" data-days="15">
+                                Comprar Agora
+                            </button>
+                            <div class="payment-methods mt-2">
+                                <span class="payment-method" data-method="mpesa">M-Pesa</span>
+                                <span class="payment-method" data-method="emola">E-Mola</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Plano VIP</h3>
+                            <div class="pricing-price">1200 MT</div>
+                            <div class="pricing-duration">30 dias</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li>Acesso ao Bot Mines Pro</li>
+                                <li>Previsões com 95% de precisão</li>
+                                <li>Suporte VIP 24/7 via WhatsApp</li>
+                                <li>Atualizações prioritárias</li>
+                                <li>Estratégias avançadas exclusivas</li>
+                                <li>Acesso a grupo exclusivo</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-button">
+                            <button class="btn btn-payment" data-bs-toggle="modal" data-bs-target="#paymentModal" data-plan="vip" data-price="1200" data-days="30">
+                                Comprar Agora
+                            </button>
+                            <div class="payment-methods mt-2">
+                                <span class="payment-method" data-method="mpesa">M-Pesa</span>
+                                <span class="payment-method" data-method="emola">E-Mola</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Toast notifications container -->
-    <div class="toast-container" id="toast-container"></div>
+    <!-- Payment Modal -->
+    <div class="modal fade payment-modal" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">Finalizar Compra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="paymentForm">
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Número de Telefone</label>
+                            <input type="text" class="form-control" id="phoneNumber" required placeholder="Ex: 84XXXXXXX">
+                        </div>
+                        <div class="mb-3">
+                            <label for="buyerName" class="form-label">Seu Nome</label>
+                            <input type="text" class="form-control" id="buyerName" required placeholder="Nome completo">
+                         </div>
+                        <div class="mb-3">
+                            <p class="mb-2">Método de Pagamento:</p>
+                            <div class="payment-methods">
+                                <span class="payment-method active" data-method="mpesa">M-Pesa</span>
+                                <span class="payment-method" data-method="emola">E-Mola</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <p>Plano: <strong id="selectedPlan"></strong></p>
+                            <p>Valor: <strong id="selectedPrice"></strong> MT</p>
+                            <p>Duração: <strong id="selectedDays"></strong> dias</p>
+                        </div>
+                        
+                        <div class="spinner-container" id="spinnerContainer">
+                            <div class="spinner"></div>
+                            <p class="mt-2">Processando pagamento...</p>
+                        </div>
+                        
+                        <div class="success-message" id="successMessage">
+                            <i class="bi bi-check-circle-fill me-2"></i>
+                            Pagamento realizado com sucesso! Você será redirecionado para o WhatsApp para ativar seu bot.
+                        </div>
+                        
+                        <div class="error-message" id="errorMessage">
+                            <i class="bi bi-x-circle-fill me-2"></i>
+                            <span id="errorText">Houve um erro ao processar seu pagamento. Por favor, tente novamente.</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="processPayment">Pagar Agora</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2025 AC HACK MINES - Todos os direitos reservados</p>
+            <p>&copy; 2025 Bot Mines Pro - Todos os direitos reservados</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // Preloader
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(function() {
-                const preloader = document.getElementById('preloader');
-                preloader.classList.add('fade-out');
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                }, 500);
-            }, 1500);
-        });
-
-        // Countdown Timer
-        function initCountdown() {
-            // Check if there's a saved end date in localStorage
-            let countdownDate = localStorage.getItem('acHackCountdownDate');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Variables to store selected options
+            let selectedPlan = '';
+            let selectedPrice = 0;
+            let selectedDays = 0;
+            let selectedPaymentMethod = 'mpesa';  // Default payment method
             
-            if (!countdownDate) {
-                // If no saved date, set countdown to 24 hours from now
-                const now = new Date();
-                const endDate = new Date(now.getTime() + (24 * 60 * 60 * 1000));
-                countdownDate = endDate.getTime();
-                localStorage.setItem('acHackCountdownDate', countdownDate);
-            }
-
-            const timerInterval = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = countdownDate - now;
-
-                // Time calculations
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                // Display the result
-                document.getElementById("timer-days").innerHTML = days < 10 ? "0" + days : days;
-                document.getElementById("timer-hours").innerHTML = hours < 10 ? "0" + hours : hours;
-                document.getElementById("timer-minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
-                document.getElementById("timer-seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
-
-                // If the countdown is finished, reset it
-                if (distance < 0) {
-                    const newEndDate = new Date(now.getTime() + (24 * 60 * 60 * 1000));
-                    countdownDate = newEndDate.getTime();
-                    localStorage.setItem('acHackCountdownDate', countdownDate);
-                }
-            }, 1000);
-        }
-
-        // Initialize countdown when page loads
-        initCountdown();
-
-        // Copy payment number to clipboard
-        const copyButtons = document.querySelectorAll('.copy-btn');
-        copyButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const number = this.getAttribute('data-number');
-                navigator.clipboard.writeText(number).then(() => {
-                    showToast('Número copiado!', 'Número copiado para a área de transferência.', 'success');
-                    this.textContent = 'Copiado';
-                    setTimeout(() => {
-                        this.textContent = 'Copiar';
-                    }, 2000);
+            // Payment method selection
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove active class from all payment methods
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    
+                    // Add active class to selected payment method
+                    this.classList.add('active');
+                    
+                    // Update selected payment method
+                    selectedPaymentMethod = this.getAttribute('data-method');
                 });
             });
-        });
-
-        // File upload preview
-        const fileInput = document.getElementById('receipt');
-        const filePreview = document.getElementById('file-preview');
-        const filePreviewName = document.querySelector('.file-preview-name');
-        const filePreviewSize = document.querySelector('.file-preview-size');
-        const removeFileButton = document.getElementById('remove-file');
-
-        fileInput.addEventListener('change', function(e) {
-            if (this.files && this.files[0]) {
-                const file = this.files[0];
-                filePreviewName.textContent = file.name;
-                filePreviewSize.textContent = formatFileSize(file.size);
-                filePreview.style.display = 'block';
-                this.classList.remove('is-invalid');
-            }
-        });
-
-        removeFileButton.addEventListener('click', function() {
-            fileInput.value = '';
-            filePreview.style.display = 'none';
-        });
-
-        function formatFileSize(bytes) {
-            if (bytes < 1024) return bytes + ' bytes';
-            else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-            else return (bytes / 1048576).toFixed(1) + ' MB';
-        }
-
-        // Form validation and submission
-        const form = document.getElementById('payment-form');
-        const submitButton = document.getElementById('submit-button');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
             
-            // Basic validation
-            let isValid = true;
-            
-            const name = document.getElementById('name');
-            const whatsapp = document.getElementById('whatsapp');
-            const email = document.getElementById('email');
-            const receipt = document.getElementById('receipt');
-            
-            // Name validation
-            if (!name.value.trim()) {
-                name.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                name.classList.remove('is-invalid');
-            }
-            
-            // WhatsApp validation
-            const whatsappRegex = /^[0-9]{9}$/;
-            if (!whatsappRegex.test(whatsapp.value.trim())) {
-                whatsapp.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                whatsapp.classList.remove('is-invalid');
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email.value.trim())) {
-                email.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                email.classList.remove('is-invalid');
-            }
-            
-            // File validation
-            if (!receipt.files || receipt.files.length === 0) {
-                receipt.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                receipt.classList.remove('is-invalid');
-            }
-            
-            if (isValid) {
-                // Show loading state
-                submitButton.classList.add('btn-loading');
-                submitButton.disabled = true;
-                
-                // Prepare the form data
-                const message = document.getElementById('message').value;
-                
-                // Read file as base64
-                const reader = new FileReader();
-                reader.readAsDataURL(receipt.files[0]);
-                
-                reader.onload = function() {
-                    const base64data = reader.result;
+            // Handle buy button click
+            const buyButtons = document.querySelectorAll('.btn-payment');
+            buyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Get plan details
+                    selectedPlan = this.getAttribute('data-plan');
+                    selectedPrice = this.getAttribute('data-price');
+                    selectedDays = this.getAttribute('data-days');
                     
-                    // Prepare data for Telegram
-                    sendToTelegram({
-                        name: name.value,
-                        whatsapp: whatsapp.value,
-                        email: email.value,
-                        message: message,
-                        file: {
-                            name: receipt.files[0].name,
-                            type: receipt.files[0].type,
-                            size: receipt.files[0].size,
-                            data: base64data
-                        }
-                    }).then(success => {
-                        // Remove loading state
-                        submitButton.classList.remove('btn-loading');
-                        submitButton.disabled = false;
-                        
-                        if (success) {
-                            // Show success message
-                            showToast('Enviado com sucesso!', 'Você receberá o acesso em breve no seu WhatsApp.', 'success');
-                            
-                            // Reset form
-                            form.reset();
-                            filePreview.style.display = 'none';
-                        } else {
-                            // Show error message
-                            showToast('Erro ao enviar', 'Ocorreu um erro. Por favor, tente novamente ou entre em contato via WhatsApp.', 'error');
+                    // Update modal content
+                    document.getElementById('selectedPlan').textContent = selectedPlan;
+                    document.getElementById('selectedPrice').textContent = selectedPrice;
+                    document.getElementById('selectedDays').textContent = selectedDays;
+                    
+                    // Reset form
+                    document.getElementById('paymentForm').reset();
+                    document.getElementById('spinnerContainer').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'none';
+                    document.getElementById('errorMessage').style.display = 'none';
+                    
+                    // Update payment method in modal
+                    const modalPaymentMethods = document.querySelectorAll('#paymentModal .payment-method');
+                    modalPaymentMethods.forEach(method => {
+                        method.classList.remove('active');
+                        if (method.getAttribute('data-method') === 'mpesa') {
+                            method.classList.add('active');
+                            selectedPaymentMethod = 'mpesa';
                         }
                     });
-                };
-            }
-        });
-
-        // Send data to Telegram
-        async function sendToTelegram(data) {
-            try {
-                const botToken = '7587708165:AAFIJLlt0vjns_PW5skflQ0_ZPX3X-ELGh4';
-                const chatId = '7303261420';
+                });
+            });
+            
+            // Handle payment process
+            const processPaymentButton = document.getElementById('processPayment');
+            processPaymentButton.addEventListener('click', function() {
+                const phoneNumber = document.getElementById('phoneNumber').value;
+                const buyerName = document.getElementById('buyerName').value;
                 
-                const text = `🔔 *NOVO PEDIDO DE ACESSO* 🔔\n\n` +
-                            `👤 *Nome:* ${data.name}\n` +
-                            `📱 *WhatsApp:* ${data.whatsapp}\n` +
-                            `📧 *Email:* ${data.email}\n` +
-                            `💬 *Mensagem:* ${data.message || 'Nenhuma mensagem'}\n\n` +
-                            `📎 *Comprovativo:* Anexado`;
+                // Validate form
+                if (!phoneNumber || !buyerName) {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('errorText').textContent = 'Por favor, preencha todos os campos.';
+                    return;
+                }
                 
-                // First send text message
-                const messageResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                // Show spinner
+                document.getElementById('spinnerContainer').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'none';
+                
+                // Disable payment button
+                processPaymentButton.disabled = true;
+                
+                // Process payment with backend API
+                fetch('https://kuaka-4.onrender.com/api/process-payment', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        chat_id: chatId,
-                        text: text,
-                        parse_mode: 'Markdown'
-                    }),
+                        phoneNumber: phoneNumber,
+                        buyerName: buyerName,
+                        paymentMethod: selectedPaymentMethod,
+                        plan: selectedPlan,
+                        price: selectedPrice,
+                        days: selectedDays
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Hide spinner
+                    document.getElementById('spinnerContainer').style.display = 'none';
+                    
+                    if (data.success) {
+                        // Show success message
+                        document.getElementById('successMessage').style.display = 'block';
+                        
+                        // Redirect to WhatsApp after 3 seconds
+                        setTimeout(function() {
+                            const message = `Olá! Acabei de efetuar o pagamento do Bot Mines Pro - Plano ${selectedPlan} (${selectedDays} dias).`;
+                            window.location.href = `https://wa.me/258879038047?text=${encodeURIComponent(message)}`;
+                        }, 3000);
+                    } else {
+                        // Show error message
+                        document.getElementById('errorMessage').style.display = 'block';
+                        document.getElementById('errorText').textContent = data.message || 'Houve um erro ao processar seu pagamento. Por favor, tente novamente.';
+                        
+                        // Enable payment button
+                        processPaymentButton.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    // Hide spinner
+                    document.getElementById('spinnerContainer').style.display = 'none';
+                    
+                    // Show error message
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('errorText').textContent = 'Erro de conexão. Por favor, tente novamente.';
+                    
+                    // Enable payment button
+                    processPaymentButton.disabled = false;
                 });
-                
-                if (!messageResponse.ok) {
-                    throw new Error('Failed to send message');
-                }
-                
-                // Then try to send the document
-                const formData = new FormData();
-                formData.append('chat_id', chatId);
-                formData.append('caption', 'Comprovativo de pagamento');
-                
-                // Create a blob from base64 data
-                const byteString = atob(data.file.data.split(',')[1]);
-                const ab = new ArrayBuffer(byteString.length);
-                const ia = new Uint8Array(ab);
-                
-                for (let i = 0; i < byteString.length; i++) {
-                    ia[i] = byteString.charCodeAt(i);
-                }
-                
-                const blob = new Blob([ab], { type: data.file.type });
-                formData.append('document', blob, data.file.name);
-                
-                const fileResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                if (!fileResponse.ok) {
-                    console.error('Failed to send file but message was sent');
-                    // We still return true if the message was sent but file failed
-                }
-                
-                return true;
-            } catch (error) {
-                console.error('Error sending to Telegram:', error);
-                return false;
-            }
-        }
-
-        // WhatsApp support button
-        const whatsappButton = document.getElementById('whatsapp-button');
-        const whatsappBubble = document.getElementById('whatsapp-bubble');
-        
-        // Show the bubble after 5 seconds
-        setTimeout(() => {
-            whatsappBubble.classList.add('show');
-            setTimeout(() => {
-                whatsappBubble.classList.remove('show');
-            }, 5000);
-        }, 5000);
-        
-        // Show bubble on hover
-        whatsappButton.addEventListener('mouseenter', () => {
-            whatsappBubble.classList.add('show');
-        });
-        
-        whatsappButton.addEventListener('mouseleave', () => {
-            whatsappBubble.classList.remove('show');
-        });
-        
-        // Open WhatsApp on click
-        whatsappButton.addEventListener('click', () => {
-            const phone = '258879038047';
-            const message = encodeURIComponent('Olá! Estou interessado no AC HACK MINES e preciso de ajuda.');
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-        });
-
-        // Toast messages
-        function showToast(title, message, type = 'success') {
-            const toastContainer = document.getElementById('toast-container');
-            
-            const toast = document.createElement('div');
-            toast.className = `toast toast-${type}`;
-            
-            toast.innerHTML = `
-                <div class="toast-icon">
-                    <i class="bi ${type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-circle-fill'}"></i>
-                </div>
-                <div class="toast-content">
-                    <div class="toast-title">${title}</div>
-                    <div class="toast-message">${message}</div>
-                </div>
-                <button class="toast-close">
-                    <i class="bi bi-x"></i>
-                </button>
-            `;
-            
-            toastContainer.appendChild(toast);
-            
-            // Show toast with animation
-            setTimeout(() => {
-                toast.classList.add('show');
-            }, 100);
-            
-            // Close button
-            const closeButton = toast.querySelector('.toast-close');
-            closeButton.addEventListener('click', () => {
-                toast.classList.remove('show');
-                setTimeout(() => {
-                    toastContainer.removeChild(toast);
-                }, 300);
             });
-            
-            // Auto close after 5 seconds
-            setTimeout(() => {
-                if (toast.parentNode === toastContainer) {
-                    toast.classList.remove('show');
-                    setTimeout(() => {
-                        if (toast.parentNode === toastContainer) {
-                            toastContainer.removeChild(toast);
-                        }
-                    }, 300);
-                }
-            }, 5000);
-        }
+        });
     </script>
 </body>
 </html>
