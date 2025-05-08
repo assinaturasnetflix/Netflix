@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC MINES - Painel Administrativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AC MINES</h1>
+      <p class="subtitle">Painel Administrativo</p>
+    </header>
+    
+    <main>
+      <section class="card">
+        <h2>Gerar Nova Chave</h2>
+        <div class="form-group">
+          <label for="plan-select">Selecione o plano:</label>
+          <select id="plan-select">
+            <option value="7d">7 dias</option>
+            <option value="15d">15 dias</option>
+            <option value="30d">30 dias</option>
+          </select>
+          <button id="generate-key-btn" class="btn primary">Gerar Chave</button>
+        </div>
+        
+        <div id="key-result" class="key-result hidden">
+          <h3>Nova Chave Gerada:</h3>
+          <div class="key-display">
+            <span id="generated-key">-</span>
+            <button id="copy-key-btn" class="btn small">Copiar</button>
+          </div>
+          <p>Plano: <span id="key-plan">-</span></p>
+          <p>Data de Criação: <span id="key-created-at">-</span></p>
+        </div>
+      </section>
+      
+      <section class="card">
+        <h2>Chaves Geradas</h2>
+        <div class="table-container">
+          <table id="keys-table">
+            <thead>
+              <tr>
+                <th>Chave</th>
+                <th>Plano</th>
+                <th>Data de Criação</th>
+                <th>Expira em</th>
+              </tr>
+            </thead>
+            <tbody id="keys-table-body">
+              <tr>
+                <td colspan="4" class="table-empty">Carregando chaves...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <p>&copy; 2025 AC MINES - Todos os direitos reservados</p>
+    </footer>
+  </div>
+  
+  <script src="scripts/admin.js"></script>
+</body>
+</html>

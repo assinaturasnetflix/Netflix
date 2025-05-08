@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC MINES - Plataforma de Sinais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AC MINES</h1>
+      <p class="subtitle">Plataforma de Sinais</p>
+    </header>
+    
+    <main>
+      <section id="key-section" class="card">
+        <h2>Acessar Plataforma</h2>
+        <div class="form-group">
+          <label for="key-input">Insira sua chave de acesso:</label>
+          <input type="text" id="key-input" placeholder="Digite sua chave aqui">
+          <button id="verify-key-btn" class="btn primary">Verificar Chave</button>
+        </div>
+        <div id="key-error" class="error-message"></div>
+      </section>
+      
+      <section id="subscription-info" class="card hidden">
+        <h2>Informações da Assinatura</h2>
+        <div class="info-container">
+          <div class="info-item">
+            <span class="info-label">Plano:</span>
+            <span id="plan-info" class="info-value">-</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Dias Restantes:</span>
+            <span id="days-remaining" class="info-value">-</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Expira em:</span>
+            <span id="expires-at" class="info-value">-</span>
+          </div>
+        </div>
+      </section>
+      
+      <section id="board-section" class="card hidden">
+        <div class="board-header">
+          <h2>Tabuleiro de Minas</h2>
+          <button id="generate-signal-btn" class="btn secondary">Gerar Novo Sinal</button>
+        </div>
+        
+        <div id="board-container" class="board-container">
+          <div id="board" class="board"></div>
+        </div>
+        
+        <div class="legend">
+          <div class="legend-item">
+            <div class="legend-color green"></div>
+            <span>Verde (70-100%): Alta chance de acerto</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color orange"></div>
+            <span>Laranja (40-69%): Chance média de acerto</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color red"></div>
+            <span>Vermelho (0-39%): Alta chance de erro</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+<div id="key-modal" class="modal">
+  <div class="modal-content">
+    <h2>Você já possui uma chave de acesso?</h2>
+    <div class="modal-buttons">
+      <a href="https://mozpayment.co.mz/pagaemento?check=1746519798335x143095610732969980" class="btn primary">Não tenho chave</a>
+      <button id="already-have-key-btn" class="btn secondary">Já tenho chave</button>
+    </div>
+  </div>
+</div>
+    
+    <footer>
+      <p>&copy; 2025 AC MINES - Todos os direitos reservados</p>
+    </footer>
+  </div>
+  
+  <script src="scripts/main.js"></script>
+</body>
+</html>
