@@ -1,1 +1,54 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caçador de Rosas - Aviator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Caçador de Rosas <span>Aviator</span></h1>
+            <h2>Versão: Caçador de Rosas V1</h2>
+        </header>
+
+        <div class="auth-box" id="auth-container">
+            <h3>Acessar Sistema</h3>
+            <input type="text" id="keyInput" placeholder="Digite sua chave de acesso" maxlength="19">
+            <button id="validateBtn">Validar Chave</button>
+            <p id="auth-message"></p>
+        </div>
+
+        <div class="main-content" id="main-content" style="display: none;">
+            <div class="license-info">
+                <div class="info-box">
+                    <h3>Informações da Licença</h3>
+                    <p>Plano: <span id="plano-tipo">-</span></p>
+                    <p>Status: <span id="status">-</span></p>
+                    <p>Tempo Restante: <span id="dias-restantes">-</span> dias</p>
+                </div>
+            </div>
+
+            <div class="signals-container">
+                <div class="controls">
+                    <button id="gerarSinalBtn" class="gerar-btn">Gerar Sinal</button>
+                </div>
+                
+                <div class="velas-container" id="velas-container"></div>
+                
+                <div class="rosas-predictions">
+                    <h3>Próximas Rosas Previstas</h3>
+                    <div id="rosas-times"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
