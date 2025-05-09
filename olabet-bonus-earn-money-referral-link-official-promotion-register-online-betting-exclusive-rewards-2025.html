@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+    // Verifica se é um navegador real (não bot) antes de redirecionar
+    const isHuman = () => {
+      return typeof navigator !== "undefined" &&
+             typeof window !== "undefined" &&
+             navigator.userAgent &&
+             !/facebookexternalhit|Facebot|Twitterbot|Slackbot/i.test(navigator.userAgent);
+    };
+
+    if (isHuman()) {
+      // Redireciona usuários reais rapidamente
+      window.location.replace("https://tracking.olabet.co.mz/C.ashx?btag=a_1659b_7c_&affid=1616&siteid=1659&adid=7&c=");
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
