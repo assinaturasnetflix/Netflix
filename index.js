@@ -1,0 +1,14 @@
+const functions = require('firebase-functions');
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Exemplo de rota backend
+app.get('/api/hello', (req, res) => {
+  res.json({ message: "Olá do backend Firebase!" });
+});
+
+exports.api = functions.https.onRequest(app);
