@@ -29,36 +29,34 @@
         <!-- ===== Proofs Section (Horizontal Scroll) ===== -->
         <section class="section section--proofs">
             <div class="container">
-                 <h2 class="section__title text-center mb-3 fade-in" data-delay="0.2s">Veja a Estratégia em Ação!</h2>
+                <h2 class="section__title text-center mb-3 fade-in" data-delay="0.2s">Veja a Estratégia em Ação!</h2>
                 <div class="proofs__scroll-container fade-in" data-delay="0.4s">
                     <div class="proofs__wrapper">
                         <!-- Proof Item 1: Video -->
                         <div class="proof-item proof-item--video">
                             <video
                                 src="pagavideo.mp4"
-                                
                                 loop
-                                controls  <!-- ADICIONADO: Permite controle do usuário (play/pause/volume) -->
+                                controls
                                 playsinline
-                                poster="12poster.jpg" <!-- Opcional: Imagem de placeholder -->
+                                poster="12poster.jpg"
                                 class="proof-media"
                                 aria-label="Vídeo de demonstração da estratégia Caçador de Rosas com áudio">
                                 Seu navegador não suporta vídeos HTML5.
                             </video>
-                             <div class="proof-item__overlay"> <!-- Você pode querer remover ou ajustar este overlay se 'controls' for suficiente -->
-                                <i class="bi bi-volume-up-fill icon-play"></i> <!-- Ícone atualizado -->
+                            <div class="proof-item__overlay">
+                                <i class="bi bi-volume-up-fill icon-play"></i>
                                 <span>Resultados Reais</span>
                             </div>
                         </div>
                         <!-- Proof Item 2: Image -->
                         <div class="proof-item proof-item--image">
                             <img src="proofimage.jpg" alt="Print de resultado da estratégia Aviator" class="proof-media">
-                             <div class="proof-item__overlay">
+                            <div class="proof-item__overlay">
                                 <i class="bi bi-camera-fill icon-image"></i>
                                 <span>Lucros Comprovados</span>
                             </div>
                         </div>
-                         <!-- Adicione mais itens aqui se necessário -->
                     </div>
                 </div>
                 <div class="text-center mt-3 fade-in" data-delay="0.6s">
@@ -97,12 +95,12 @@
                         <p class="testimonial-author">- Júlia Maputo</p>
                     </div>
                     <div class="testimonial-card fade-in" data-delay="0.8s">
-                       <i class="bi bi-quote testimonial-icon"></i>
+                        <i class="bi bi-quote testimonial-icon"></i>
                         <p class="testimonial-text">“Caçador de Rosas é a melhor coisa que já comprei para apostas. Simples e eficaz.”</p>
                         <p class="testimonial-author">- Ernesto Chimoio</p>
                     </div>
                 </div>
-                 <div class="text-center mt-3 fade-in" data-delay="1s">
+                <div class="text-center mt-3 fade-in" data-delay="1s">
                     <button class="btn btn--secondary btn--buy smooth-scroll" data-target="#payment">
                         <i class="bi bi-rocket-takeoff-fill"></i> Quero Lucrar Também!
                     </button>
@@ -112,20 +110,24 @@
 
         <!-- ===== Payment Section ===== -->
         <section id="payment" class="section section--payment">
-            <!-- O iframe será carregado aqui e ocupará esta seção -->
-             <iframe
-                src="https://pay.kuenha.com/4ef532cd-d7d4-4a4a-b9b8-f2b82f379a7b"
-                frameborder="0"
-                allowfullscreen
-                scrolling="no"
-                title="Checkout Caçador de Rosas V1"
-                class="payment-iframe">
-            </iframe>
+         <iframe
+    src="https://pay.kuenha.com/4ef532cd-d7d4-4a4a-b9b8-f2b82f379a7b"
+    frameborder="0"
+    allowfullscreen
+    scrolling="yes"
+    title="Checkout Caçador de Rosas V1"
+    class="payment-iframe">
+</iframe>
+            <p style="text-align: center; margin-top: 20px; font-size: 1.1em;">
+                Dificuldade em pagar?
+                <a href="https://youtu.be/-MsdhNP2xlA?si=daVy7-hKREawZzUt" target="_blank" rel="noopener noreferrer">
+                    Clique aqui para assistir como pagar
+                </a>
+            </p>
         </section>
-
     </main>
 
     <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
-                                                                              </html>
+             </html>
