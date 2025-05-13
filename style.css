@@ -368,3 +368,20 @@ a:hover {
 @media (min-width: 1200px) {
     /* Ajustes finos se necessário */
 }
+.section--payment {
+    display: block !important;
+    text-align: center;
+}
+
+.payment-iframe {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+}
+
+.section--payment p {
+    margin-top: 20px;
+    font-size: 1.1em;
+    }
