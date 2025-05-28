@@ -1,116 +1,428 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-MZ">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Video - Escolha seu Plano</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #141414;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .header img {
-            width: 250px;
-            margin-bottom: 20px;
-            border: 5px solid #00A8E8; /* Borda azul para o logo */
-            border-radius: 10px;
-            padding: 10px;
-        }
-        .header h1 {
-            color: #00A8E8;
-            margin-top: 20px;
-        }
-        .plan {
-            background: #1f1f1f;
-            border: 2px solid #00A8E8;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .plan:hover {
-            transform: scale(1.05);
-        }
-        .plan img {
-            width: 100%;
-            max-width: 350px;
-            margin: 15px 0;
-            border-radius: 10px;
-        }
-        .plan h2 {
-            color: #00A8E8;
-            font-size: 24px;
-        }
-        .plan p {
-            margin: 10px 0;
-            font-size: 16px;
-        }
-        .plan .price {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .plan button {
-            background: #00A8E8;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-        .plan button:hover {
-            background: #007BB5;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-        }
-        .footer a {
-            color: #00A8E8;
-            text-decoration: none;
-        }
-    </style>
+    <title>Assinaturas Prime Video - Stream Assinaturas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+<style>
+    :root {
+        --site-primary-color: #E50914;
+        --prime-video-blue: #00A8E1;
+        --prime-video-darker-blue: #0082ad;
+        --secondary-color: #FFFFFF;
+        --background-dark: #0c0c0c;
+        --background-medium: #141414;
+        --background-light: #1f1f1f;
+        --text-primary: #F5F5F1;
+        --text-secondary: #A0A0A0;
+        --font-family: 'Poppins', sans-serif;
+        --transition-speed: 0.3s;
+        --base-font-size: 11.7px;
+        --h1-size: 2.0rem;
+        --h2-size: 1.6rem;
+        --h3-size: 1.25rem;
+        --h4-size: 1.0rem;
+        --card-border-radius: 8px;
+        --section-padding: 35px 0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--font-family);
+        background-color: var(--background-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        font-size: var(--base-font-size);
+        overflow-x: hidden;
+        padding-top: 60px;
+    }
+    .container { width: 92%; max-width: 1150px; margin: 0 auto; padding: 0 15px; }
+    a { color: var(--secondary-color); text-decoration: none; transition: color var(--transition-speed) ease; }
+    a:hover { color: var(--prime-video-blue); }
+
+    img, svg { max-width: 100%; height: auto; display: block; }
+    h1, h2, h3, h4 { font-weight: 600; margin-bottom: 0.7em; }
+    h1 { font-size: var(--h1-size); }
+    h3 { font-size: var(--h3-size); }
+    h4 { font-size: var(--h4-size); }
+
+    h2.section-title {
+        text-align: center;
+        margin-bottom: 10px;
+        position: relative;
+        padding-bottom: 15px;
+        font-size: var(--h2-size);
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+    h2.section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 3px;
+        background-color: var(--prime-video-blue);
+        border-radius: 2px;
+    }
+
+    .main-header { background-color: rgba(12, 12, 12, 0.88); padding: 10px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: var(--site-primary-color); letter-spacing: 0.5px; }
+    .logo i { margin-right: 7px; animation: logoPulse 2s infinite ease-in-out; }
+    @keyframes logoPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .main-nav { display: flex; align-items: center; }
+    .main-nav ul { list-style: none; display: flex; }
+    .main-nav ul li { margin-left: 22px; }
+    .main-nav ul li a { color: var(--text-primary); font-weight: 500; font-size: 0.85rem; padding: 5px 0; position: relative; }
+    .main-nav ul li a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2.5px; background-color: var(--site-primary-color); transition: width var(--transition-speed) ease; }
+    .main-nav ul li a:hover::after, .main-nav ul li a.active::after { width: 100%; }
+    .user-actions { display: flex; align-items: center; }
+    .user-actions .btn { margin-left: 9px; }
+    .btn { padding: 7px 14px; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: all var(--transition-speed) ease; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    
+    .btn-header-primary { background-color: var(--site-primary-color); color: var(--text-primary); }
+    .btn-header-primary:hover { background-color: #c40812; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(229, 9, 20, 0.3); }
+    .btn-header-secondary { background-color: transparent; color: var(--text-primary); border: 1.5px solid var(--text-secondary); }
+    .btn-header-secondary:hover { background-color: var(--text-primary); color: var(--background-dark); border-color: var(--text-primary); }
+
+    .btn-prime-video-theme {
+        background-color: var(--prime-video-blue);
+        color: var(--secondary-color);
+        border: 1px solid var(--prime-video-blue);
+    }
+    .btn-prime-video-theme:hover {
+        background-color: var(--prime-video-darker-blue);
+        border-color: var(--prime-video-darker-blue);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 168, 225, 0.3);
+    }
+
+    .profile-icon { color: var(--text-primary); font-size: 1.6rem; cursor: pointer; position: relative; margin-left: 9px; }
+    .profile-icon .dropdown-menu { display: none; position: absolute; top: 140%; right: 0; background-color: var(--background-medium); border: 1px solid var(--background-light); border-radius: var(--card-border-radius); box-shadow: 0 5px 15px rgba(0,0,0,0.5); min-width: 170px; z-index: 1001; }
+    .profile-icon.active .dropdown-menu { display: block; }
+    .profile-icon .dropdown-menu a { display: block; padding: 11px 14px; color: var(--text-secondary); font-size: 0.8rem; }
+    .profile-icon .dropdown-menu a:hover { background-color: var(--background-light); color: var(--text-primary); }
+    .profile-icon .dropdown-menu a i { margin-right: 9px; width: 14px; text-align: center; }
+    .hamburger-menu { display: none; font-size: 1.7rem; color: var(--text-primary); cursor: pointer; background: none; border: none; padding: 6px; margin-left: 11px; }
+    .hamburger-menu i { transition: transform 0.3s ease; }
+    body.nav-open .hamburger-menu i { transform: rotate(90deg); }
+
+    #service-products-section { padding: var(--section-padding); }
+    .service-header-info { text-align: center; margin-bottom: 40px; }
+    .service-icon-large { max-width: 180px; min-height:80px; margin: 0 auto 15px auto; display:flex; align-items:center; justify-content:center;}
+    .service-icon-large .iconify { font-size: 80px; } 
+    .service-description { font-size: 0.95rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; line-height: 1.7; }
+
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 25px; }
+    .product-card { background-color: var(--background-medium); border-radius: var(--card-border-radius); overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; display: flex; flex-direction: column; height: 100%;}
+    .product-card:hover { transform: translateY(-7px); box-shadow: 0 10px 22px rgba(0,0,0,0.45); }
+    .product-card-link-wrapper { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; }
+    .product-card-image { width: 100%; height: 180px; overflow: hidden; background-color: var(--background-light); }
+    .product-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .product-card:hover .product-card-image img { transform: scale(1.07); }
+    .product-card-content { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; }
+    .product-card-content h3 { font-size: 1.15rem; margin-bottom: 9px; color: var(--text-primary); line-height: 1.3; }
+    .product-card-content .category { font-size: 0.7rem; color: var(--text-secondary); background-color: var(--background-light); padding: 3px 7px; border-radius: 4px; display: inline-block; margin-bottom: 9px; text-transform: uppercase; font-weight: 500; }
+    .product-card-content .description { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 14px; flex-grow: 1; line-height: 1.5; max-height: calc(0.8rem * 1.5 * 3); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+    .product-card-footer { display: flex; justify-content: space-between; align-items: center; padding: 0px 18px 18px; margin-top: auto; }
+    .product-card .price { font-size: 1.15rem; font-weight: 700; color: var(--prime-video-blue); }
+    .product-card .btn-buy { padding: 7px 12px; font-size: 0.7rem; }
+    .product-card .btn-buy i { margin-right: 4px; animation: cartPulseBlue 1.5s infinite ease-in-out; }
+    @keyframes cartPulseBlue { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.05); opacity: 1; } }
+
+    .skeleton-card { background-color: var(--background-medium); border-radius: var(--card-border-radius); overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    .skeleton-image { height: 180px; background-color: var(--background-light); animation: pulse-bg 1.5s infinite ease-in-out; }
+    .skeleton-content { padding: 18px; }
+    .skeleton-line { height: 1em; background-color: var(--background-light); border-radius: 4px; margin-bottom: 9px; animation: pulse-bg 1.5s infinite ease-in-out; }
+    .skeleton-line.short { width: 60%; } .skeleton-line.medium { width: 80%; }
+    .skeleton-footer { display: flex; justify-content: space-between; align-items: center; padding: 0 18px 18px; }
+    .skeleton-price { width: 30%; height: 1.5em; background-color: var(--prime-video-blue); opacity: 0.5; border-radius: 4px; animation: pulse-color-bg-blue 1.5s infinite ease-in-out; }
+    .skeleton-button { width: 40%; height: 2.5em; background-color: var(--prime-video-blue); opacity: 0.7; border-radius: 5px; animation: pulse-color-bg-blue 1.5s infinite ease-in-out; }
+    @keyframes pulse-bg { 0% { background-color: var(--background-light); } 50% { background-color: #282828; } 100% { background-color: var(--background-light); } }
+    @keyframes pulse-color-bg-blue { 0% { opacity: 0.5; background-color: var(--prime-video-blue); } 50% { opacity: 0.8; background-color: var(--prime-video-darker-blue); } 100% { opacity: 0.5; background-color: var(--prime-video-blue); } }
+
+    .empty-state { text-align: center; padding: 45px 18px; color: var(--text-secondary); }
+    .empty-state i { font-size: 2.8rem; margin-bottom: 18px; color: var(--prime-video-blue); opacity: 0.65; }
+    .empty-state p { font-size: 1.05rem; }
+
+    .main-footer { background-color: var(--background-medium); color: var(--text-secondary); padding: 35px 0; text-align: center; font-size: 0.75rem; border-top: 2.5px solid var(--background-dark); }
+    .main-footer p { margin-bottom: 10px; }
+    .main-footer .fa-heart { color: var(--site-primary-color); }
+    .social-icons a { color: var(--text-secondary); font-size: 1.3rem; margin: 0 9px; transition: color var(--transition-speed) ease, transform var(--transition-speed) ease; }
+    .social-icons a:hover { color: var(--prime-video-blue); transform: scale(1.2); }
+
+    @media (max-width: 992px) {
+        .main-nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--background-medium); padding: 12px 0; box-shadow: 0 6px 12px rgba(0,0,0,0.35); max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.5s ease; }
+        body.nav-open .main-nav ul { display: flex; max-height: 500px; padding: 12px 0; }
+        .main-nav ul li { margin: 12px 0; text-align: center; width: 100%; }
+        .main-nav ul li a { padding: 12px 18px; display: block; width: 100%; }
+        .hamburger-menu { display: block; order: 3; }
+        .user-actions { order: 2; }
+        .product-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        .service-icon-large { max-width: 150px; height:70px;}
+        .service-icon-large .iconify {font-size:70px;}
+    }
+    @media (max-width: 768px) {
+        .product-grid { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; }
+        h1 { font-size: 1.7rem; } h2.section-title { font-size: 1.4rem; }
+        .service-icon-large { max-width: 120px; height:60px; }
+        .service-icon-large .iconify {font-size:60px;}
+    }
+    @media (max-width: 480px) {
+        :root { --base-font-size: 11px; }
+        .user-actions .btn { font-size: 0.7rem; padding: 6px 10px; }
+        .profile-icon { font-size: 1.4rem; } .logo { font-size: 1.25rem; }
+        .product-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px;}
+        .product-card-image { height: 140px; }
+        .product-card-content h3 { font-size: 1rem; }
+        .product-card-footer { flex-direction: column; align-items: stretch; gap: 8px; padding: 0 10px 10px; }
+        .product-card .price { text-align: left; }
+        .product-card .btn-buy { width: 100%; text-align: center; }
+        .service-icon-large { max-width: 100px; height:50px; }
+        .service-icon-large .iconify {font-size:50px;}
+        .service-description { font-size: 0.9rem; }
+    }
+    a:focus, button:focus, [tabindex="0"]:focus { outline: 2.5px solid var(--prime-video-blue); outline-offset: 2.5px; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="primevideo-logo.png" alt="Logo Prime Video">
-            <h1>Escolha seu Plano Prime Video</h1>
-        </div>
 
-        <!-- Plano Prime Video -->
- 
-
-        <div class="plan">
-            <img src="primevideo-700mt.png" alt="Plano Prime Video 700MT">
-            <h2>Plano Regular</h2>
-            <p class="price">700MT/Mês - Prime Video</p>
-            <p></p>
-            <p>Acesso ilimitado aos melhores filmes e séries do Prime Video</p>
-            <button onclick="window.location.href='checkout.html?plano=primevideo&preco=700';">Comprar</button>
+    <header class="main-header">
+        <div class="container">
+            <a href="/" class="logo"><i class="fas fa-play-circle"></i>Stream Assinaturas</a>
+            <nav class="main-nav" id="main-navigation">
+                <ul>
+                    <li><a href="/index.html">Início</a></li>
+                    <li><a href="/products.html">Produtos</a></li>
+                    <li><a href="/index.html#promotions-section">Promoções</a></li>
+                    <li><a href="/contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-header-secondary" id="login-btn-header">Login</button>
+                <button class="btn btn-header-primary" id="register-btn-header">Registar</button>
+                <div class="profile-icon" id="user-profile-icon-header" style="display: none;">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="dropdown-menu">
+                        <a href="/profile.html" id="profile-link-header"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="/subscriptions.html" id="subscriptions-link-header"><i class="fas fa-receipt"></i> Minhas Assinaturas</a>
+                        <a href="#" id="logout-btn-header"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger-menu" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+    </header>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2024-2025 Stream & Assinaturas. Todos os direitos reservados.</p>
-            <p>Suporte: <a href="tel:+258876625174">258876625174</a></p>
-            <p>Email de Suporte: <a href="mailto:acaciofariav@streamassinaturas.shop">acaciofariav@streamassinaturas.shop</a></p>
+    <main>
+        <section id="service-products-section" class="container">
+            <div class="service-header-info">
+                <div class="service-icon-large" id="service-page-icon">
+                </div>
+                <h2 class="section-title" id="service-page-title">Prime Video</h2>
+                <p class="service-description" id="service-page-description">
+                    Descubra as nossas ofertas de assinatura Prime Video e desfrute de filmes, séries premiadas e Amazon Originals.
+                </p>
+            </div>
+
+            <div class="product-grid" id="service-product-grid-container">
+            </div>
+            <div class="empty-state" id="service-products-empty-state" style="display: none;">
+                <i class="fas fa-film"></i> <p>Nenhum produto Prime Video encontrado no momento. Por favor, volte mais tarde.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© <span id="current-year"></span> Stream Assinaturas. Todos os direitos reservados.</p>
+            <p>Feito com <i class="fas fa-heart"></i> Por AC</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+            </div>
         </div>
-    </div>
+    </footer>
+
+<script>
+    const API_BASE_URL = 'https://toppphzhd-1bdbd.onrender.com/api';
+    const SERVICE_NAME = "Prime Video";
+    const SERVICE_KEY = "prime video";
+    const SERVICE_DESCRIPTION = "Descubra as nossas ofertas de assinatura Prime Video e desfrute de filmes, séries premiadas e Amazon Originals.";
+
+    const categoryIcons = {
+        'netflix': '<span class="iconify" data-icon="logos:netflix" data-width="120" data-height="40" data-inline="false"></span>',
+        'spotify': '<span class="iconify" data-icon="logos:spotify-icon" data-width="80" data-height="80" data-inline="false"></span>',
+        'prime video': '<span class="iconify" data-icon="arcticons:amazon-prime-video" data-width="80" data-height="80" data-inline="false" style="color: #00A8E1;"></span>',
+        'crunchyroll': '<span class="iconify" data-icon="simple-icons:crunchyroll" data-width="80" data-height="80" data-inline="false" style="color: #F47521;"></span>',
+        'default': '<span class="iconify" data-icon="mdi:tag-outline" data-width="80" data-height="80" data-inline="false" style="color: var(--text-secondary);"></span>'
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCurrentYear();
+        setupEventListeners();
+        checkLoginStateAndUpdateUI();
+        setServicePageDetails();
+        fetchServiceProducts(SERVICE_NAME);
+    });
+
+    function updateCurrentYear() {
+        const el = document.getElementById('current-year');
+        if (el) el.textContent = new Date().getFullYear();
+    }
+
+    function setupEventListeners() {
+        const profileIcon = document.getElementById('user-profile-icon-header');
+        if (profileIcon) profileIcon.addEventListener('click', (e) => { e.stopPropagation(); profileIcon.classList.toggle('active'); });
+        document.addEventListener('click', (e) => { if (profileIcon && profileIcon.classList.contains('active') && !profileIcon.contains(e.target)) profileIcon.classList.remove('active'); });
+        const logoutButton = document.getElementById('logout-btn-header');
+        if (logoutButton) logoutButton.addEventListener('click', (e) => { e.preventDefault(); logoutUser(); });
+        const loginButton = document.getElementById('login-btn-header');
+        if (loginButton) loginButton.addEventListener('click', () => window.location.href = '/login.html');
+        const registerButton = document.getElementById('register-btn-header');
+        if (registerButton) registerButton.addEventListener('click', () => window.location.href = '/register.html');
+        const hamburgerToggle = document.getElementById('hamburger-toggle');
+        if (hamburgerToggle) {
+            hamburgerToggle.addEventListener('click', () => {
+                document.body.classList.toggle('nav-open');
+                const isExpanded = hamburgerToggle.getAttribute('aria-expanded') === 'true' || false;
+                hamburgerToggle.setAttribute('aria-expanded', String(!isExpanded));
+                const icon = hamburgerToggle.querySelector('i');
+                if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times');}
+            });
+        }
+    }
+
+    function setServicePageDetails() {
+        const iconContainer = document.getElementById('service-page-icon');
+        const titleElement = document.getElementById('service-page-title');
+        const descriptionElement = document.getElementById('service-page-description');
+
+        if (iconContainer) {
+            iconContainer.innerHTML = categoryIcons[SERVICE_KEY.toLowerCase()] || categoryIcons['default'];
+        }
+        if (titleElement) {
+            titleElement.textContent = SERVICE_NAME;
+        }
+        if (descriptionElement) {
+            descriptionElement.textContent = SERVICE_DESCRIPTION;
+        }
+        document.title = `Assinaturas ${SERVICE_NAME} - Stream Assinaturas`;
+    }
+
+    async function fetchServiceProducts(categoryName) {
+        const productGrid = document.getElementById('service-product-grid-container');
+        const emptyState = document.getElementById('service-products-empty-state');
+        if (!productGrid || !emptyState) return;
+
+        productGrid.innerHTML = Array(4).fill(createSkeletonProductCardHTML()).join('');
+        emptyState.style.display = 'none';
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/products?category=${encodeURIComponent(categoryName)}&activeOnly=true&limit=0`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            let data = await response.json();
+            let products = Array.isArray(data) ? data : (data.products || []);
+
+            productGrid.innerHTML = '';
+            if (products.length > 0) {
+                products.forEach(product => {
+                    const productCard = createProductCard(product);
+                    productGrid.appendChild(productCard);
+                });
+            } else {
+                emptyState.style.display = 'block';
+            }
+        } catch (error) {
+            console.error(`Erro ao buscar produtos ${categoryName}:`, error);
+            productGrid.innerHTML = '';
+            emptyState.style.display = 'block';
+            emptyState.querySelector('p').textContent = `Falha ao carregar produtos ${categoryName}. Tente novamente.`;
+        }
+    }
+
+    function createSkeletonProductCardHTML() {
+        return `
+            <div class="skeleton-card">
+                <div class="skeleton-image"></div>
+                <div class="skeleton-content">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line short"></div>
+                </div>
+                <div class="skeleton-footer">
+                    <div class="skeleton-price"></div>
+                    <div class="skeleton-button"></div>
+                </div>
+            </div>
+        `;
+    }
+
+    function createProductCard(product) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <a href="/product-detail.html?id=${product._id}" class="product-card-link-wrapper">
+                <div class="product-card-image">
+                    <img src="${product.image || 'https://via.placeholder.com/240x160/181818/00A8E1?text='+encodeURIComponent(product.name)}" alt="${product.name}" loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <h3>${product.name}</h3>
+                    <span class="category">${product.category}</span>
+                    <p class="description">${product.description}</p>
+                </div>
+                <div class="product-card-footer">
+                    <span class="price">${formatPrice(product.price)}</span>
+                    <button class="btn btn-buy btn-prime-video-theme" aria-label="Ver detalhes de ${product.name}">
+                        <i class="fas fa-eye"></i> Ver Detalhes
+                    </button>
+                </div>
+            </a>
+        `;
+        return card;
+    }
+
+    function formatPrice(price) {
+        if (typeof price !== 'number') return 'Preço indisponível';
+        return `MZN ${price.toFixed(2)}`;
+    }
+
+    function checkLoginStateAndUpdateUI() {
+        const token = localStorage.getItem('authToken');
+        const loginBtn = document.getElementById('login-btn-header');
+        const registerBtn = document.getElementById('register-btn-header');
+        const profileIcon = document.getElementById('user-profile-icon-header');
+
+        if (loginBtn && registerBtn && profileIcon) {
+            if (token) {
+                loginBtn.style.display = 'none';
+                registerBtn.style.display = 'none';
+                profileIcon.style.display = 'flex';
+            } else {
+                loginBtn.style.display = 'inline-block';
+                registerBtn.style.display = 'inline-block';
+                profileIcon.style.display = 'none';
+            }
+        }
+    }
+
+    function logoutUser() {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('currentUser');
+        checkLoginStateAndUpdateUI();
+        window.location.href = '/';
+    }
+</script>
 </body>
 </html>

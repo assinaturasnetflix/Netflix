@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registar Conta - Stream Assinaturas</title>
+    <meta name="description" content="Crie sua conta na Stream Assinaturas para comprar e gerenciar suas assinaturas digitais.">
+    <meta name="robots" content="noindex, nofollow"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #E50914;
+        --secondary-color: #FFFFFF;
+        --background-dark: #101010; 
+        --background-medium: #181818; 
+        --background-light: #202020; 
+        --text-primary: #F5F5F1; 
+        --text-secondary: #A0A0A0; 
+        --font-family: 'Poppins', sans-serif;
+        --transition-speed: 0.3s;
+        --base-font-size: 13px; 
+        --h1-size: 2.0rem;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+        font-family: var(--font-family);
+        background-color: var(--background-dark);
+        color: var(--text-primary);
+        line-height: 1.5; 
+        font-size: var(--base-font-size);
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+        padding: 20px;
+    }
+    .container { width: 100%; max-width: 420px; margin: 0 auto; } /* Slightly wider for register form */
+    a { color: var(--primary-color); text-decoration: none; transition: color var(--transition-speed) ease; }
+    a:hover { color: #ff0a18; }
+    
+    .auth-card {
+        background-color: var(--background-medium);
+        padding: 30px 35px; 
+        border-radius: 8px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        width: 100%;
+    }
+    .auth-header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .auth-header .logo-auth {
+        font-size: 2.2rem; 
+        font-weight: 700;
+        color: var(--primary-color);
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .auth-header .logo-auth i {
+        margin-right: 8px;
+    }
+    .auth-header h1 {
+        font-size: var(--h1-size);
+        color: var(--text-primary); 
+        margin-bottom: 5px;
+    }
+    
+    /* Form Styles */
+    .form-group {
+        margin-bottom: 20px;
+        position: relative;
+    }
+    .form-group label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 6px;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+    }
+    .form-group input[type="tel"],
+    .form-group input[type="password"] {
+        width: 100%;
+        padding: 12px 15px 12px 45px; 
+        font-size: 0.9rem;
+        border: 1px solid var(--background-light);
+        background-color: var(--background-dark);
+        color: var(--text-primary);
+        border-radius: 4px;
+        transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    .form-group input[type="tel"]:focus,
+    .form-group input[type="password"]:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.25); 
+    }
+    .form-group .input-icon {
+        position: absolute;
+        left: 15px;
+        top: calc(50% + 6px); 
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        pointer-events: none; 
+    }
+    .form-group .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.95rem; 
+        margin-top: 10px; 
+    }
+    .password-requirements {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-top: -12px; /* Pull up slightly */
+        margin-bottom: 15px;
+        padding-left: 5px;
+    }
+
+    /* Message Area */
+    .message-area {
+        padding: 12px 15px; 
+        margin-bottom: 20px;
+        border-radius: 4px;
+        font-size: 0.9rem; 
+        text-align: center;
+        display: none; 
+        border: 1px solid transparent;
+    }
+    .message-area.success {
+        background-color: rgba(60, 179, 113, 0.2); 
+        color: #98FB98; 
+        border-color: #3CB371; 
+    }
+    .message-area.error {
+        background-color: rgba(220, 20, 60, 0.2); 
+        color: #F08080; 
+        border-color: var(--primary-color); 
+    }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+    }
+    .auth-footer a {
+        font-weight: 600;
+    }
+
+    /* Responsive */
+     @media (max-width: 480px) {
+        .auth-card { padding: 25px 20px; }
+        .auth-header .logo-auth { font-size: 1.8rem; }
+        .auth-header h1 { font-size: 1.6rem; }
+    }
+
+    a:focus, button:focus, [tabindex="0"]:focus { outline: 2px solid var(--primary-color); outline-offset: 2px; }
+
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="/" class="logo-auth"><i class="fas fa-play-circle"></i>Stream Assinaturas</a>
+                <h1>Crie Sua Conta</h1>
+            </div>
+
+            <div class="message-area" id="register-message-area"></div>
+
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="phoneNumber">Número de Telefone</label>
+                    <i class="fas fa-phone input-icon"></i>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Ex: 841234567" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" id="password" name="password" placeholder="Crie uma senha" required minlength="6">
+                </div>
+                 <p class="password-requirements">Mínimo 6 caracteres.</p>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <i class="fas fa-check-circle input-icon"></i>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" id="register-btn">
+                        <i class="fas fa-user-plus"></i> Registar
+                    </button>
+                </div>
+            </form>
+
+            <div class="auth-footer">
+                Já tem uma conta? <a href="/login.html">Faça login aqui</a>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const API_BASE_URL = 'https://toppphzhd-1bdbd.onrender.com/api';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+            window.location.href = '/'; // Or '/profile.html'
+            return;
+        }
+
+        const registerForm = document.getElementById('register-form');
+        if(registerForm) {
+            registerForm.addEventListener('submit', handleRegister);
+        }
+    });
+
+    async function handleRegister(event) {
+        event.preventDefault();
+        const messageArea = document.getElementById('register-message-area');
+        const registerButton = document.getElementById('register-btn');
+        
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        showMessage('', 'info', messageArea, true); // Clear previous messages
+        registerButton.disabled = true;
+        registerButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> A Registar...';
+
+        if (password !== confirmPassword) {
+            showMessage('As senhas não coincidem.', 'error', messageArea);
+            registerButton.disabled = false;
+            registerButton.innerHTML = '<i class="fas fa-user-plus"></i> Registar';
+            return;
+        }
+        if (password.length < 6) {
+            showMessage('A senha deve ter pelo menos 6 caracteres.', 'error', messageArea);
+            registerButton.disabled = false;
+            registerButton.innerHTML = '<i class="fas fa-user-plus"></i> Registar';
+            return;
+        }
+        // Basic phone number validation (Mozambique like) - can be improved
+        if (!/^(8[2-7])\d{7}$/.test(phoneNumber)) {
+             showMessage('Formato de número de telefone inválido. Ex: 841234567.', 'error', messageArea);
+            registerButton.disabled = false;
+            registerButton.innerHTML = '<i class="fas fa-user-plus"></i> Registar';
+            return;
+        }
+
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/auth/register`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ phoneNumber, password })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                // Handle specific error messages from backend (like "already registered")
+                throw new Error(data.message || `Erro ${response.status}: Falha no registo.`);
+            }
+
+            // Registration successful, backend automatically logs in and returns token
+            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('currentUser', JSON.stringify(data.user)); 
+            
+            showMessage('Registo bem-sucedido! Redirecionando...', 'success', messageArea);
+            
+            setTimeout(() => {
+                window.location.href = '/'; // Redirect to homepage or profile
+            }, 2000); // Delay for user to see success message
+
+        } catch (error) {
+            console.error('Erro no registo:', error);
+            showMessage(error.message || 'Ocorreu um erro. Tente novamente.', 'error', messageArea);
+            registerButton.disabled = false;
+            registerButton.innerHTML = '<i class="fas fa-user-plus"></i> Registar';
+        }
+    }
+    
+    function showMessage(message, type = 'info', areaElement, hide = false) {
+        areaElement.textContent = message;
+        areaElement.className = `message-area ${type}`;
+        areaElement.style.display = hide ? 'none' : 'block';
+    }
+
+</script>
+
+</body>
+</html>

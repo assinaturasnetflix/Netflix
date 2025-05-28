@@ -1,7 +1,696 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=https://wigiserverbb.onrender.com/afiliado/4GN78wo7M" />
-  </head>
-  <body></body>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Assinaturas - Início</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>">
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+<style>
+    :root {
+        --primary-color: #E50914;
+        --secondary-color: #FFFFFF;
+        --background-dark: #0c0c0c;
+        --background-medium: #141414;
+        --background-light: #1f1f1f;
+        --text-primary: #F5F5F1;
+        --text-secondary: #A0A0A0;
+        --font-family: 'Poppins', sans-serif;
+        --transition-speed: 0.3s;
+        --base-font-size: 11.7px;
+        --h1-size: 2.0rem;
+        --h2-size: 1.6rem;
+        --h3-size: 1.25rem;
+        --h4-size: 1.0rem;
+        --card-border-radius: 8px;
+        --section-padding: 35px 0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--font-family);
+        background-color: var(--background-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        font-size: var(--base-font-size);
+        overflow-x: hidden;
+    }
+    .container { width: 92%; max-width: 1150px; margin: 0 auto; padding: 0 15px; }
+    a { color: var(--primary-color); text-decoration: none; transition: color var(--transition-speed) ease; }
+    a:hover { color: #ff0a18; }
+    img, svg { max-width: 100%; height: auto; display: block; }
+    h1, h2, h3, h4 { font-weight: 600; margin-bottom: 0.7em; }
+    h1 { font-size: var(--h1-size); }
+    h3 { font-size: var(--h3-size); }
+    h4 { font-size: var(--h4-size); }
+
+    h2.section-title {
+        text-align: center;
+        margin-bottom: 35px;
+        position: relative;
+        padding-bottom: 15px;
+        font-size: var(--h2-size);
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+    h2.section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+    }
+
+    .main-header { background-color: rgba(12, 12, 12, 0.88); padding: 10px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary-color); letter-spacing: 0.5px; }
+    .logo i { margin-right: 7px; animation: logoPulse 2s infinite ease-in-out; }
+    @keyframes logoPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .main-nav { display: flex; align-items: center; }
+    .main-nav ul { list-style: none; display: flex; }
+    .main-nav ul li { margin-left: 22px; }
+    .main-nav ul li a { color: var(--text-primary); font-weight: 500; font-size: 0.85rem; padding: 5px 0; position: relative; }
+    .main-nav ul li a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2.5px; background-color: var(--primary-color); transition: width var(--transition-speed) ease; }
+    .main-nav ul li a:hover::after, .main-nav ul li a.active::after { width: 100%; }
+    .user-actions { display: flex; align-items: center; }
+    .user-actions .btn { margin-left: 9px; }
+    .btn { padding: 7px 14px; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: all var(--transition-speed) ease; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .btn-primary { background-color: var(--primary-color); color: var(--text-primary); }
+    .btn-primary:hover { background-color: #c40812; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(229, 9, 20, 0.3); }
+    .btn-secondary { background-color: transparent; color: var(--text-primary); border: 1.5px solid var(--text-secondary); }
+    .btn-secondary:hover { background-color: var(--text-primary); color: var(--background-dark); border-color: var(--text-primary); }
+    .profile-icon { color: var(--text-primary); font-size: 1.6rem; cursor: pointer; position: relative; margin-left: 9px; }
+    .profile-icon .dropdown-menu { display: none; position: absolute; top: 140%; right: 0; background-color: var(--background-medium); border: 1px solid var(--background-light); border-radius: var(--card-border-radius); box-shadow: 0 5px 15px rgba(0,0,0,0.5); min-width: 170px; z-index: 1001; }
+    .profile-icon.active .dropdown-menu { display: block; }
+    .profile-icon .dropdown-menu a { display: block; padding: 11px 14px; color: var(--text-secondary); font-size: 0.8rem; }
+    .profile-icon .dropdown-menu a:hover { background-color: var(--background-light); color: var(--text-primary); }
+    .profile-icon .dropdown-menu a i { margin-right: 9px; width: 14px; text-align: center; }
+    .hamburger-menu { display: none; font-size: 1.7rem; color: var(--text-primary); cursor: pointer; background: none; border: none; padding: 6px; margin-left: 11px; }
+    .hamburger-menu i { transition: transform 0.3s ease; }
+    body.nav-open .hamburger-menu i { transform: rotate(90deg); }
+
+    .banner-slider-section { padding-top: 52px; position: relative; overflow: hidden; background-color: var(--background-medium); }
+    .banner-slider { display: flex; transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); }
+    .banner-slide { min-width: 100%; position: relative; padding-bottom: 45%; height: 0; overflow: hidden; background-color: var(--background-light); }
+    .banner-slide img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease-out, opacity 0.5s ease-in-out; opacity: 0.85; }
+    .banner-slide:hover img { transform: scale(1.03); opacity: 1; }
+    .banner-slide .banner-content { position: absolute; bottom: 12%; left: 6%; z-index: 2; color: var(--text-primary); max-width: 45%; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0) 100%); padding: 20px 25px; border-radius: var(--card-border-radius); text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
+    .banner-slide .banner-content h2 { font-size: 1.8rem; margin-bottom: 0.4em; font-weight: 700; color: var(--secondary-color); }
+    .banner-slide .banner-content p { font-size: 0.9rem; margin-bottom: 1em; line-height: 1.6; color: var(--text-primary); opacity: 0.9;}
+    .banner-slide .banner-content .btn { padding: 8px 18px; font-size: 0.8rem; }
+    .banner-slider-nav { position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; gap: 9px; }
+    .banner-slider-nav button { background-color: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.3); width: 11px; height: 11px; border-radius: 50%; cursor: pointer; transition: background-color var(--transition-speed), transform 0.2s ease; }
+    .banner-slider-nav button:hover { transform: scale(1.2); }
+    .banner-slider-nav button.active { background-color: var(--primary-color); border-color: var(--primary-color); transform: scale(1.1); }
+    .banner-arrow { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.35); color: white; border: none; padding: 12px; font-size: 1.6rem; cursor: pointer; z-index: 3; transition: background-color var(--transition-speed), transform 0.2s ease; border-radius: 50%; }
+    .banner-arrow:hover { background-color: rgba(0,0,0,0.6); transform: scale(1.05); }
+    .banner-arrow.prev { left: 20px; }
+    .banner-arrow.next { right: 20px; }
+    .banner-placeholder { display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 1.1rem; text-align: center; }
+
+    #search-section-home { padding: 25px 0; background-color: var(--background-dark); }
+    .search-form-styling { display: flex; max-width: 650px; margin: 0 auto; background-color: var(--background-medium); border-radius: var(--card-border-radius); padding: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    .search-form-styling input[type="search"] { flex-grow: 1; padding: 12px 15px; border: 1.5px solid var(--background-light); border-radius: 5px 0 0 5px; background-color: var(--background-light); color: var(--text-primary); font-size: 0.9rem; outline: none; }
+    .search-form-styling input[type="search"]::placeholder { color: var(--text-secondary); }
+    .search-form-styling input[type="search"]:focus { border-color: var(--primary-color); box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.3); }
+    .search-form-styling button[type="submit"] { padding: 12px 20px; border-radius: 0 5px 5px 0; font-size: 0.9rem; }
+    .search-form-styling button[type="submit"] i { margin-right: 6px; }
+
+    #countdown-section { padding: 25px 0; background-color: var(--primary-color); color: var(--secondary-color); }
+    .countdown-container { background-color: transparent; padding: 20px; border-radius: var(--card-border-radius); text-align: center; box-shadow: none; }
+    .countdown-container h2 { color: var(--secondary-color); margin-bottom: 8px; font-size: 1.7rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+    .countdown-container p { color: var(--secondary-color); opacity: 0.9; margin-bottom: 18px; font-size: 0.9rem; }
+    .countdown-timer { display: flex; justify-content: center; align-items: center; gap: 12px; font-weight: 700; }
+    .countdown-timer div { background-color: rgba(0,0,0,0.15); padding: 12px 15px; border-radius: 6px; min-width: 70px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2); }
+    .countdown-timer div .time-value { font-size: 2rem; display: block; line-height: 1.1; }
+    .countdown-timer div .time-label { display: block; font-size: 0.7rem; font-weight: 400; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
+
+    #services-section { padding: var(--section-padding); background-color: var(--background-dark); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 25px; justify-items: center; }
+    .service-card { background-color: var(--background-medium); border-radius: var(--card-border-radius); padding: 20px; text-align: center; transition: transform var(--transition-speed), box-shadow var(--transition-speed); display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: var(--text-primary); width: 100%; aspect-ratio: 1 / 0.8; min-height: 120px; }
+    .service-card:hover { transform: translateY(-7px); box-shadow: 0 10px 22px rgba(0,0,0,0.45); }
+    .service-card-icon { margin-bottom: 15px; width: 70px; height: 70px; display:flex; align-items:center; justify-content:center;}
+    .service-card-icon .iconify { font-size: 50px; } /* Iconify controls size via data-width/height, this is a fallback or general style for the span */
+    .service-card-name { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-top: 0; }
+    .view-all-products-container { text-align: center; margin-top: 35px; }
+    
+    #promotions-section { padding: var(--section-padding); background-color: var(--background-dark); }
+    .promotions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 30px; }
+    .promotion-card { background-color: var(--background-medium); border-radius: var(--card-border-radius); overflow: hidden; box-shadow: 0 5px 18px rgba(0,0,0,0.3); transition: transform var(--transition-speed), box-shadow var(--transition-speed); display: flex; flex-direction: column; }
+    .promotion-card:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+    .promotion-media { width: 100%; height: 200px; background-color: var(--background-light); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .promotion-media img, .promotion-media iframe, .promotion-media video { width: 100%; height: 100%; object-fit: cover; border: none;}
+    .promotion-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+    .promotion-content h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 10px; }
+    .promotion-content p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; line-height: 1.7; flex-grow: 1; }
+    .promotion-content .btn-primary { display: inline-block; margin-top: auto; }
+
+    .empty-state { text-align: center; padding: 45px 18px; color: var(--text-secondary); }
+    .empty-state i { font-size: 2.8rem; margin-bottom: 18px; color: var(--primary-color); opacity: 0.65; }
+    .empty-state p { font-size: 1.05rem; }
+
+    .main-footer { background-color: var(--background-medium); color: var(--text-secondary); padding: 35px 0; text-align: center; font-size: 0.75rem; border-top: 2.5px solid var(--primary-color); }
+    .main-footer p { margin-bottom: 10px; }
+    .social-icons a { color: var(--text-secondary); font-size: 1.3rem; margin: 0 9px; transition: color var(--transition-speed) ease, transform var(--transition-speed) ease; }
+    .social-icons a:hover { color: var(--primary-color); transform: scale(1.2); }
+
+    @media (max-width: 992px) {
+        .main-nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--background-medium); padding: 12px 0; box-shadow: 0 6px 12px rgba(0,0,0,0.35); max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.5s ease; }
+        body.nav-open .main-nav ul { display: flex; max-height: 500px; padding: 12px 0; }
+        .main-nav ul li { margin: 12px 0; text-align: center; width: 100%; }
+        .main-nav ul li a { padding: 12px 18px; display: block; width: 100%; }
+        .hamburger-menu { display: block; order: 3; }
+        .user-actions { order: 2; }
+        .banner-slide .banner-content { max-width: 65%; bottom: 8%; left: 5%; padding: 15px 20px;}
+        .banner-slide .banner-content h2 {font-size: 1.5rem;}
+        .banner-slide .banner-content p {font-size: 0.85rem;}
+        .countdown-timer { font-size: 1.4rem; gap: 10px; flex-wrap: wrap; }
+        .countdown-timer div { padding: 10px 12px; min-width: 60px; margin-bottom: 5px;}
+        .countdown-timer div .time-value { font-size: 1.8rem;}
+        .promotions-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .services-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; }
+        .service-card-icon {width: 60px; height: 60px;}
+        .service-card-name { font-size: 0.9rem; }
+        .search-form-styling { width: 90%; }
+    }
+    @media (max-width: 768px) {
+        h1 { font-size: 1.7rem; } h2.section-title { font-size: 1.4rem; }
+        .countdown-timer div { margin-bottom: 10px; }
+        .banner-arrow { padding: 9px; font-size: 1.4rem; }
+        .banner-arrow.prev { left: 15px; } .banner-arrow.next { right: 15px; }
+        .banner-slider-nav { bottom: 15px; }
+        .promotions-grid { grid-template-columns: 1fr; }
+        .services-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
+        .service-card { padding: 15px; }
+        .service-card-icon { width: 50px; height: 50px; margin-bottom: 10px; }
+        .search-form-styling input[type="search"], .search-form-styling button[type="submit"] { padding: 10px 12px; font-size: 0.85rem; }
+    }
+    @media (max-width: 480px) {
+        :root { --base-font-size: 11px; }
+        .user-actions .btn { font-size: 0.7rem; padding: 6px 10px; }
+        .profile-icon { font-size: 1.4rem; } .logo { font-size: 1.25rem; }
+        .banner-slide { padding-bottom: 55%; }
+        .banner-slide .banner-content { padding: 12px; max-width: 90%; bottom: 5%; left: 50%; transform: translateX(-50%); text-align: center;}
+        .banner-slide .banner-content h2 {font-size: 1.2rem;}
+        .banner-slide .banner-content p {display: none;}
+        .banner-arrow { padding: 7px; font-size: 1.3rem; display: none; }
+        .countdown-timer { font-size: 1.1rem; gap: 8px; }
+        .countdown-timer div { padding: 7px 9px; min-width: 55px; }
+        .countdown-timer div .time-value { font-size: 1.5rem;}
+        .services-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .service-card-icon { width: 40px; height: 40px;}
+        .service-card-name { font-size: 0.8rem; }
+        .search-form-styling { flex-direction: column; padding: 0; background: none; box-shadow: none;}
+        .search-form-styling input[type="search"] { border-radius: 5px; margin-bottom: 8px; text-align: center; border-width: 1px; }
+        .search-form-styling button[type="submit"] { border-radius: 5px; width: 100%;}
+    }
+    a:focus, button:focus, [tabindex="0"]:focus { outline: 2.5px solid var(--primary-color); outline-offset: 2.5px; }
+</style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="/" class="logo"><i class="fas fa-play-circle"></i>Stream Assinaturas</a>
+            <nav class="main-nav" id="main-navigation">
+                <ul>
+                    <li><a href="/index.html" class="active">Início</a></li>
+                    <li><a href="/products.html">Produtos</a></li>
+                    <li><a href="/index.html#promotions-section">Promoções</a></li>
+                    <li><a href="/contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-secondary" id="login-btn-header">Login</button>
+                <button class="btn btn-primary" id="register-btn-header">Registar</button>
+                <div class="profile-icon" id="user-profile-icon-header" style="display: none;">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="dropdown-menu">
+                        <a href="/profile.html" id="profile-link-header"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="/subscriptions.html" id="subscriptions-link-header"><i class="fas fa-receipt"></i> Minhas Assinaturas</a>
+                        <a href="#" id="logout-btn-header"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger-menu" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="banner-slider-section" id="home-banner-slider">
+        <div class="banner-slider" id="banner-slider-container">
+            <div class="banner-slide banner-placeholder"><p>Carregando banners...</p></div>
+        </div>
+        <button class="banner-arrow prev" id="banner-prev" aria-label="Anterior" style="display: none;"><i class="fas fa-chevron-left"></i></button>
+        <button class="banner-arrow next" id="banner-next" aria-label="Próximo" style="display: none;"><i class="fas fa-chevron-right"></i></button>
+        <div class="banner-slider-nav" id="banner-dots-container"></div>
+    </section>
+
+    <section id="search-section-home">
+        <div class="container">
+             <form id="home-search-form" class="search-form-styling">
+                <input type="search" id="home-search-input" aria-label="Campo de pesquisa" placeholder="Pesquisar produtos ou serviços...">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Pesquisar</button>
+            </form>
+        </div>
+    </section>
+
+    <main>
+        <section id="countdown-section" class="container-fluid" style="display: none;">
+            <div class="container">
+                <div class="countdown-container" id="main-countdown-container"></div>
+            </div>
+        </section>
+
+        <section id="services-section" class="container">
+            <h2 class="section-title">Navegue por Serviço</h2>
+            <div class="services-grid" id="services-grid-container">
+            </div>
+            <div class="empty-state" id="services-empty-state" style="display: none;">
+                <i class="fas fa-cogs"></i> <p>Nenhum serviço principal disponível no momento.</p>
+            </div>
+            <div class="view-all-products-container">
+                <a href="/products.html" class="btn btn-primary">Ver Todos os Produtos e Serviços <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section id="promotions-section" class="container" style="display: none;">
+            <h2 class="section-title">Promoções Imperdíveis</h2>
+            <div class="promotions-grid" id="promotions-grid-container">
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© <span id="current-year"></span> Stream Assinaturas. Todos os direitos reservados.</p>
+            <p>Feito com <i class="fas fa-heart" style="color: var(--primary-color);"></i> por AC</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    const API_BASE_URL = 'https://toppphzhd-1bdbd.onrender.com/api';
+
+    let currentSlide = 0;
+    let bannerSlides = [];
+    let slideInterval;
+    let countdownIntervals = {};
+
+    const categoryIcons = {
+        'netflix': '<span class="iconify" data-icon="logos:netflix" data-width="60" data-height="35" data-inline="false"></span>',
+        'spotify': '<span class="iconify" data-icon="logos:spotify-icon" data-width="50" data-height="50" data-inline="false"></span>',
+        'prime video': '<span class="iconify" data-icon="arcticons:amazon-prime-video" data-width="50" data-height="50" data-inline="false" style="color: #00A8E1;"></span>',
+        'crunchyroll': '<span class="iconify" data-icon="simple-icons:crunchyroll" data-width="50" data-height="50" data-inline="false" style="color: #F47521;"></span>',
+        'hbo max': '<span class="iconify" data-icon="simple-icons:hbomax" data-width="55" data-height="55" data-inline="false" style="color: #8A2BE2;"></span>',
+        'disney plus': '<span class="iconify" data-icon="simple-icons:disneyplus" data-width="50" data-height="50" data-inline="false" style="color: #0A47A1;"></span>',
+        'iptv': '<span class="iconify" data-icon="mdi:television-play" data-width="50" data-height="50" data-inline="false" style="color: var(--text-secondary);"></span>',
+        'jogos': '<span class="iconify" data-icon="ion:game-controller-outline" data-width="50" data-height="50" data-inline="false" style="color: var(--text-secondary);"></span>',
+        'educação': '<span class="iconify" data-icon="mdi:school-outline" data-width="50" data-height="50" data-inline="false" style="color: var(--text-secondary);"></span>',
+        'default': '<span class="iconify" data-icon="mdi:tag-outline" data-width="50" data-height="50" data-inline="false" style="color: var(--text-secondary);"></span>'
+    };
+
+    const mainServices = [
+        { name: 'Netflix', page: 'netflix.html', key: 'netflix' },
+        { name: 'Spotify', page: 'spotify.html', key: 'spotify' },
+        { name: 'Prime Video', page: 'primevideo.html', key: 'prime video' },
+        { name: 'Crunchyroll', page: 'crunchyroll.html', key: 'crunchyroll' },
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCurrentYear();
+        setupEventListeners();
+        checkLoginStateAndUpdateUI();
+        fetchBanners();
+        fetchPromotions();
+        fetchCountdowns();
+        renderMainServices();
+        setupHomeSearch();
+    });
+
+    function updateCurrentYear() {
+        const el = document.getElementById('current-year');
+        if(el) el.textContent = new Date().getFullYear();
+    }
+
+    function setupEventListeners() {
+        const profileIcon = document.getElementById('user-profile-icon-header');
+        if (profileIcon) profileIcon.addEventListener('click', (e) => { e.stopPropagation(); profileIcon.classList.toggle('active'); });
+        document.addEventListener('click', (e) => { if (profileIcon && profileIcon.classList.contains('active') && !profileIcon.contains(e.target)) profileIcon.classList.remove('active'); });
+        const logoutButton = document.getElementById('logout-btn-header');
+        if (logoutButton) logoutButton.addEventListener('click', (e) => { e.preventDefault(); logoutUser(); });
+        const loginButton = document.getElementById('login-btn-header');
+        if (loginButton) loginButton.addEventListener('click', () => window.location.href = '/login.html');
+        const registerButton = document.getElementById('register-btn-header');
+        if (registerButton) registerButton.addEventListener('click', () => window.location.href = '/register.html');
+        const hamburgerToggle = document.getElementById('hamburger-toggle');
+        if (hamburgerToggle) {
+            hamburgerToggle.addEventListener('click', () => {
+                document.body.classList.toggle('nav-open');
+                const isExpanded = hamburgerToggle.getAttribute('aria-expanded') === 'true' || false;
+                hamburgerToggle.setAttribute('aria-expanded', String(!isExpanded));
+                const icon = hamburgerToggle.querySelector('i');
+                if(icon) {icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times');}
+            });
+        }
+
+        const bannerPrevBtn = document.getElementById('banner-prev');
+        const bannerNextBtn = document.getElementById('banner-next');
+        if(bannerPrevBtn) bannerPrevBtn.addEventListener('click', () => { changeSlide(-1); resetSlideInterval(); });
+        if(bannerNextBtn) bannerNextBtn.addEventListener('click', () => { changeSlide(1); resetSlideInterval(); });
+    }
+
+    function setupHomeSearch() {
+        const searchForm = document.getElementById('home-search-form');
+        const searchInput = document.getElementById('home-search-input');
+
+        if (searchForm && searchInput) {
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    window.location.href = `/products.html?search=${encodeURIComponent(searchTerm)}`;
+                } else {
+                    window.location.href = '/products.html';
+                }
+            });
+        }
+    }
+
+    async function fetchBanners() {
+        const bannerContainer = document.getElementById('banner-slider-container');
+        const bannerDotsContainer = document.getElementById('banner-dots-container');
+        const bannerPrevBtn = document.getElementById('banner-prev');
+        const bannerNextBtn = document.getElementById('banner-next');
+        if (!bannerContainer || !bannerDotsContainer || !bannerPrevBtn || !bannerNextBtn) return;
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/banners`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const bannersData = await response.json();
+            renderBanners(bannersData);
+        } catch (error) {
+            console.error('Erro ao buscar banners:', error);
+            bannerContainer.innerHTML = `<div class="banner-slide banner-placeholder" style="background-image: url('https://via.placeholder.com/1200x540/141414/808080?text=Falha+ao+Carregar');"><div class="banner-content"><h2>Stream Assinaturas</h2><p>Falha ao carregar banners. Tente mais tarde.</p></div></div>`;
+            bannerPrevBtn.style.display = 'none';
+            bannerNextBtn.style.display = 'none';
+            bannerDotsContainer.innerHTML = '';
+        }
+    }
+
+    function renderBanners(bannersData) {
+        bannerSlides = bannersData.filter(b => b.isActive && b.imageUrl);
+        const bannerContainer = document.getElementById('banner-slider-container');
+        const dotsContainer = document.getElementById('banner-dots-container');
+        const bannerPrevBtn = document.getElementById('banner-prev');
+        const bannerNextBtn = document.getElementById('banner-next');
+
+        bannerContainer.innerHTML = ''; dotsContainer.innerHTML = '';
+
+        if (!bannerSlides || bannerSlides.length === 0) {
+            bannerContainer.innerHTML = `<div class="banner-slide banner-placeholder" style="background-image: url('https://via.placeholder.com/1200x540/141414/808080?text=Bem-vindo');"><div class="banner-content"><h2>Bem-vindo!</h2><p>Explore nossos produtos.</p></div></div>`;
+            bannerPrevBtn.style.display = 'none';
+            bannerNextBtn.style.display = 'none';
+            return;
+        }
+
+        bannerPrevBtn.style.display = bannerSlides.length > 1 ? 'block' : 'none';
+        bannerNextBtn.style.display = bannerSlides.length > 1 ? 'block' : 'none';
+
+        bannerSlides.forEach((banner, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'banner-slide';
+            let contentHTML = `<img src="${banner.imageUrl}" alt="${banner.title || 'Banner Promocional'}">`;
+            contentHTML += `<div class="banner-content">`;
+            if (banner.title) contentHTML += `<h2>${banner.title}</h2>`;
+            if (banner.description) contentHTML += `<p>${banner.description}</p>`;
+            if (banner.linkUrl) {
+                const isExternal = banner.linkUrl.startsWith('http');
+                const target = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
+                const finalLink = isExternal || banner.linkUrl.startsWith('/') ? banner.linkUrl : (banner.linkUrl.startsWith('#') ? banner.linkUrl : `/${banner.linkUrl}`);
+                contentHTML += `<a href="${finalLink}" class="btn btn-primary btn-sm" ${target}>Ver Mais</a>`;
+            }
+            contentHTML += `</div>`;
+            slide.innerHTML = contentHTML;
+            bannerContainer.appendChild(slide);
+
+            if (bannerSlides.length > 1) {
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', `Ir para slide ${index + 1}`);
+                dot.addEventListener('click', () => { currentSlide = index; updateSlider(); resetSlideInterval(); });
+                dotsContainer.appendChild(dot);
+            }
+        });
+        updateSlider();
+        if (bannerSlides.length > 1) startSlideInterval();
+    }
+    function updateSlider() {
+        const bannerContainer = document.getElementById('banner-slider-container');
+        const dots = document.querySelectorAll('#banner-dots-container button');
+        if (bannerContainer && bannerSlides.length > 0) {
+            bannerContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            if (dots.length > 0) dots.forEach((dot, index) => dot.classList.toggle('active', index === currentSlide));
+        }
+    }
+    function changeSlide(direction) {
+        if (bannerSlides.length === 0) return;
+        currentSlide = (currentSlide + direction + bannerSlides.length) % bannerSlides.length; updateSlider();
+    }
+    function startSlideInterval() { clearInterval(slideInterval); slideInterval = setInterval(() => changeSlide(1), 6000); }
+    function resetSlideInterval() { if (bannerSlides.length > 1) startSlideInterval(); }
+
+    async function fetchPromotions() {
+        const promotionsSection = document.getElementById('promotions-section');
+        const promotionsGrid = document.getElementById('promotions-grid-container');
+        if (!promotionsGrid || !promotionsSection) {
+            return;
+        }
+    
+        try {
+            const response = await fetch(`${API_BASE_URL}/promotions`);
+            if (!response.ok) {
+                console.error(`Erro HTTP ao buscar promoções: ${response.status} ${response.statusText}`);
+                promotionsSection.style.display = 'none';
+                return;
+            }
+            const promotionsData = await response.json();
+            if (!Array.isArray(promotionsData)) {
+                console.error('Resposta da API de promoções não é um array:', promotionsData);
+                promotionsSection.style.display = 'none';
+                return;
+            }
+            renderPromotions(promotionsData);
+        } catch (error) {
+            console.error('Exceção ao buscar ou renderizar promoções:', error);
+            if(promotionsGrid) promotionsGrid.innerHTML = '';
+            if(promotionsSection) promotionsSection.style.display = 'none';
+        }
+    }
+
+    function renderPromotions(promotions) {
+        const promotionsSection = document.getElementById('promotions-section');
+        const gridContainer = document.getElementById('promotions-grid-container');
+        if(!gridContainer || !promotionsSection) return;
+        
+        gridContainer.innerHTML = '';
+
+        const displayablePromotions = promotions.filter(p => p.bannerOrVideoUrl || p.localVideoPath);
+
+        if (displayablePromotions.length === 0) {
+            promotionsSection.style.display = 'none';
+            return;
+        }
+
+        promotionsSection.style.display = 'block';
+
+        displayablePromotions.forEach(promo => {
+            const card = document.createElement('div');
+            card.className = 'promotion-card';
+
+            let mediaHTML = '';
+            const isExternalMediaUrl = promo.bannerOrVideoUrl && (promo.bannerOrVideoUrl.startsWith('http://') || promo.bannerOrVideoUrl.startsWith('https://'));
+            const localVideoFullUrl = promo.localVideoPath ? `/${promo.localVideoPath}` : null; 
+            const mediaSource = localVideoFullUrl || promo.bannerOrVideoUrl;
+            
+            const effectiveIsVideo = promo.isVide || (promo.localVideoPath && /\.(mp4|mov|avi|mkv|webm)$/i.test(promo.localVideoPath));
+
+            if (effectiveIsVideo && mediaSource) {
+                let isYoutube = false;
+                let youtubeEmbedUrl = '';
+                if (isExternalMediaUrl && mediaSource) {
+                    try {
+                        const urlObj = new URL(mediaSource);
+                        if (urlObj.hostname.includes('youtube.com') || urlObj.hostname.includes('youtu.be')) {
+                            let videoId = urlObj.searchParams.get('v');
+                            if (!videoId && urlObj.hostname.includes('youtu.be')) { 
+                                videoId = urlObj.pathname.split('/').pop();
+                                if(videoId && videoId.includes('watch?v=')) videoId = new URLSearchParams(videoId.substring(videoId.indexOf('?'))).get('v');
+                            }
+                            if (videoId) {
+                                videoId = videoId.split('&')[0]; // Remove extra params like &list=
+                                youtubeEmbedUrl = `https://www.youtube.com/embed/${videoId}`;
+                                isYoutube = true;
+                            }
+                        }
+                    } catch (e) { console.warn("Não foi possível analisar o URL da promoção para YouTube:", mediaSource, e); }
+                }
+
+                if (isYoutube) {
+                    mediaHTML = `<iframe src="${youtubeEmbedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                } else {
+                    mediaHTML = `<video controls width="100%" height="100%" preload="metadata"><source src="${mediaSource}" type="video/mp4">Seu navegador não suporta o vídeo.</video>`;
+                }
+            } else if (mediaSource) {
+                mediaHTML = `<img src="${mediaSource}" alt="${promo.title || 'Promoção'}">`;
+            } else {
+                mediaHTML = '<div style="width:100%; height:200px; background:var(--background-light); display:flex; align-items:center; justify-content:center; color:var(--text-secondary);">Mídia Indisponível</div>';
+            }
+
+            const isExternalLink = promo.linkUrl && (promo.linkUrl.startsWith('http://') || promo.linkUrl.startsWith('https://'));
+            const targetAttribute = isExternalLink ? 'target="_blank" rel="noopener noreferrer"' : '';
+            const finalPromoLink = promo.linkUrl ? (isExternalLink || promo.linkUrl.startsWith('/') ? promo.linkUrl : (promo.linkUrl.startsWith('#') ? promo.linkUrl : `/${promo.linkUrl}`)) : null;
+
+            card.innerHTML = `
+                <div class="promotion-media">${mediaHTML}</div>
+                <div class="promotion-content">
+                    <h3>${promo.title || 'Promoção'}</h3>
+                    <p>${promo.description || 'Detalhes da promoção.'}</p>
+                    ${finalPromoLink ? `<a href="${finalPromoLink}" class="btn btn-primary btn-sm" ${targetAttribute}>Saiba Mais</a>` : ''}
+                </div>
+            `;
+            gridContainer.appendChild(card);
+        });
+    }
+
+    async function fetchCountdowns() {
+        const countdownSection = document.getElementById('countdown-section');
+        if (!countdownSection) return;
+        try {
+            const response = await fetch(`${API_BASE_URL}/countdowns`);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const countdownsData = await response.json();
+            const activeCountdown = countdownsData.find(c => c.isActive && new Date(c.endDate) > new Date());
+            if (activeCountdown) {
+                renderCountdown(activeCountdown);
+                countdownSection.style.display = 'block';
+            } else {
+                countdownSection.style.display = 'none';
+            }
+        } catch (error) {
+            console.error('Erro ao buscar countdowns:', error);
+            countdownSection.style.display = 'none';
+        }
+    }
+
+    function renderCountdown(countdown) {
+        const container = document.getElementById('main-countdown-container');
+        if (!container) return;
+        container.innerHTML = `
+            <h2>${countdown.title}</h2>
+            ${countdown.description ? `<p>${countdown.description}</p>` : ''}
+            <div class="countdown-timer" id="timer-${countdown._id}">
+                <div><span class="time-value" data-unit="days">00</span><span class="time-label">Dias</span></div>
+                <div><span class="time-value" data-unit="hours">00</span><span class="time-label">Horas</span></div>
+                <div><span class="time-value" data-unit="minutes">00</span><span class="time-label">Minutos</span></div>
+                <div><span class="time-value" data-unit="seconds">00</span><span class="time-label">Segundos</span></div>
+            </div>
+        `;
+        startIndividualCountdown(countdown._id, countdown.endDate);
+    }
+
+    function startIndividualCountdown(countdownId, endDateString) {
+        const timerElement = document.getElementById(`timer-${countdownId}`);
+        if (!timerElement) return;
+        const daysEl = timerElement.querySelector('[data-unit="days"]');
+        const hoursEl = timerElement.querySelector('[data-unit="hours"]');
+        const minutesEl = timerElement.querySelector('[data-unit="minutes"]');
+        const secondsEl = timerElement.querySelector('[data-unit="seconds"]');
+
+        if (countdownIntervals[countdownId]) clearInterval(countdownIntervals[countdownId]);
+
+        countdownIntervals[countdownId] = setInterval(() => {
+            const now = new Date().getTime();
+            const endDate = new Date(endDateString).getTime();
+            const distance = endDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownIntervals[countdownId]);
+                timerElement.innerHTML = "<span style='font-size: 1.5rem; color: var(--secondary-color);'>Oferta Terminada!</span>";
+                setTimeout(() => {
+                    const countdownSection = document.getElementById('countdown-section');
+                    if(countdownSection) countdownSection.style.display = 'none';
+                }, 5000);
+                return;
+            }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if(daysEl) daysEl.textContent = String(days).padStart(2, '0');
+            if(hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+            if(minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+            if(secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+        }, 1000);
+    }
+
+    function renderMainServices() {
+        const servicesGrid = document.getElementById('services-grid-container');
+        const emptyState = document.getElementById('services-empty-state');
+        if (!servicesGrid || !emptyState) return;
+        servicesGrid.innerHTML = '';
+
+        if (mainServices.length === 0) {
+            emptyState.style.display = 'block';
+            return;
+        }
+        emptyState.style.display = 'none';
+
+        mainServices.forEach(service => {
+            const serviceCard = document.createElement('a');
+            serviceCard.href = service.page;
+            serviceCard.className = 'service-card';
+            const iconHTML = categoryIcons[service.key.toLowerCase()] || categoryIcons['default'];
+            serviceCard.innerHTML = `
+                <div class="service-card-icon">${iconHTML}</div>
+                <h3 class="service-card-name">${service.name}</h3>
+            `;
+            servicesGrid.appendChild(serviceCard);
+        });
+    }
+
+    function checkLoginStateAndUpdateUI() {
+        const token = localStorage.getItem('authToken');
+        const loginBtn = document.getElementById('login-btn-header');
+        const registerBtn = document.getElementById('register-btn-header');
+        const profileIcon = document.getElementById('user-profile-icon-header');
+        if (token) {
+            if (loginBtn) loginBtn.style.display = 'none'; if (registerBtn) registerBtn.style.display = 'none';
+            if (profileIcon) profileIcon.style.display = 'flex';
+        } else {
+            if (loginBtn) loginBtn.style.display = 'inline-block'; if (registerBtn) registerBtn.style.display = 'inline-block';
+            if (profileIcon) profileIcon.style.display = 'none';
+        }
+    }
+    function logoutUser() {
+        localStorage.removeItem('authToken'); localStorage.removeItem('currentUser');
+        checkLoginStateAndUpdateUI(); window.location.href = '/';
+    }
+</script>
+</body>
 </html>

@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assinaturas Crunchyroll - Stream Assinaturas</title>
+    <title>Assinaturas Netflix - Stream Assinaturas</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍥</text></svg>"> 
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>">
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
 <style>
     :root {
-        --site-primary-color: #E50914;
-        --crunchyroll-orange: #F47521;
-        --crunchyroll-darker-orange: #E4620F;
+        --primary-color: #E50914;
         --secondary-color: #FFFFFF;
         --background-dark: #0c0c0c;
         --background-medium: #141414;
@@ -42,9 +40,8 @@
         padding-top: 60px;
     }
     .container { width: 92%; max-width: 1150px; margin: 0 auto; padding: 0 15px; }
-    a { color: var(--secondary-color); text-decoration: none; transition: color var(--transition-speed) ease; }
-    a:hover { color: var(--crunchyroll-orange); }
-
+    a { color: var(--primary-color); text-decoration: none; transition: color var(--transition-speed) ease; }
+    a:hover { color: #ff0a18; }
     img, svg { max-width: 100%; height: auto; display: block; }
     h1, h2, h3, h4 { font-weight: 600; margin-bottom: 0.7em; }
     h1 { font-size: var(--h1-size); }
@@ -68,42 +65,28 @@
         transform: translateX(-50%);
         width: 70px;
         height: 3px;
-        background-color: var(--crunchyroll-orange);
+        background-color: var(--primary-color);
         border-radius: 2px;
     }
 
     .main-header { background-color: rgba(12, 12, 12, 0.88); padding: 10px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
     .main-header .container { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.4rem; font-weight: 800; color: var(--site-primary-color); letter-spacing: 0.5px; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary-color); letter-spacing: 0.5px; }
     .logo i { margin-right: 7px; animation: logoPulse 2s infinite ease-in-out; }
     @keyframes logoPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
     .main-nav { display: flex; align-items: center; }
     .main-nav ul { list-style: none; display: flex; }
     .main-nav ul li { margin-left: 22px; }
     .main-nav ul li a { color: var(--text-primary); font-weight: 500; font-size: 0.85rem; padding: 5px 0; position: relative; }
-    .main-nav ul li a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2.5px; background-color: var(--site-primary-color); transition: width var(--transition-speed) ease; }
+    .main-nav ul li a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2.5px; background-color: var(--primary-color); transition: width var(--transition-speed) ease; }
     .main-nav ul li a:hover::after, .main-nav ul li a.active::after { width: 100%; }
     .user-actions { display: flex; align-items: center; }
     .user-actions .btn { margin-left: 9px; }
     .btn { padding: 7px 14px; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: all var(--transition-speed) ease; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
-    
-    .btn-header-primary { background-color: var(--site-primary-color); color: var(--text-primary); }
-    .btn-header-primary:hover { background-color: #c40812; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(229, 9, 20, 0.3); }
-    .btn-header-secondary { background-color: transparent; color: var(--text-primary); border: 1.5px solid var(--text-secondary); }
-    .btn-header-secondary:hover { background-color: var(--text-primary); color: var(--background-dark); border-color: var(--text-primary); }
-
-    .btn-crunchyroll-theme {
-        background-color: var(--crunchyroll-orange);
-        color: var(--secondary-color);
-        border: 1px solid var(--crunchyroll-orange);
-    }
-    .btn-crunchyroll-theme:hover {
-        background-color: var(--crunchyroll-darker-orange);
-        border-color: var(--crunchyroll-darker-orange);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(244, 117, 33, 0.3);
-    }
-
+    .btn-primary { background-color: var(--primary-color); color: var(--text-primary); }
+    .btn-primary:hover { background-color: #c40812; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(229, 9, 20, 0.3); }
+    .btn-secondary { background-color: transparent; color: var(--text-primary); border: 1.5px solid var(--text-secondary); }
+    .btn-secondary:hover { background-color: var(--text-primary); color: var(--background-dark); border-color: var(--text-primary); }
     .profile-icon { color: var(--text-primary); font-size: 1.6rem; cursor: pointer; position: relative; margin-left: 9px; }
     .profile-icon .dropdown-menu { display: none; position: absolute; top: 140%; right: 0; background-color: var(--background-medium); border: 1px solid var(--background-light); border-radius: var(--card-border-radius); box-shadow: 0 5px 15px rgba(0,0,0,0.5); min-width: 170px; z-index: 1001; }
     .profile-icon.active .dropdown-menu { display: block; }
@@ -116,8 +99,8 @@
 
     #service-products-section { padding: var(--section-padding); }
     .service-header-info { text-align: center; margin-bottom: 40px; }
-    .service-icon-large { max-width: 200px; min-height: 80px; margin: 0 auto 15px auto; display:flex; align-items:center; justify-content:center;}
-    .service-icon-large .iconify { font-size: 80px; }
+    .service-icon-large { max-width: 180px; min-height: 60px; margin: 0 auto 15px auto; display:flex; align-items:center; justify-content:center;}
+    .service-icon-large .iconify { font-size: 60px; }
     .service-description { font-size: 0.95rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; line-height: 1.7; }
 
     .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 25px; }
@@ -132,10 +115,10 @@
     .product-card-content .category { font-size: 0.7rem; color: var(--text-secondary); background-color: var(--background-light); padding: 3px 7px; border-radius: 4px; display: inline-block; margin-bottom: 9px; text-transform: uppercase; font-weight: 500; }
     .product-card-content .description { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 14px; flex-grow: 1; line-height: 1.5; max-height: calc(0.8rem * 1.5 * 3); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
     .product-card-footer { display: flex; justify-content: space-between; align-items: center; padding: 0px 18px 18px; margin-top: auto; }
-    .product-card .price { font-size: 1.15rem; font-weight: 700; color: var(--crunchyroll-orange); }
+    .product-card .price { font-size: 1.15rem; font-weight: 700; color: var(--primary-color); }
     .product-card .btn-buy { padding: 7px 12px; font-size: 0.7rem; }
-    .product-card .btn-buy i { margin-right: 4px; animation: cartPulseOrange 1.5s infinite ease-in-out; }
-    @keyframes cartPulseOrange { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.05); opacity: 1; } }
+    .product-card .btn-buy i { margin-right: 4px; animation: cartPulse 1.5s infinite ease-in-out; }
+    @keyframes cartPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
     .skeleton-card { background-color: var(--background-medium); border-radius: var(--card-border-radius); overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
     .skeleton-image { height: 180px; background-color: var(--background-light); animation: pulse-bg 1.5s infinite ease-in-out; }
@@ -143,20 +126,19 @@
     .skeleton-line { height: 1em; background-color: var(--background-light); border-radius: 4px; margin-bottom: 9px; animation: pulse-bg 1.5s infinite ease-in-out; }
     .skeleton-line.short { width: 60%; } .skeleton-line.medium { width: 80%; }
     .skeleton-footer { display: flex; justify-content: space-between; align-items: center; padding: 0 18px 18px; }
-    .skeleton-price { width: 30%; height: 1.5em; background-color: var(--crunchyroll-orange); opacity: 0.5; border-radius: 4px; animation: pulse-color-bg-orange 1.5s infinite ease-in-out; }
-    .skeleton-button { width: 40%; height: 2.5em; background-color: var(--crunchyroll-orange); opacity: 0.7; border-radius: 5px; animation: pulse-color-bg-orange 1.5s infinite ease-in-out; }
+    .skeleton-price { width: 30%; height: 1.5em; background-color: var(--primary-color); opacity: 0.5; border-radius: 4px; animation: pulse-color-bg 1.5s infinite ease-in-out; }
+    .skeleton-button { width: 40%; height: 2.5em; background-color: var(--primary-color); opacity: 0.7; border-radius: 5px; animation: pulse-color-bg 1.5s infinite ease-in-out; }
     @keyframes pulse-bg { 0% { background-color: var(--background-light); } 50% { background-color: #282828; } 100% { background-color: var(--background-light); } }
-    @keyframes pulse-color-bg-orange { 0% { opacity: 0.5; background-color: var(--crunchyroll-orange); } 50% { opacity: 0.8; background-color: var(--crunchyroll-darker-orange); } 100% { opacity: 0.5; background-color: var(--crunchyroll-orange); } }
+    @keyframes pulse-color-bg { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
 
     .empty-state { text-align: center; padding: 45px 18px; color: var(--text-secondary); }
-    .empty-state i { font-size: 2.8rem; margin-bottom: 18px; color: var(--crunchyroll-orange); opacity: 0.65; }
+    .empty-state i { font-size: 2.8rem; margin-bottom: 18px; color: var(--primary-color); opacity: 0.65; }
     .empty-state p { font-size: 1.05rem; }
 
-    .main-footer { background-color: var(--background-medium); color: var(--text-secondary); padding: 35px 0; text-align: center; font-size: 0.75rem; border-top: 2.5px solid var(--background-dark); }
+    .main-footer { background-color: var(--background-medium); color: var(--text-secondary); padding: 35px 0; text-align: center; font-size: 0.75rem; border-top: 2.5px solid var(--primary-color); }
     .main-footer p { margin-bottom: 10px; }
-    .main-footer .fa-heart { color: var(--site-primary-color); }
     .social-icons a { color: var(--text-secondary); font-size: 1.3rem; margin: 0 9px; transition: color var(--transition-speed) ease, transform var(--transition-speed) ease; }
-    .social-icons a:hover { color: var(--crunchyroll-orange); transform: scale(1.2); }
+    .social-icons a:hover { color: var(--primary-color); transform: scale(1.2); }
 
     @media (max-width: 992px) {
         .main-nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--background-medium); padding: 12px 0; box-shadow: 0 6px 12px rgba(0,0,0,0.35); max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.5s ease; }
@@ -166,14 +148,14 @@
         .hamburger-menu { display: block; order: 3; }
         .user-actions { order: 2; }
         .product-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-        .service-icon-large { max-width: 180px; height:50px;}
+        .service-icon-large { max-width: 150px; height: 50px;}
         .service-icon-large .iconify {font-size:50px;}
     }
     @media (max-width: 768px) {
         .product-grid { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; }
         h1 { font-size: 1.7rem; } h2.section-title { font-size: 1.4rem; }
-        .service-icon-large { max-width: 160px; height:45px;}
-        .service-icon-large .iconify {font-size:45px;}
+        .service-icon-large { max-width: 120px; height:40px;}
+        .service-icon-large .iconify {font-size:40px;}
     }
     @media (max-width: 480px) {
         :root { --base-font-size: 11px; }
@@ -185,11 +167,12 @@
         .product-card-footer { flex-direction: column; align-items: stretch; gap: 8px; padding: 0 10px 10px; }
         .product-card .price { text-align: left; }
         .product-card .btn-buy { width: 100%; text-align: center; }
-        .service-icon-large { max-width: 150px; height:40px; }
-        .service-icon-large .iconify {font-size:40px;}
+        .service-icon-large { max-width: 100px; height:35px;}
+        .service-icon-large .iconify {font-size:35px;}
         .service-description { font-size: 0.9rem; }
     }
-    a:focus, button:focus, [tabindex="0"]:focus { outline: 2.5px solid var(--crunchyroll-orange); outline-offset: 2.5px; }
+
+    a:focus, button:focus, [tabindex="0"]:focus { outline: 2.5px solid var(--primary-color); outline-offset: 2.5px; }
 </style>
 </head>
 <body>
@@ -206,8 +189,8 @@
                 </ul>
             </nav>
             <div class="user-actions">
-                <button class="btn btn-header-secondary" id="login-btn-header">Login</button>
-                <button class="btn btn-header-primary" id="register-btn-header">Registar</button>
+                <button class="btn btn-secondary" id="login-btn-header">Login</button>
+                <button class="btn btn-primary" id="register-btn-header">Registar</button>
                 <div class="profile-icon" id="user-profile-icon-header" style="display: none;">
                     <i class="fas fa-user-circle"></i>
                     <div class="dropdown-menu">
@@ -228,16 +211,16 @@
             <div class="service-header-info">
                 <div class="service-icon-large" id="service-page-icon">
                 </div>
-                <h2 class="section-title" id="service-page-title">Crunchyroll</h2>
+                <h2 class="section-title" id="service-page-title">Netflix</h2>
                 <p class="service-description" id="service-page-description">
-                    Assista seus animes favoritos com as nossas opções de assinatura Crunchyroll Premium. Mergulhe no universo dos animes!
+                    Explore todas as nossas opções de assinatura para Netflix. Qualidade e diversão garantida!
                 </p>
             </div>
 
             <div class="product-grid" id="service-product-grid-container">
             </div>
             <div class="empty-state" id="service-products-empty-state" style="display: none;">
-                <i class="fas fa-bolt"></i> <p>Nenhum produto Crunchyroll encontrado no momento. Por favor, volte mais tarde.</p>
+                <i class="fas fa-tv"></i> <p>Nenhum produto Netflix encontrado no momento. Por favor, volte mais tarde.</p>
             </div>
         </section>
     </main>
@@ -245,7 +228,7 @@
     <footer class="main-footer">
         <div class="container">
             <p>© <span id="current-year"></span> Stream Assinaturas. Todos os direitos reservados.</p>
-            <p>Feito com <i class="fas fa-heart"></i> Por AC</p>
+            <p>Feito com <i class="fas fa-heart" style="color: var(--primary-color);"></i> Por AC</p>
             <div class="social-icons">
                 <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
@@ -256,9 +239,9 @@
 
 <script>
     const API_BASE_URL = 'https://toppphzhd-1bdbd.onrender.com/api';
-    const SERVICE_NAME = "Crunchyroll";
-    const SERVICE_KEY = "crunchyroll";
-    const SERVICE_DESCRIPTION = "Assista seus animes favoritos com as nossas opções de assinatura Crunchyroll Premium. Mergulhe no universo dos animes!";
+    const SERVICE_NAME = "Netflix";
+    const SERVICE_KEY = "netflix";
+    const SERVICE_DESCRIPTION = "Explore todas as nossas opções de assinatura para Netflix. Qualidade e diversão garantida!";
 
     const categoryIcons = {
         'netflix': '<span class="iconify" data-icon="logos:netflix" data-width="120" data-height="40" data-inline="false"></span>',
@@ -267,6 +250,7 @@
         'crunchyroll': '<span class="iconify" data-icon="simple-icons:crunchyroll" data-width="80" data-height="80" data-inline="false" style="color: #F47521;"></span>',
         'default': '<span class="iconify" data-icon="mdi:tag-outline" data-width="80" data-height="80" data-inline="false" style="color: var(--text-secondary);"></span>'
     };
+
 
     document.addEventListener('DOMContentLoaded', () => {
         updateCurrentYear();
@@ -375,7 +359,7 @@
         card.innerHTML = `
             <a href="/product-detail.html?id=${product._id}" class="product-card-link-wrapper">
                 <div class="product-card-image">
-                    <img src="${product.image || 'https://via.placeholder.com/240x160/181818/F47521?text='+encodeURIComponent(product.name)}" alt="${product.name}" loading="lazy">
+                    <img src="${product.image || 'https://via.placeholder.com/240x160/181818/E50914?text='+encodeURIComponent(product.name)}" alt="${product.name}" loading="lazy">
                 </div>
                 <div class="product-card-content">
                     <h3>${product.name}</h3>
@@ -384,7 +368,7 @@
                 </div>
                 <div class="product-card-footer">
                     <span class="price">${formatPrice(product.price)}</span>
-                    <button class="btn btn-buy btn-crunchyroll-theme" aria-label="Ver detalhes de ${product.name}">
+                    <button class="btn btn-primary btn-buy" aria-label="Ver detalhes de ${product.name}">
                         <i class="fas fa-eye"></i> Ver Detalhes
                     </button>
                 </div>

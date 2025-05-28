@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Assinaturas - Stream Assinaturas</title>
+    <meta name="description" content="Veja seu histórico de assinaturas e acesse suas credenciais na Stream Assinaturas.">
+    <meta name="robots" content="noindex, nofollow"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #E50914;
+        --secondary-color: #FFFFFF;
+        --background-dark: #101010; 
+        --background-medium: #181818; 
+        --background-light: #202020; 
+        --text-primary: #F5F5F1; 
+        --text-secondary: #A0A0A0; 
+        --font-family: 'Poppins', sans-serif;
+        --transition-speed: 0.3s;
+        --base-font-size: 13px; 
+        --h1-size: 2.0rem;
+        --h2-size: 1.6rem;
+        --status-paid-bg: rgba(60, 179, 113, 0.15); /* SeaGreen */
+        --status-paid-text: #8FBC8F; /* DarkSeaGreen */
+        --status-pending-bg: rgba(255, 165, 0, 0.15); /* Orange */
+        --status-pending-text: #FFD700; /* Gold */
+        --status-failed-bg: rgba(220, 20, 60, 0.15); /* Crimson */
+        --status-failed-text: #FFA07A; /* LightSalmon */
+        --status-delivered-bg: rgba(30, 144, 255, 0.15); /* DodgerBlue */
+        --status-delivered-text: #ADD8E6; /* LightBlue */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--font-family);
+        background-color: var(--background-dark);
+        color: var(--text-primary);
+        line-height: 1.5; 
+        font-size: var(--base-font-size);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 900px; margin: 0 auto; padding: 0 12px; } 
+    a { color: var(--primary-color); text-decoration: none; transition: color var(--transition-speed) ease; }
+    a:hover { color: #ff0a18; }
+    img { max-width: 100%; height: auto; display: block; }
+    
+    h1 { font-size: var(--h1-size); color: var(--primary-color); margin-bottom: 1em; text-align: center;}
+
+    /* Header Styles (Consistent with index.html) */
+    .main-header { background-color: rgba(16, 16, 16, 0.85); padding: 12px 0; width: 100%; z-index: 1000; backdrop-filter: blur(8px); box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+    .main-header .container { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); letter-spacing: 0.5px; }
+    .logo i { margin-right: 6px; animation: logoPulse 2s infinite ease-in-out; }
+    @keyframes logoPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .main-nav { display: flex; align-items: center; }
+    .main-nav ul { list-style: none; display: flex; }
+    .main-nav ul li { margin-left: 20px; }
+    .main-nav ul li a { color: var(--text-primary); font-weight: 500; font-size: 0.9rem; padding: 4px 0; position: relative; }
+    .main-nav ul li a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width var(--transition-speed) ease; }
+    .main-nav ul li a:hover::after, .main-nav ul li a.active::after { width: 100%; }
+    .user-actions { display: flex; align-items: center; }
+    .user-actions .btn { margin-left: 8px; }
+    .btn { padding: 8px 16px; border: none; border-radius: 4px; font-weight: 500; cursor: pointer; transition: all var(--transition-speed) ease; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.4px; }
+    .btn-primary { background-color: var(--primary-color); color: var(--text-primary); }
+    .btn-primary:hover { background-color: #c40812; transform: translateY(-1px); box-shadow: 0 3px 6px rgba(229, 9, 20, 0.25); }
+    .btn-secondary { background-color: transparent; color: var(--text-primary); border: 1px solid var(--text-secondary); }
+    .btn-secondary:hover { background-color: var(--text-primary); color: var(--background-dark); border-color: var(--text-primary); }
+    .profile-icon { color: var(--text-primary); font-size: 1.5rem; cursor: pointer; position: relative; margin-left: 8px; }
+    .profile-icon .dropdown-menu { display: none; position: absolute; top: 130%; right: 0; background-color: var(--background-medium); border: 1px solid var(--background-light); border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); min-width: 160px; z-index: 1001; }
+    .profile-icon.active .dropdown-menu { display: block; }
+    .profile-icon .dropdown-menu a { display: block; padding: 10px 12px; color: var(--text-secondary); font-size: 0.8rem; }
+    .profile-icon .dropdown-menu a:hover { background-color: var(--background-light); color: var(--text-primary); }
+    .profile-icon .dropdown-menu a i { margin-right: 8px; width: 12px; text-align: center; }
+    .hamburger-menu { display: none; font-size: 1.6rem; color: var(--text-primary); cursor: pointer; background: none; border: none; padding: 5px; margin-left: 10px; }
+    .hamburger-menu i { transition: transform 0.3s ease; }
+    body.nav-open .hamburger-menu i { transform: rotate(90deg); }
+
+    /* Main Content Area */
+    .main-content {
+        flex-grow: 1;
+        padding: 80px 0 40px; 
+    }
+
+    .subscriptions-list {
+        display: grid;
+        gap: 20px;
+    }
+    .subscription-card {
+        background-color: var(--background-medium);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .subscription-image {
+        flex-shrink: 0;
+        width: 100px; /* Fixed width */
+        height: 100px; /* Fixed height */
+        border-radius: 6px;
+        overflow: hidden;
+        background-color: var(--background-light);
+    }
+    .subscription-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .subscription-details {
+        flex-grow: 1;
+        min-width: 200px; /* Ensure details have some space */
+    }
+    .subscription-details h3 {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+    }
+    .subscription-info p {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 5px;
+        line-height: 1.4;
+    }
+    .subscription-info p strong {
+        color: var(--text-primary);
+        min-width: 120px; /* Adjust as needed */
+        display: inline-block;
+    }
+    .status-badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 12px; /* Pill shape */
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+    .status-paid { background-color: var(--status-paid-bg); color: var(--status-paid-text); }
+    .status-pending { background-color: var(--status-pending-bg); color: var(--status-pending-text); }
+    .status-failed { background-color: var(--status-failed-bg); color: var(--status-failed-text); }
+    .status-delivered { background-color: var(--status-delivered-bg); color: var(--status-delivered-text); }
+    .status-pending_admin_input { background-color: var(--status-pending-bg); color: var(--status-pending-text); }
+    .status-error_delivering { background-color: var(--status-failed-bg); color: var(--status-failed-text); }
+
+    .subscription-actions {
+        margin-top: 10px; /* Space from info */
+        display: flex;
+        flex-direction: column; /* Stack buttons/messages */
+        gap: 10px;
+        align-items: flex-start; /* Align to left */
+        width: 100%; /* Take full width if wrapped */
+    }
+    .subscription-actions .btn-sm {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    .credentials-display {
+        background-color: var(--background-dark);
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 10px;
+        border: 1px solid var(--background-light);
+        font-size: 0.9rem;
+    }
+    .credentials-display p { margin-bottom: 8px; }
+    .credentials-display p strong { color: var(--text-secondary); }
+    .credentials-display .password-value {
+        background-color: var(--background-light);
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: monospace;
+        color: var(--primary-color);
+        cursor: pointer; /* Indicate it can be copied */
+    }
+    .credential-message {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        padding: 8px 0;
+    }
+
+    .empty-state-subscriptions {
+        text-align: center;
+        padding: 50px 20px;
+        color: var(--text-secondary);
+    }
+    .empty-state-subscriptions i {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+        opacity: 0.7;
+    }
+    .empty-state-subscriptions p {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    /* Loader */
+    .loader-container {
+        display: flex; justify-content: center; align-items: center;
+        padding: 40px 0; min-height: 200px;
+    }
+    .loader {
+        border: 4px solid var(--background-light); border-top: 4px solid var(--primary-color);
+        border-radius: 50%; width: 40px; height: 40px;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    /* Footer Styles */
+    .main-footer { background-color: var(--background-medium); color: var(--text-secondary); padding: 30px 0; text-align: center; font-size: 0.8rem; border-top: 2px solid var(--primary-color); margin-top: auto; }
+    .main-footer p { margin-bottom: 8px; }
+    .social-icons a { color: var(--text-secondary); font-size: 1.2rem; margin: 0 8px; transition: color var(--transition-speed) ease, transform var(--transition-speed) ease; }
+    .social-icons a:hover { color: var(--primary-color); transform: scale(1.15); }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+        .main-nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--background-medium); padding: 10px 0; box-shadow: 0 5px 10px rgba(0,0,0,0.3); max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.5s ease; }
+        body.nav-open .main-nav ul { display: flex; max-height: 500px; padding: 10px 0; }
+        .main-nav ul li { margin: 10px 0; text-align: center; width: 100%; }
+        .main-nav ul li a { padding: 10px 15px; display: block; width: 100%; }
+        .hamburger-menu { display: block; order: 3; }
+        .user-actions { order: 2; }
+    }
+     @media (max-width: 600px) {
+        .subscription-card { flex-direction: column; align-items: stretch; }
+        .subscription-image { width: 100%; height: 150px; margin-bottom: 15px; } /* Full width image on small screens */
+        .subscription-details { min-width: 100%; }
+    }
+     @media (max-width: 480px) {
+        h1 {font-size: 1.6rem;}
+        .user-actions .btn { font-size: 0.7rem; padding: 6px 10px; }
+        .profile-icon { font-size: 1.3rem; } .logo { font-size: 1.3rem; }
+        .subscription-card { padding: 15px; }
+        .subscription-details h3 { font-size: 1.1rem; }
+    }
+    a:focus, button:focus, [tabindex="0"]:focus { outline: 2px solid var(--primary-color); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="/" class="logo"><i class="fas fa-play-circle"></i>Stream Assinaturas</a>
+            <nav class="main-nav" id="main-navigation">
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/#product-listings">Produtos</a></li>
+                    
+                    <li><a href="/contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-secondary" id="login-btn-header" style="display: none;">Login</button>
+                <button class="btn btn-primary" id="register-btn-header" style="display: none;">Registar</button>
+                <div class="profile-icon" id="user-profile-icon-header">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="dropdown-menu">
+                        <a href="/profile.html" id="profile-link-header"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="/subscriptions.html" id="subscriptions-link-header" class="active"><i class="fas fa-receipt"></i> Minhas Assinaturas</a>
+                        <a href="#" id="logout-btn-header"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger-menu" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Minhas Assinaturas</h1>
+
+            <div class="loader-container" id="subscriptions-loader">
+                <div class="loader"></div>
+            </div>
+
+            <div id="subscriptions-list-container" class="subscriptions-list" style="display: none;">
+                <!-- Subscription cards will be appended here -->
+            </div>
+
+            <div id="empty-state-subscriptions" class="empty-state-subscriptions" style="display: none;">
+                <i class="fas fa-receipt"></i>
+                <p>Você ainda não fez nenhum pedido.</p>
+                <a href="/#product-listings" class="btn btn-primary">Ver Produtos</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© <span id="current-year"></span> Stream Assinaturas. Todos os direitos reservados.</p>
+            <p>Feito com <i class="fas fa-heart" style="color: var(--primary-color);"></i> Por AC</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    const API_BASE_URL = 'https://toppphzhd-1bdbd.onrender.com/api';
+    const token = localStorage.getItem('authToken');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!token) {
+            window.location.href = '/login.html?redirect=/subscriptions.html';
+            return;
+        }
+
+        updateCurrentYear();
+        setupEventListeners();
+        checkLoginStateAndUpdateUIHeader();
+        fetchUserSubscriptions();
+    });
+
+    function updateCurrentYear() {
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    }
+
+    function setupEventListeners() {
+        const profileIcon = document.getElementById('user-profile-icon-header');
+        if (profileIcon) profileIcon.addEventListener('click', (e) => { e.stopPropagation(); profileIcon.classList.toggle('active'); });
+        document.addEventListener('click', (e) => { if (profileIcon && profileIcon.classList.contains('active') && !profileIcon.contains(e.target)) profileIcon.classList.remove('active'); });
+        
+        const logoutButton = document.getElementById('logout-btn-header');
+        if (logoutButton) logoutButton.addEventListener('click', (e) => { e.preventDefault(); logoutUser(); });
+        
+        const hamburgerToggle = document.getElementById('hamburger-toggle');
+        if (hamburgerToggle) {
+            hamburgerToggle.addEventListener('click', () => {
+                document.body.classList.toggle('nav-open');
+                const isExpanded = hamburgerToggle.getAttribute('aria-expanded') === 'true' || false;
+                hamburgerToggle.setAttribute('aria-expanded', !isExpanded);
+                hamburgerToggle.querySelector('i').classList.toggle('fa-bars');
+                hamburgerToggle.querySelector('i').classList.toggle('fa-times');
+            });
+        }
+    }
+
+    async function fetchUserSubscriptions() {
+        const loader = document.getElementById('subscriptions-loader');
+        const listContainer = document.getElementById('subscriptions-list-container');
+        const emptyState = document.getElementById('empty-state-subscriptions');
+
+        loader.style.display = 'flex';
+        listContainer.style.display = 'none';
+        emptyState.style.display = 'none';
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/user/subscriptions`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                if (response.status === 401 || response.status === 403) {
+                    logoutUser(); return;
+                }
+                throw new Error(`Falha ao buscar assinaturas: ${response.statusText}`);
+            }
+
+            const subscriptions = await response.json();
+            
+            if (subscriptions && subscriptions.length > 0) {
+                listContainer.innerHTML = ''; // Clear previous
+                subscriptions.forEach(sub => {
+                    const card = createSubscriptionCard(sub);
+                    listContainer.appendChild(card);
+                });
+                listContainer.style.display = 'grid';
+            } else {
+                emptyState.style.display = 'block';
+            }
+
+        } catch (error) {
+            console.error('Erro ao buscar assinaturas:', error);
+            listContainer.innerHTML = `<p style="text-align:center; color: var(--text-secondary);">Erro ao carregar suas assinaturas. Tente recarregar a página.</p>`;
+            listContainer.style.display = 'block'; // Show error message
+        } finally {
+            loader.style.display = 'none';
+        }
+    }
+
+    function createSubscriptionCard(subscription) {
+        const card = document.createElement('div');
+        card.className = 'subscription-card';
+        card.id = `order-${subscription._id}`;
+
+        const orderDate = new Date(subscription.orderDate).toLocaleDateString('pt-MZ', {
+            day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+
+        // product object might be populated or just an ID, use productName if available
+        const productName = subscription.productName || (subscription.product ? subscription.product.name : 'Produto Desconhecido');
+        const productImage = subscription.productImage || (subscription.product ? subscription.product.image : 'https://via.placeholder.com/100/181818/E50914?text=Produto');
+
+        card.innerHTML = `
+            <div class="subscription-image">
+                <img src="${productImage}" alt="${productName}">
+            </div>
+            <div class="subscription-details">
+                <h3>${productName}</h3>
+                <div class="subscription-info">
+                    <p><strong>Pedido ID:</strong> ${subscription._id}</p>
+                    <p><strong>Data:</strong> ${orderDate}</p>
+                    <p><strong>Valor:</strong> MZN ${Number(subscription.totalAmount).toFixed(2)}</p>
+                    <p><strong>Pagamento:</strong> <span class="status-badge status-${subscription.paymentStatus.toLowerCase()}">${getPaymentStatusText(subscription.paymentStatus)}</span></p>
+                    <p><strong>Credenciais:</strong> <span class="status-badge status-${subscription.subscriptionDetails.status.toLowerCase()}">${getCredentialStatusText(subscription.subscriptionDetails.status)}</span></p>
+                </div>
+                <div class="subscription-actions" id="actions-${subscription._id}">
+                    <!-- Action button/message will be here -->
+                </div>
+            </div>
+        `;
+        
+        updateSubscriptionActions(subscription, card.querySelector(`#actions-${subscription._id}`));
+        return card;
+    }
+    
+    function getPaymentStatusText(status) {
+        const statuses = {
+            paid: 'Pago',
+            pending: 'Pendente',
+            failed: 'Falhou',
+            processing_credentials: 'Pago (Processando)' // Although backend doesn't have this, useful for frontend interpretation
+        };
+        return statuses[status.toLowerCase()] || status;
+    }
+
+    function getCredentialStatusText(status) {
+        const statuses = {
+            delivered: 'Entregue',
+            pending_admin_input: 'Aguardando Processamento',
+            error_delivering: 'Erro na Entrega'
+        };
+        return statuses[status.toLowerCase()] || status;
+    }
+
+    function updateSubscriptionActions(subscription, actionsContainer) {
+        actionsContainer.innerHTML = ''; // Clear previous actions
+
+        if (subscription.paymentStatus === 'paid') {
+            if (subscription.subscriptionDetails.status === 'delivered') {
+                const viewButton = document.createElement('button');
+                viewButton.className = 'btn btn-primary btn-sm';
+                viewButton.innerHTML = '<i class="fas fa-eye"></i> Ver Credenciais';
+                viewButton.addEventListener('click', () => fetchAndShowCredentials(subscription._id, actionsContainer));
+                actionsContainer.appendChild(viewButton);
+            } else if (subscription.subscriptionDetails.status === 'pending_admin_input') {
+                const message = document.createElement('p');
+                message.className = 'credential-message';
+                message.innerHTML = '<i class="fas fa-hourglass-half"></i> Suas credenciais aparecerão aqui em breve (máx. 10 min).';
+                actionsContainer.appendChild(message);
+            } else if (subscription.subscriptionDetails.status === 'error_delivering') {
+                 const message = document.createElement('p');
+                message.className = 'credential-message error'; // Add error class
+                message.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Ocorreu um erro ao entregar suas credenciais. Por favor, contacte o suporte.';
+                actionsContainer.appendChild(message);
+            }
+        } else if (subscription.paymentStatus === 'pending') {
+            const message = document.createElement('p');
+            message.className = 'credential-message';
+            message.innerHTML = '<i class="fas fa-info-circle"></i> Pagamento pendente. Aguardando confirmação.';
+            actionsContainer.appendChild(message);
+        } else if (subscription.paymentStatus === 'failed') {
+             const message = document.createElement('p');
+            message.className = 'credential-message error';
+            message.innerHTML = '<i class="fas fa-times-circle"></i> Pagamento falhou. Por favor, tente novamente ou contacte o suporte.';
+            actionsContainer.appendChild(message);
+        }
+    }
+
+    async function fetchAndShowCredentials(orderId, actionsContainer) {
+        // Remove existing credentials display or button before fetching
+        const existingCredentialsDisplay = actionsContainer.querySelector('.credentials-display');
+        if (existingCredentialsDisplay) existingCredentialsDisplay.remove();
+        
+        const viewButton = actionsContainer.querySelector('button');
+        if(viewButton) viewButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Carregando...';
+        if(viewButton) viewButton.disabled = true;
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/user/subscription/${orderId}/credentials`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            const data = await response.json();
+
+            if (!response.ok) {
+                 if (response.status === 202) { // Accepted, but pending
+                    const messageP = document.createElement('p');
+                    messageP.className = 'credential-message';
+                    messageP.innerHTML = `<i class="fas fa-hourglass-half"></i> ${data.message || 'Credenciais ainda estão sendo processadas.'}`;
+                    actionsContainer.appendChild(messageP);
+                 } else {
+                    throw new Error(data.message || `Erro ${response.status} ao buscar credenciais.`);
+                 }
+            } else if (response.status === 200 && data.email && data.password) { // Successfully fetched credentials
+                const credsDiv = document.createElement('div');
+                credsDiv.className = 'credentials-display';
+                credsDiv.innerHTML = `
+                    <p><strong>Email:</strong> ${data.email}</p>
+                    <p><strong>Senha:</strong> <span class="password-value" title="Clique para copiar">${data.password}</span></p>
+                    <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:5px;">(Clique na senha para copiar)</p>
+                `;
+                credsDiv.querySelector('.password-value').addEventListener('click', (e) => {
+                    navigator.clipboard.writeText(data.password)
+                        .then(() => alert('Senha copiada para a área de transferência!'))
+                        .catch(err => console.error('Erro ao copiar senha: ', err));
+                });
+                actionsContainer.appendChild(credsDiv);
+            } else if (response.status === 204) { // No content, e.g. details not yet available but not an error
+                 const messageP = document.createElement('p');
+                 messageP.className = 'credential-message';
+                 messageP.innerHTML = `<i class="fas fa-info-circle"></i> ${data.message || 'Detalhes da assinatura ainda não disponíveis.'}`;
+                 actionsContainer.appendChild(messageP);
+            }
+
+
+        } catch (error) {
+            console.error('Erro ao buscar credenciais:', error);
+            const errorP = document.createElement('p');
+            errorP.className = 'credential-message error';
+            errorP.textContent = error.message;
+            actionsContainer.appendChild(errorP);
+        } finally {
+             if(viewButton) {
+                viewButton.innerHTML = '<i class="fas fa-eye"></i> Ver Credenciais'; // Restore button text
+                viewButton.disabled = false;
+             }
+        }
+    }
+
+
+    function checkLoginStateAndUpdateUIHeader() {
+        const localToken = localStorage.getItem('authToken');
+        const loginBtn = document.getElementById('login-btn-header');
+        const registerBtn = document.getElementById('register-btn-header');
+        const profileIconContainer = document.getElementById('user-profile-icon-header');
+
+        if (localToken) {
+            if (loginBtn) loginBtn.style.display = 'none'; 
+            if (registerBtn) registerBtn.style.display = 'none';
+            if (profileIconContainer) profileIconContainer.style.display = 'flex';
+        } else {
+            if (loginBtn) loginBtn.style.display = 'inline-block'; 
+            if (registerBtn) registerBtn.style.display = 'inline-block';
+            if (profileIconContainer) profileIconContainer.style.display = 'none';
+        }
+    }
+
+    function logoutUser() {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('currentUser');
+        window.location.href = '/login.html';
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Stream Assinaturas</title>
+    <meta name="description" content="Entre em contacto com a Stream Assinaturas para suporte, dúvidas ou sugestões. Estamos aqui para ajudar!">
+    <meta name="robots" content="index, follow"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #E50914;
+        --secondary-color: #FFFFFF;
+        --background-dark: #101010; 
+        --background-medium: #181818; 
+        --background-light: #202020; 
+        --text-primary: #F5F5F1; 
+        --text-secondary: #A0A0A0; 
+        --font-family: 'Poppins', sans-serif;
+        --transition-speed: 0.3s;
+        --base-font-size: 13px; 
+        --h1-size: 2.0rem;
+        --h2-size: 1.6rem;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--font-family);
+        background-color: var(--background-dark);
+        color: var(--text-primary);
+        line-height: 1.6; 
+        font-size: var(--base-font-size);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 0 12px; } 
+    a { color: var(--primary-color); text-decoration: none; transition: color var(--transition-speed) ease; }
+    a:hover { color: #ff0a18; }
+    
+    h1 { font-size: var(--h1-size); color: var(--primary-color); margin-bottom: 0.8em; text-align: center;}
+    h2 { font-size: var(--h2-size); margin-bottom: 0.6em; color: var(--text-primary); }
+
+    /* Header Styles (Consistent) */
+    .main-header { background-color: rgba(16, 16, 16, 0.85); padding: 12px 0; width: 100%; z-index: 1000; backdrop-filter: blur(8px); box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+    .main-header .container { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); letter-spacing: 0.5px; }
+    .logo i { margin-right: 6px; animation: logoPulse 2s infinite ease-in-out; }
+    @keyframes logoPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .main-nav { display: flex; align-items: center; }
+    .main-nav ul { list-style: none; display: flex; }
+    .main-nav ul li { margin-left: 20px; }
+    .main-nav ul li a { color: var(--text-primary); font-weight: 500; font-size: 0.9rem; padding: 4px 0; position: relative; }
+    .main-nav ul li a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width var(--transition-speed) ease; }
+    .main-nav ul li a:hover::after, .main-nav ul li a.active::after { width: 100%; }
+    .user-actions { display: flex; align-items: center; }
+    .user-actions .btn { margin-left: 8px; }
+    .btn { padding: 8px 16px; border: none; border-radius: 4px; font-weight: 500; cursor: pointer; transition: all var(--transition-speed) ease; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.4px; }
+    .btn-primary { background-color: var(--primary-color); color: var(--text-primary); }
+    .btn-primary:hover { background-color: #c40812; transform: translateY(-1px); box-shadow: 0 3px 6px rgba(229, 9, 20, 0.25); }
+    .profile-icon { color: var(--text-primary); font-size: 1.5rem; cursor: pointer; position: relative; margin-left: 8px; }
+    .profile-icon .dropdown-menu { display: none; position: absolute; top: 130%; right: 0; background-color: var(--background-medium); border: 1px solid var(--background-light); border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); min-width: 160px; z-index: 1001; }
+    .profile-icon.active .dropdown-menu { display: block; }
+    .profile-icon .dropdown-menu a { display: block; padding: 10px 12px; color: var(--text-secondary); font-size: 0.8rem; }
+    .profile-icon .dropdown-menu a:hover { background-color: var(--background-light); color: var(--text-primary); }
+    .profile-icon .dropdown-menu a i { margin-right: 8px; width: 12px; text-align: center; }
+    .hamburger-menu { display: none; font-size: 1.6rem; color: var(--text-primary); cursor: pointer; background: none; border: none; padding: 5px; margin-left: 10px; }
+    .hamburger-menu i { transition: transform 0.3s ease; }
+    body.nav-open .hamburger-menu i { transform: rotate(90deg); }
+
+    /* Main Content Area */
+    .main-content {
+        flex-grow: 1;
+        padding: 80px 0 40px; 
+    }
+
+    .contact-card {
+        background-color: var(--background-medium);
+        padding: 30px 35px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .contact-intro {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        color: var(--text-secondary);
+    }
+    .contact-methods {
+        display: grid;
+        gap: 25px;
+    }
+    .contact-method-item {
+        background-color: var(--background-light);
+        padding: 20px;
+        border-radius: 6px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-method-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    .contact-method-item i.method-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        display: block;
+        animation: iconFloat 3s ease-in-out infinite;
+    }
+    @keyframes iconFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+    .contact-method-item h3 {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+    }
+    .contact-method-item p {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 15px;
+    }
+    .contact-method-item .btn-contact {
+        display: inline-block; /* So it doesn't take full width unless specified */
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    .contact-method-item .btn-contact i {
+        margin-right: 8px;
+    }
+    
+    .office-hours {
+        margin-top: 30px;
+        text-align: center;
+        background-color: var(--background-light);
+        padding: 15px;
+        border-radius: 6px;
+    }
+    .office-hours h2 {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+    }
+    .office-hours p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+
+    /* Footer Styles */
+    .main-footer { background-color: var(--background-medium); color: var(--text-secondary); padding: 30px 0; text-align: center; font-size: 0.8rem; border-top: 2px solid var(--primary-color); margin-top: auto; }
+    .main-footer p { margin-bottom: 8px; }
+    .social-icons a { color: var(--text-secondary); font-size: 1.2rem; margin: 0 8px; transition: color var(--transition-speed) ease, transform var(--transition-speed) ease; }
+    .social-icons a:hover { color: var(--primary-color); transform: scale(1.15); }
+
+    /* Responsive */
+    @media (min-width: 600px) {
+        .contact-methods {
+            grid-template-columns: repeat(2, 1fr); /* Two columns for methods */
+        }
+    }
+    @media (max-width: 992px) {
+        .main-nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--background-medium); padding: 10px 0; box-shadow: 0 5px 10px rgba(0,0,0,0.3); max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.5s ease; }
+        body.nav-open .main-nav ul { display: flex; max-height: 500px; padding: 10px 0; }
+        .main-nav ul li { margin: 10px 0; text-align: center; width: 100%; }
+        .main-nav ul li a { padding: 10px 15px; display: block; width: 100%; }
+        .hamburger-menu { display: block; order: 3; }
+        .user-actions { order: 2; }
+    }
+     @media (max-width: 480px) {
+        .contact-card { padding: 25px 20px; }
+        h1 {font-size: 1.6rem;}
+        .contact-method-item i.method-icon { font-size: 2rem; }
+        .contact-method-item h3 { font-size: 1.1rem; }
+        .contact-method-item p { font-size: 0.9rem; }
+        .user-actions .btn { font-size: 0.7rem; padding: 6px 10px; }
+        .profile-icon { font-size: 1.3rem; } .logo { font-size: 1.3rem; }
+    }
+    a:focus, button:focus, [tabindex="0"]:focus { outline: 2px solid var(--primary-color); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="/" class="logo"><i class="fas fa-play-circle"></i>Stream Assinaturas</a>
+            <nav class="main-nav" id="main-navigation">
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/#product-listings">Produtos</a></li>
+                    
+                    <li><a href="/contact.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-secondary" id="login-btn-header">Login</button>
+                <button class="btn btn-primary" id="register-btn-header">Registar</button>
+                <div class="profile-icon" id="user-profile-icon-header" style="display: none;">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="dropdown-menu">
+                        <a href="/profile.html" id="profile-link-header"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="/subscriptions.html" id="subscriptions-link-header"><i class="fas fa-receipt"></i> Minhas Assinaturas</a>
+                        <a href="#" id="logout-btn-header"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger-menu" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Entre em Contacto</h1>
+            
+            <div class="contact-card">
+                <p class="contact-intro">
+                    Tem alguma dúvida, sugestão ou precisa de ajuda? Não hesite em nos contactar através dos canais abaixo.
+                    Estamos prontos para te atender!
+                </p>
+
+                <div class="contact-methods">
+                    <div class="contact-method-item">
+                        <i class="fab fa-whatsapp method-icon"></i>
+                        <h3>WhatsApp</h3>
+                        <p>+258 83 475 1328</p>
+                        <a href="https://wa.me/258834751328" target="_blank" class="btn btn-primary btn-contact">
+                            <i class="fab fa-whatsapp"></i> Enviar Mensagem
+                        </a>
+                    </div>
+
+                    <div class="contact-method-item">
+                        <i class="fas fa-phone-alt method-icon"></i>
+                        <h3>Chamadas</h3>
+                        <p>+258 83 475 1328</p>
+                        <a href="tel:+258834751328" class="btn btn-primary btn-contact">
+                            <i class="fas fa-phone-alt"></i> Ligar Agora
+                        </a>
+                    </div>
+                </div>
+
+                <div class="office-hours">
+                    <h2>Horário de Atendimento</h2>
+                    <p>Segunda a Sexta: 08:00 - 18:00</p>
+                    <p>Sábado: 09:00 - 13:00</p>
+                    <p>(Domingos e Feriados: Encerrado)</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© <span id="current-year"></span> Stream Assinaturas. Todos os direitos reservados.</p>
+            <p>Feito com <i class="fas fa-heart" style="color: var(--primary-color);"></i> Por AC</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> <!-- Pode repetir o link do WhatsApp aqui se desejar -->
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCurrentYear();
+        setupEventListeners();
+        checkLoginStateAndUpdateUIHeader();
+    });
+
+    function updateCurrentYear() {
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    }
+
+    function setupEventListeners() {
+        const profileIcon = document.getElementById('user-profile-icon-header');
+        if (profileIcon) profileIcon.addEventListener('click', (e) => { e.stopPropagation(); profileIcon.classList.toggle('active'); });
+        document.addEventListener('click', (e) => { if (profileIcon && profileIcon.classList.contains('active') && !profileIcon.contains(e.target)) profileIcon.classList.remove('active'); });
+        
+        const logoutButton = document.getElementById('logout-btn-header');
+        if (logoutButton) logoutButton.addEventListener('click', (e) => { e.preventDefault(); logoutUser(); });
+        
+        const hamburgerToggle = document.getElementById('hamburger-toggle');
+        if (hamburgerToggle) {
+            hamburgerToggle.addEventListener('click', () => {
+                document.body.classList.toggle('nav-open');
+                const isExpanded = hamburgerToggle.getAttribute('aria-expanded') === 'true' || false;
+                hamburgerToggle.setAttribute('aria-expanded', !isExpanded);
+                hamburgerToggle.querySelector('i').classList.toggle('fa-bars');
+                hamburgerToggle.querySelector('i').classList.toggle('fa-times');
+            });
+        }
+    }
+
+    function checkLoginStateAndUpdateUIHeader() {
+        const token = localStorage.getItem('authToken');
+        const loginBtn = document.getElementById('login-btn-header');
+        const registerBtn = document.getElementById('register-btn-header');
+        const profileIconContainer = document.getElementById('user-profile-icon-header');
+
+        if (token) {
+            if (loginBtn) loginBtn.style.display = 'none'; 
+            if (registerBtn) registerBtn.style.display = 'none';
+            if (profileIconContainer) profileIconContainer.style.display = 'flex';
+        } else {
+            if (loginBtn) loginBtn.style.display = 'inline-block'; 
+            if (registerBtn) registerBtn.style.display = 'inline-block';
+            if (profileIconContainer) profileIconContainer.style.display = 'none';
+        }
+    }
+
+    function logoutUser() {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('currentUser');
+        window.location.href = '/login.html';
+    }
+
+</script>
+
+</body>
+</html>

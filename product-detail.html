@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto - Stream Assinaturas</title> <!-- Atualizado por JS -->
+    <meta name="description" content="Veja todos os detalhes sobre este produto e adquira sua assinatura digital.">
+    <meta name="robots" content="index, follow">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #E50914;
+        --secondary-color: #FFFFFF;
+        --background-dark: #0c0c0c;
+        --background-medium: #141414; /* Cor principal do card de detalhes */
+        --background-light: #1f1f1f;
+        --text-primary: #F5F5F1;
+        --text-secondary: #B0B0B0;
+        --font-family: 'Poppins', sans-serif;
+        --transition-speed: 0.3s ease;
+        --base-font-size: 11.7px; /* Mantém a redução de 10% */
+        --h1-size: 2.0rem;  /* Nome do produto */
+        --h2-size: 1.5rem;  /* Títulos de seção (ex: Descrição) */
+        --card-border-radius: 8px;
+        --section-padding-vertical: 30px; /* Padding vertical para seções principais */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--font-family);
+        background-color: var(--background-dark);
+        color: var(--text-primary);
+        line-height: 1.65; /* Melhorado para leitura */
+        font-size: var(--base-font-size);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding-top: 55px; /* Espaço para o header fixo - ajuste conforme altura real */
+    }
+    .container { width: 90%; max-width: 1000px; margin: 0 auto; padding: 0 15px; }
+    a { color: var(--primary-color); text-decoration: none; transition: color var(--transition-speed); }
+    a:hover { color: #ff3b45; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Header Styles (Mantido consistente, tamanhos relativos à nova base) */
+    .main-header { background-color: rgba(12, 12, 12, 0.9); padding: 10px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backdrop-filter: blur(8px); box-shadow: 0 2px 10px rgba(0,0,0,0.35); }
+    .main-header .container { display: flex; justify-content: space-between; align-items: center; max-width: 1150px; }
+    .logo { font-size: 1.35rem; font-weight: 700; color: var(--primary-color); }
+    .logo i { margin-right: 6px; }
+    .main-nav ul { list-style: none; display: flex; }
+    .main-nav ul li { margin-left: 20px; }
+    .main-nav ul li a { color: var(--text-primary); font-weight: 500; font-size: 0.8rem; padding: 4px 0; position: relative; }
+    .main-nav ul li a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width var(--transition-speed); }
+    .main-nav ul li a:hover::after, .main-nav ul li a.active::after { width: 100%; }
+    .user-actions { display: flex; align-items: center; }
+    .user-actions .btn { margin-left: 8px; }
+    .btn { padding: 7px 13px; border: none; border-radius: 5px; font-weight: 500; cursor: pointer; transition: all var(--transition-speed); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.4px; }
+    .btn-primary { background-color: var(--primary-color); color: var(--secondary-color); }
+    .btn-primary:hover { background-color: #c40812; transform: translateY(-1px); box-shadow: 0 3px 7px rgba(229, 9, 20, 0.3); }
+    .btn-secondary { background-color: transparent; color: var(--text-primary); border: 1.5px solid var(--text-secondary); }
+    .btn-secondary:hover { background-color: var(--text-primary); color: var(--background-dark); border-color: var(--text-primary); }
+    .profile-icon { color: var(--text-primary); font-size: 1.5rem; cursor: pointer; position: relative; margin-left: 8px; }
+    .profile-icon .dropdown-menu { display: none; position: absolute; top: 135%; right: 0; background-color: var(--background-medium); border: 1px solid var(--background-light); border-radius: var(--card-border-radius); box-shadow: 0 4px 15px rgba(0,0,0,0.45); min-width: 160px; z-index: 1001; }
+    .profile-icon.active .dropdown-menu { display: block; }
+    .profile-icon .dropdown-menu a { display: block; padding: 10px 13px; color: var(--text-secondary); font-size: 0.75rem; }
+    .profile-icon .dropdown-menu a:hover { background-color: var(--background-light); color: var(--text-primary); }
+    .profile-icon .dropdown-menu a i { margin-right: 8px; width: 13px; text-align: center; }
+    .hamburger-menu { display: none; font-size: 1.6rem; color: var(--text-primary); cursor: pointer; background: none; border: none; padding: 5px; margin-left: 10px; }
+    .hamburger-menu i { transition: transform 0.3s ease; }
+    body.nav-open .hamburger-menu i { transform: rotate(90deg); }
+
+
+    /* Main Content Area */
+    .main-content {
+        flex-grow: 1;
+        padding: var(--section-padding-vertical) 0;
+    }
+
+    /* Card de Detalhes do Produto - Layout Simplificado e Organizado */
+    .product-detail-wrapper {
+        background-color: var(--background-medium);
+        padding: 20px; /* Reduzido para telas menores, aumentado em media query */
+        border-radius: var(--card-border-radius);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .product-detail-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Uma coluna por padrão */
+        gap: 20px;
+    }
+
+    .product-image-section img {
+        width: 100%;
+        max-height: 450px;
+        object-fit: contain; /* Para ver a imagem inteira */
+        border-radius: calc(var(--card-border-radius) - 4px);
+        background-color: var(--background-light); /* Fundo para imagens com transparência */
+        border: 1px solid #2a2a2a;
+    }
+
+    .product-info-section .category-tag {
+        display: inline-block;
+        background-color: var(--background-light);
+        color: var(--text-secondary);
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 0.7rem;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .product-info-section h1.product-title {
+        font-size: var(--h1-size);
+        color: var(--text-primary);
+        margin-bottom: 0.5em;
+        line-height: 1.25;
+    }
+
+    .product-pricing-actions {
+        margin: 15px 0;
+        padding: 15px 0;
+        border-top: 1px solid var(--background-light);
+    }
+    .product-pricing-actions .price-display {
+        font-size: 2.0rem; /* Preço destacado */
+        color: var(--primary-color);
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .product-pricing-actions .delivery-info {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-bottom: 15px;
+    }
+    .product-pricing-actions .delivery-info i {
+        margin-right: 5px;
+        color: var(--primary-color);
+    }
+    .product-pricing-actions .btn-buy-product {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+    }
+
+    .product-description-full {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--background-light);
+    }
+    .product-description-full h2.section-heading { /* Título para Descrição */
+        font-size: var(--h2-size);
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+    .product-description-full .description-content-text {
+        font-size: 0.85rem; /* Tamanho bom para leitura */
+        color: var(--text-secondary);
+        line-height: 1.75;
+        white-space: pre-wrap;
+    }
+     .product-description-full .description-content-text p { margin-bottom: 0.8em; }
+
+
+    .product-additional-meta {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid var(--background-light);
+        font-size: 0.7rem;
+        color: var(--text-secondary);
+    }
+    .product-additional-meta p { margin-bottom: 4px; }
+    .product-additional-meta strong { color: var(--text-primary); font-weight: 500;}
+
+    /* Loader e Error State */
+    .loader-container { display: flex; justify-content: center; align-items: center; padding: 40px 0; min-height: 250px; }
+    .loader { border: 3px solid var(--background-light); border-top: 3px solid var(--primary-color); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .error-state { text-align: center; padding: 50px 15px; color: var(--text-secondary); }
+    .error-state i { font-size: 2.5rem; margin-bottom: 15px; color: var(--primary-color); opacity: 0.7; }
+    .error-state p { font-size: 1rem; margin-bottom: 12px; }
+
+    /* Footer (Mantido consistente) */
+    .main-footer { background-color: var(--background-medium); color: var(--text-secondary); padding: 25px 0; text-align: center; font-size: 0.7rem; border-top: 2px solid var(--primary-color); margin-top: auto; }
+    .main-footer p { margin-bottom: 6px; }
+    .social-icons a { font-size: 1rem; margin: 0 6px; }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+        .product-detail-wrapper {
+            padding: 30px; /* Mais padding em telas maiores */
+        }
+        .product-detail-grid {
+            grid-template-columns: 0.8fr 1.2fr; /* Imagem (menor), Informações (maior) */
+            gap: 35px;
+            align-items: flex-start; /* Alinha os itens ao topo de suas células */
+        }
+         .product-description-full { /* Ocupa ambas as colunas em layout de grid */
+            grid-column: 1 / -1;
+        }
+        .product-additional-meta {
+             grid-column: 1 / -1; /* Também pode ocupar tudo se desejar */
+        }
+    }
+    @media (max-width: 992px) { /* Ajustes para header mobile */
+        .main-nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--background-medium); padding: 10px 0; box-shadow: 0 5px 10px rgba(0,0,0,0.3); max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.5s ease; }
+        body.nav-open .main-nav ul { display: flex; max-height: 500px; padding: 10px 0; }
+        .main-nav ul li { margin: 10px 0; text-align: center; width: 100%; }
+        .main-nav ul li a { padding: 10px 15px; display: block; width: 100%; }
+        .hamburger-menu { display: block; order: 3; }
+        .user-actions { order: 2; }
+    }
+    @media (max-width: 480px) {
+        body { padding-top: 50px; }
+        .main-content { padding: var(--section-padding-vertical)/2 0; }
+        .product-detail-wrapper { padding: 15px; }
+        .product-detail-grid { gap: 15px; }
+        .product-info-section h1.product-title {font-size: 1.6rem;}
+        .product-pricing-actions .price-display { font-size: 1.7rem; }
+        .product-description-full h2.section-heading {font-size: 1.3rem;}
+        .product-description-full .description-content-text {font-size: 0.8rem;}
+        .user-actions .btn { font-size: 0.65rem; padding: 5px 9px; }
+        .profile-icon { font-size: 1.2rem; } .logo { font-size: 1.2rem; }
+        .product-image-section img { max-height: 300px; }
+    }
+    a:focus, button:focus, [tabindex="0"]:focus { outline: 2px solid var(--primary-color); outline-offset: 2px; }
+
+</style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="/" class="logo"><i class="fas fa-play-circle"></i>Stream Assinaturas</a>
+            <nav class="main-nav" id="main-navigation">
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/products.html">Produtos</a></li>
+                    <li><a href="/#promotions-section">Promoções</a></li> <!-- Assume que promotions-section está na index.html -->
+                    
+                    <li><a href="/contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-secondary" id="login-btn-header">Login</button>
+                <button class="btn btn-primary" id="register-btn-header">Registar</button>
+                <div class="profile-icon" id="user-profile-icon-header" style="display: none;">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="dropdown-menu">
+                        <a href="/profile.html" id="profile-link-header"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="/subscriptions.html" id="subscriptions-link-header"><i class="fas fa-receipt"></i> Minhas Assinaturas</a>
+                        <a href="#" id="logout-btn-header"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger-menu" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container product-detail-container">
+            <div class="loader-container" id="product-detail-loader">
+                <div class="loader"></div>
+            </div>
+
+            <div id="product-detail-content" style="display: none;">
+                <!-- O conteúdo do produto será inserido aqui pelo JavaScript -->
+            </div>
+
+            <div id="product-error-state" class="error-state" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Produto não encontrado ou indisponível.</p>
+                <a href="/products.html" class="btn btn-primary">Ver outros produtos</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© <span id="current-year"></span> Stream Assinaturas. Todos os direitos reservados.</p>
+            <p>Feito com <i class="fas fa-heart" style="color: var(--primary-color);"></i> Por AC</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    const API_BASE_URL = 'https://toppphzhd-1bdbd.onrender.com/api';
+    let currentProductId = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCurrentYear();
+        setupEventListeners(); // Configura eventos do header, etc.
+        checkLoginStateAndUpdateUIHeader(); // Atualiza UI do header baseado no login
+
+        const urlParams = new URLSearchParams(window.location.search);
+        currentProductId = urlParams.get('id');
+
+        if (currentProductId) {
+            fetchProductDetails(currentProductId);
+        } else {
+            showProductErrorState("ID do produto não fornecido na URL.");
+        }
+    });
+
+    function updateCurrentYear() {
+        const yearEl = document.getElementById('current-year');
+        if(yearEl) yearEl.textContent = new Date().getFullYear();
+    }
+
+    function setupEventListeners() {
+        const profileIcon = document.getElementById('user-profile-icon-header');
+        if (profileIcon) {
+            profileIcon.addEventListener('click', (e) => {
+                e.stopPropagation();
+                profileIcon.classList.toggle('active');
+            });
+        }
+        document.addEventListener('click', (e) => {
+            if (profileIcon && profileIcon.classList.contains('active') && !profileIcon.contains(e.target)) {
+                profileIcon.classList.remove('active');
+            }
+        });
+
+        const loginButton = document.getElementById('login-btn-header');
+        if (loginButton) loginButton.addEventListener('click', () => window.location.href = '/login.html');
+
+        const registerButton = document.getElementById('register-btn-header');
+        if (registerButton) registerButton.addEventListener('click', () => window.location.href = '/register.html');
+
+        const logoutButton = document.getElementById('logout-btn-header');
+        if (logoutButton) logoutButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            logoutUser();
+        });
+
+        const hamburgerToggle = document.getElementById('hamburger-toggle');
+        if (hamburgerToggle) {
+            hamburgerToggle.addEventListener('click', () => {
+                document.body.classList.toggle('nav-open');
+                const isExpanded = hamburgerToggle.getAttribute('aria-expanded') === 'true' || false;
+                hamburgerToggle.setAttribute('aria-expanded', !isExpanded);
+                const icon = hamburgerToggle.querySelector('i');
+                if(icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+    }
+
+    async function fetchProductDetails(productId) {
+        const loader = document.getElementById('product-detail-loader');
+        const contentContainer = document.getElementById('product-detail-content');
+        const errorContainer = document.getElementById('product-error-state');
+
+        if(loader) loader.style.display = 'flex';
+        if(contentContainer) contentContainer.style.display = 'none';
+        if(errorContainer) errorContainer.style.display = 'none';
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/products/${productId}`);
+            if (!response.ok) {
+                if (response.status === 404) throw new Error("Produto não encontrado.");
+                throw new Error(`Falha ao buscar detalhes do produto (status: ${response.status}).`);
+            }
+            const product = await response.json();
+
+            if (!product.isActive) { // Checa se o produto está ativo
+                throw new Error("Este produto não está mais disponível no momento.");
+            }
+
+            renderProductDetails(product);
+            if(contentContainer) contentContainer.style.display = 'block';
+
+        } catch (error) {
+            console.error('Erro ao buscar detalhes do produto:', error);
+            showProductErrorState(error.message);
+        } finally {
+            if(loader) loader.style.display = 'none';
+        }
+    }
+
+    function renderProductDetails(product) {
+        const contentContainer = document.getElementById('product-detail-content');
+        if (!contentContainer) return;
+
+        document.title = `${product.name} - Stream Assinaturas`;
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.setAttribute('content', `Detalhes e compra de ${product.name}. ${product.description.substring(0, 120)}...`);
+        }
+
+        contentContainer.innerHTML = `
+            <div class="product-detail-wrapper">
+                <div class="product-detail-grid">
+                    <section class="product-image-section">
+                        <img src="${product.image || 'https://via.placeholder.com/600x400/1f1f1f/E50914?text='+encodeURIComponent(product.name)}" alt="Imagem de ${product.name}">
+                    </section>
+
+                    <section class="product-info-section">
+                        <span class="category-tag">${product.category}</span>
+                        <h1 class="product-title">${product.name}</h1>
+
+                        <div class="product-pricing-actions">
+                            <p class="price-display">MZN ${Number(product.price).toFixed(2)}</p>
+                            ${product.estimatedDeliveryTime ? `<p class="delivery-info"><i class="fas fa-truck-fast"></i> Entrega: ${product.estimatedDeliveryTime}</p>` : ''}
+                            <button class="btn btn-primary btn-buy-product" id="buy-now-button" data-product-id="${product._id}">
+                                <i class="fas fa-shopping-cart"></i> Comprar Agora
+                            </button>
+                        </div>
+
+                        ${product.description ? `
+                        <div class="product-full-description">
+                            <h2 class="section-heading">Descrição Detalhada</h2>
+                            <div class="description-content-text">
+                                ${product.description.replace(/\n/g, '<br>')}
+                            </div>
+                        </div>
+                        ` : ''}
+
+                        <div class="product-additional-meta">
+                            <p><strong>ID do Produto:</strong> ${product._id}</p>
+                            <p><strong>Disponibilidade:</strong> <span style="color: ${product.isActive ? '#4CAF50' : '#F44336'}; font-weight: bold;">${product.isActive ? 'Em Stock' : 'Indisponível'}</span></p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        `;
+
+        const buyButton = document.getElementById('buy-now-button');
+        if (buyButton) {
+            buyButton.addEventListener('click', function() {
+                const token = localStorage.getItem('authToken');
+                const productId = this.dataset.productId;
+                if (!token) {
+                    localStorage.setItem('redirectToCheckoutAfterLogin', `/checkout.html?productId=${productId}`);
+                    window.location.href = `/login.html?redirect=${encodeURIComponent(`/checkout.html?productId=${productId}`)}`;
+                    return;
+                }
+                window.location.href = `/checkout.html?productId=${productId}`;
+            });
+        }
+    }
+
+    function showProductErrorState(message) {
+        const loader = document.getElementById('product-detail-loader');
+        const content = document.getElementById('product-detail-content');
+        const errorEl = document.getElementById('product-error-state');
+
+        if(loader) loader.style.display = 'none';
+        if(content) content.style.display = 'none';
+
+        if(errorEl) {
+            const p = errorEl.querySelector('p');
+            if(p) p.textContent = message || "Ocorreu um erro ao carregar o produto.";
+            errorEl.style.display = 'block';
+        }
+    }
+
+    function checkLoginStateAndUpdateUIHeader() {
+        const token = localStorage.getItem('authToken');
+        const loginBtn = document.getElementById('login-btn-header');
+        const registerBtn = document.getElementById('register-btn-header');
+        const profileIconContainer = document.getElementById('user-profile-icon-header');
+
+        if (token) {
+            if (loginBtn) loginBtn.style.display = 'none';
+            if (registerBtn) registerBtn.style.display = 'none';
+            if (profileIconContainer) profileIconContainer.style.display = 'flex';
+        } else {
+            if (loginBtn) loginBtn.style.display = 'inline-block';
+            if (registerBtn) registerBtn.style.display = 'inline-block';
+            if (profileIconContainer) profileIconContainer.style.display = 'none';
+        }
+    }
+
+    function logoutUser() {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('redirectToCheckoutAfterLogin');
+        window.location.href = '/login.html';
+    }
+
+</script>
+
+</body>
+</html>
